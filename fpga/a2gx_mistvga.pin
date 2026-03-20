@@ -1,0 +1,1237 @@
+ -- Copyright (C) 2010  Intel Corporation. All rights reserved.
+ -- Your use of Intel Corporation's design tools, logic functions 
+ -- and other software and tools, and any partner logic 
+ -- functions, and any output files from any of the foregoing 
+ -- (including device programming or simulation files), and any 
+ -- associated documentation or information are expressly subject 
+ -- to the terms and conditions of the Intel Program License 
+ -- Subscription Agreement, the Intel Quartus Prime License Agreement,
+ -- the Intel FPGA IP License Agreement, or other applicable license
+ -- agreement, including, without limitation, that your use is for
+ -- the sole purpose of programming logic devices manufactured by
+ -- Intel and sold by Intel or its authorized distributors.  Please
+ -- refer to the applicable agreement for further details, at
+ -- https://fpgasoftware.intel.com/eula.
+ -- 
+ -- This is a Quartus Prime output file. It is for reporting purposes only, and is
+ -- not intended for use as a Quartus Prime input file. This file cannot be used
+ -- to make Quartus Prime pin assignments - for instructions on how to make pin
+ -- assignments, please see Quartus Prime help.
+ ---------------------------------------------------------------------------------
+
+
+
+ ---------------------------------------------------------------------------------
+ -- NC            : No Connect. This pin has no internal connection to the device.
+ -- DNU           : Do Not Use. This pin MUST NOT be connected.
+ -- VCCPGM        : Dedicated power pin for configuration, which MUST be connected to 1.8V, 2.5V or 3.0V depending on the requirements of the configuration device.
+ -- VCCINT        : Dedicated power pin, which MUST be connected to VCC  (0.9V).
+ -- VCCIO         : Dedicated power pin, which MUST be connected to VCC
+ --                 of its bank.
+ --                  Bank 3C:       2.5V
+ --                  Bank 3B:       3.0V
+ --                  Bank 3A:       2.5V
+ --                  Bank 4A:       2.5V
+ --                  Bank 4B:       2.5V
+ --                  Bank 5B:  3.0V
+ --                  Bank 5A:  3.0V
+ --                  Bank 6A:  2.5V
+ --                  Bank 6B:  3.0V
+ --                  Bank 7B:  2.5V
+ --                  Bank 7A:  1.5V
+ --                  Bank 8A:  2.5V
+ --                  Bank 8B:  2.5V
+ --                  Bank 8C:  2.5V
+ -- RREF          : External reference resistor for the quad, MUST be connected to
+ --                 GND via a 2k Ohm resistor.
+ -- GND           : Dedicated ground pin. Dedicated GND pins MUST be connected to GND.
+ --                  It can also be used to report unused dedicated pins. The connection
+ --                  on the board for unused dedicated pins depends on whether this will
+ --                  be used in a future design. One example is device migration. When
+ --                  using device migration, refer to the device pin-tables. If it is a
+ --                  GND pin in the pin table or if it will not be used in a future design
+ --                  for another purpose the it MUST be connected to GND. If it is an unused
+ --                  dedicated pin, then it can be connected to a valid signal on the board
+ --                  (low, high, or toggling) if that signal is required for a different
+ --                  revision of the design.
+ -- GND+          : Unused input pin. It can also be used to report unused dual-purpose pins.
+ --                  This pin should be connected to GND. It may also be connected  to a
+ --                  valid signal  on the board  (low, high, or toggling)  if that signal
+ --                  is required for a different revision of the design.
+ -- GND*          : Unused  I/O  pin.   For transceiver I/O banks, connect each pin marked GND*
+ --                  either individually through a 10k Ohm resistor to GND or tie all pins
+ --                  together and connect through a single 10k Ohm resistor to GND.
+ -- RESERVED      : Unused I/O pin, which MUST be left unconnected.
+ -- RESERVED_INPUT    : Pin is tri-stated and should be connected to the board.
+ -- RESERVED_INPUT_WITH_WEAK_PULLUP    : Pin is tri-stated with internal weak pull-up resistor.
+ -- RESERVED_INPUT_WITH_BUS_HOLD       : Pin is tri-stated with bus-hold circuitry.
+ -- RESERVED_OUTPUT_DRIVEN_HIGH        : Pin is output driven high.
+ -- GXB_GND*      : Unused GXB Receiver or dedicated reference clock pin. This pin
+ --                 must be connected to GXB_GND through a 10k Ohm resistor.
+ -- GXB_NC        : Unused GXB Transmitter or dedicated clock output pin. This pin
+ --                 must not be connected.
+ ---------------------------------------------------------------------------------
+
+
+
+ ---------------------------------------------------------------------------------
+ -- Pin directions (input, output or bidir) are based on device operating in user mode.
+ ---------------------------------------------------------------------------------
+
+Quartus Prime Version 20.1.1 Build 720 11/11/2010 SJ Standard Edition
+CHIP  "a2gx_mistvga"  ASSIGNED TO AN: EP2AGX260FF35I3
+
+Pin Name/Usage               : Location  : Dir.   : I/O Standard      : Voltage : I/O Bank  : User Assignment
+-------------------------------------------------------------------------------------------------------------
+RESERVED_INPUT               : A2        :        :                   :         : 7A        :                
+RESERVED_INPUT               : A3        :        :                   :         : 7A        :                
+RESERVED_INPUT               : A4        :        :                   :         : 7A        :                
+RESERVED_INPUT               : A5        :        :                   :         : 7A        :                
+RESERVED_INPUT               : A6        :        :                   :         : 7A        :                
+RESERVED_INPUT               : A7        :        :                   :         : 7A        :                
+RESERVED_INPUT               : A8        :        :                   :         : 7A        :                
+max2_ben[3]                  : A9        : output : 1.5 V             :         : 7A        : Y              
+RESERVED_INPUT               : A10       :        :                   :         : 7A        :                
+RESERVED_INPUT               : A11       :        :                   :         : 7A        :                
+RESERVED_INPUT               : A12       :        :                   :         : 7A        :                
+RESERVED_INPUT               : A13       :        :                   :         : 7A        :                
+max2_oen                     : A14       : output : 1.5 V             :         : 7A        : Y              
+RESERVED_INPUT               : A15       :        :                   :         : 7A        :                
+max2_csn                     : A16       : output : 1.5 V             :         : 7A        : Y              
+RESERVED_INPUT               : A17       :        :                   :         : 8A        :                
+RESERVED_INPUT               : A18       :        :                   :         : 8A        :                
+RESERVED_INPUT               : A19       :        :                   :         : 8A        :                
+sram_adspn                   : A20       : output : 2.5 V             :         : 8A        : Y              
+RESERVED_INPUT               : A21       :        :                   :         : 8A        :                
+RESERVED_INPUT               : A22       :        :                   :         : 8A        :                
+RESERVED_INPUT               : A23       :        :                   :         : 8A        :                
+RESERVED_INPUT               : A24       :        :                   :         : 8A        :                
+RESERVED_INPUT               : A25       :        :                   :         : 8A        :                
+RESERVED_INPUT               : A26       :        :                   :         : 8A        :                
+RESERVED_INPUT               : A27       :        :                   :         : 8A        :                
+GND                          : A28       : gnd    :                   :         :           :                
+RREF                         : A29       :        :                   :         :           :                
+GND                          : A30       : gnd    :                   :         :           :                
+GND                          : A31       : gnd    :                   :         :           :                
+GND                          : A32       : gnd    :                   :         :           :                
+GND                          : A33       : gnd    :                   :         :           :                
+HDMI_TX_DSD_L[0]             : AA1       : output : 3.0-V PCI         :         : 5A        : Y              
+GND                          : AA2       : gnd    :                   :         :           :                
+VCCIO5A                      : AA3       : power  :                   : 3.0V    : 5A        :                
+HDMI_TX_GD[6]                : AA4       : output : 3.0-V PCI         :         : 5A        : Y              
+GND                          : AA5       : gnd    :                   :         :           :                
+VCCIO5A                      : AA6       : power  :                   : 3.0V    : 5A        :                
+HDMI_TX_GD[11]               : AA7       : output : 3.0-V PCI         :         : 5A        : Y              
+GND                          : AA8       : gnd    :                   :         :           :                
+RESERVED_INPUT               : AA9       :        :                   :         : 5A        :                
+RESERVED_INPUT               : AA10      :        :                   :         : 5A        :                
+GND                          : AA11      : gnd    :                   :         :           :                
+VCCPD5A                      : AA12      : power  :                   : 3.0V    : 5A        :                
+VCC                          : AA13      : power  :                   : 0.9V    :           :                
+GND                          : AA14      : gnd    :                   :         :           :                
+VCC                          : AA15      : power  :                   : 0.9V    :           :                
+GND                          : AA16      : gnd    :                   :         :           :                
+VCC                          : AA17      : power  :                   : 0.9V    :           :                
+GND                          : AA18      : gnd    :                   :         :           :                
+VCC                          : AA19      : power  :                   : 0.9V    :           :                
+GND                          : AA20      : gnd    :                   :         :           :                
+VCC                          : AA21      : power  :                   : 0.9V    :           :                
+GND                          : AA22      : gnd    :                   :         :           :                
+VCC                          : AA23      : power  :                   : 0.9V    :           :                
+VCCA                         : AA24      : power  :                   : 2.5V    :           :                
+GND                          : AA25      : gnd    :                   :         :           :                
+GND                          : AA26      : gnd    :                   :         :           :                
+VCCH_GXB                     : AA27      : power  :                   : 1.5V    :           :                
+GND                          : AA28      : gnd    :                   :         :           :                
+GXB_GND*                     : AA29      :        :                   :         : QL1       :                
+GXB_GND*                     : AA30      :        :                   :         : QL1       :                
+GND                          : AA31      : gnd    :                   :         :           :                
+GND                          : AA32      : gnd    :                   :         :           :                
+GXB_GND*                     : AA33      :        :                   :         : QL1       :                
+GXB_GND*                     : AA34      :        :                   :         : QL1       :                
+HDMI_TX_DSD_R[1]             : AB1       : output : 3.0-V PCI         :         : 5A        : Y              
+HDMI_TX_DSD_L[1]             : AB2       : output : 3.0-V PCI         :         : 5A        : Y              
+HDMI_TX_BD[3]                : AB3       : output : 3.0-V PCI         :         : 5A        : Y              
+HDMI_TX_BD[4]                : AB4       : output : 3.0-V PCI         :         : 5A        : Y              
+HDMI_TX_BD[1]                : AB5       : output : 3.0-V PCI         :         : 5A        : Y              
+HDMI_TX_BD[2]                : AB6       : output : 3.0-V PCI         :         : 5A        : Y              
+HDMI_TX_VS                   : AB7       : output : 3.0-V PCI         :         : 5A        : Y              
+HDMI_TX_HS                   : AB8       : output : 3.0-V PCI         :         : 5A        : Y              
+HDMI_TX_RD[6]                : AB9       : output : 3.0-V PCI         :         : 5A        : Y              
+HDMI_TX_RD[7]                : AB10      : output : 3.0-V PCI         :         : 5A        : Y              
+VREFB5AN0                    : AB11      : power  :                   :         : 5A        :                
+VCC                          : AB12      : power  :                   : 0.9V    :           :                
+GND                          : AB13      : gnd    :                   :         :           :                
+VCC                          : AB14      : power  :                   : 0.9V    :           :                
+GND                          : AB15      : gnd    :                   :         :           :                
+VCC                          : AB16      : power  :                   : 0.9V    :           :                
+GND                          : AB17      : gnd    :                   :         :           :                
+VCC                          : AB18      : power  :                   : 0.9V    :           :                
+GND                          : AB19      : gnd    :                   :         :           :                
+VCC                          : AB20      : power  :                   : 0.9V    :           :                
+GND                          : AB21      : gnd    :                   :         :           :                
+VCC                          : AB22      : power  :                   : 0.9V    :           :                
+GND                          : AB23      : gnd    :                   :         :           :                
+VCC                          : AB24      : power  :                   : 0.9V    :           :                
+nCE                          : AB25      :        :                   :         : 3C        :                
+MSEL3                        : AB26      :        :                   :         : 3C        :                
+GND                          : AB27      : gnd    :                   :         :           :                
+VCCH_GXB                     : AB28      : power  :                   : 1.5V    :           :                
+GND                          : AB29      : gnd    :                   :         :           :                
+GND                          : AB30      : gnd    :                   :         :           :                
+GXB_NC                       : AB31      :        :                   :         : QL1       :                
+GXB_NC                       : AB32      :        :                   :         : QL1       :                
+GND                          : AB33      : gnd    :                   :         :           :                
+GND                          : AB34      : gnd    :                   :         :           :                
+RESERVED_INPUT               : AC1       :        :                   :         : 5A        :                
+HDMI_TX_GD[4]                : AC2       : output : 3.0-V PCI         :         : 5A        : Y              
+HDMI_TX_GD[5]                : AC3       : output : 3.0-V PCI         :         : 5A        : Y              
+HDMI_TX_RST_N                : AC4       : output : 3.0-V PCI         :         : 5A        : Y              
+RESERVED_INPUT               : AC5       :        :                   :         : 5A        :                
+HDMI_TX_DSD_R[0]             : AC6       : output : 3.0-V PCI         :         : 5A        : Y              
+HDMI_TX_WS                   : AC7       : output : 3.0-V PCI         :         : 5A        : Y              
+RESERVED_INPUT               : AC8       :        :                   :         : 5B        :                
+RESERVED_INPUT               : AC9       :        :                   :         : 5B        :                
+lpci_ad[9]                   : AC10      : bidir  : 3.0-V PCI         :         : 5B        : Y              
+lpci_cben[0]                 : AC11      : bidir  : 3.0-V PCI         :         : 5B        : Y              
+VCCPD5B                      : AC12      : power  :                   : 3.0V    : 5B        :                
+VCCPD4B                      : AC13      : power  :                   : 2.5V    : 4B        :                
+RESERVED_INPUT               : AC14      :        :                   :         : 4A        :                
+RESERVED_INPUT               : AC15      :        :                   :         : 4A        :                
+VCCPD4A                      : AC16      : power  :                   : 2.5V    : 4A        :                
+RESERVED_INPUT               : AC17      :        :                   :         : 4A        :                
+RESERVED_INPUT               : AC18      :        :                   :         : 4A        :                
+VCCPD3A                      : AC19      : power  :                   : 2.5V    : 3A        :                
+VCCPD3A                      : AC20      : power  :                   : 2.5V    : 3A        :                
+VCCPD3B                      : AC21      : power  :                   : 3.0V    : 3B        :                
+lpci_ad[27]                  : AC22      : bidir  : 3.0-V PCI         :         : 3B        : Y              
+VCC                          : AC23      : power  :                   : 0.9V    :           :                
+VCCPD3C                      : AC24      : power  :                   : 2.5V    : 3C        :                
+MSEL1                        : AC25      :        :                   :         : 3C        :                
+nCONFIG                      : AC26      :        :                   :         : 3C        :                
+MSEL0                        : AC27      :        :                   :         : 3C        :                
+nIO_PULLUP                   : AC28      :        :                   :         : 3C        :                
+GXB_GND*                     : AC29      :        :                   :         : QL0       :                
+GXB_GND*                     : AC30      :        :                   :         : QL0       :                
+GND                          : AC31      : gnd    :                   :         :           :                
+GND                          : AC32      : gnd    :                   :         :           :                
+GXB_GND*                     : AC33      :        :                   :         : QL1       :                
+GXB_GND*                     : AC34      :        :                   :         : QL1       :                
+RESERVED_INPUT               : AD1       :        :                   :         : 5A        :                
+GND                          : AD2       : gnd    :                   :         :           :                
+VCCIO5A                      : AD3       : power  :                   : 3.0V    : 5A        :                
+HDMI_TX_RD[1]                : AD4       : output : 3.0-V PCI         :         : 5A        : Y              
+GND                          : AD5       : gnd    :                   :         :           :                
+RESERVED_INPUT               : AD6       :        :                   :         : 5A        :                
+RESERVED_INPUT               : AD7       :        :                   :         : 5A        :                
+GND                          : AD8       : gnd    :                   :         :           :                
+lpci_ad[22]                  : AD9       : bidir  : 3.0-V PCI         :         : 5B        : Y              
+RESERVED_INPUT               : AD10      :        :                   :         : 5B        :                
+VREFB5BN0                    : AD11      : power  :                   :         : 5B        :                
+RESERVED_INPUT               : AD12      :        :                   :         : 4B        :                
+VREFB4BN0                    : AD13      : power  :                   :         : 4B        :                
+GND                          : AD14      : gnd    :                   :         :           :                
+VREFB4AN0                    : AD15      : power  :                   :         : 4A        :                
+VCCPD4A                      : AD16      : power  :                   : 2.5V    : 4A        :                
+GND                          : AD17      : gnd    :                   :         :           :                
+VCCCB                        : AD18      : power  :                   : 1.5V    :           :                
+RESERVED_INPUT               : AD19      :        :                   :         : 3A        :                
+GND                          : AD20      : gnd    :                   :         :           :                
+lpci_ad[25]                  : AD21      : bidir  : 3.0-V PCI         :         : 3B        : Y              
+lpci_idsel                   : AD22      : input  : 3.0-V PCI         :         : 3B        : Y              
+GND                          : AD23      : gnd    :                   :         :           :                
+MSEL2                        : AD24      :        :                   :         : 3C        :                
+VCCIO3C                      : AD25      : power  :                   : 2.5V    : 3C        :                
+GND                          : AD26      : gnd    :                   :         :           :                
+GND                          : AD27      : gnd    :                   :         :           :                
+nSTATUS                      : AD28      :        :                   :         : 3C        :                
+GND                          : AD29      : gnd    :                   :         :           :                
+GND                          : AD30      : gnd    :                   :         :           :                
+GXB_NC                       : AD31      :        :                   :         : QL1       :                
+GXB_NC                       : AD32      :        :                   :         : QL1       :                
+GND                          : AD33      : gnd    :                   :         :           :                
+GND                          : AD34      : gnd    :                   :         :           :                
+RESERVED_INPUT               : AE1       :        :                   :         : 5A        :                
+HDMI_TX_DSD_R[2]             : AE2       : output : 3.0-V PCI         :         : 5A        : Y              
+HDMI_TX_RD[0]                : AE3       : output : 3.0-V PCI         :         : 5A        : Y              
+HDMI_TX_INT_N                : AE4       : input  : 3.0-V PCI         :         : 5A        : Y              
+RESERVED_INPUT               : AE5       :        :                   :         : 5B        :                
+RESERVED_INPUT               : AE6       :        :                   :         : 5B        :                
+lpci_reqn                    : AE7       : bidir  : 3.0-V PCI         :         : 5B        : Y              
+lpci_enablen                 : AE8       : output : 3.0-V PCI         :         : 5B        : Y              
+VCCD_PLL_3                   : AE9       : power  :                   : 0.9V    :           :                
+GND                          : AE10      : gnd    :                   :         :           :                
+RESERVED_INPUT               : AE11      :        :                   :         : 4B        :                
+RESERVED_INPUT               : AE12      :        :                   :         : 4B        :                
+RESERVED_INPUT               : AE13      :        :                   :         : 4B        :                
+RESERVED_INPUT               : AE14      :        :                   :         : 4A        :                
+RESERVED_INPUT               : AE15      :        :                   :         : 4A        :                
+RESERVED_INPUT               : AE16      :        :                   :         : 4A        :                
+RESERVED_INPUT               : AE17      :        :                   :         : 4A        :                
+RESERVED_INPUT               : AE18      :        :                   :         : 3A        :                
+RESERVED_INPUT               : AE19      :        :                   :         : 3A        :                
+VREFB3AN0                    : AE20      : power  :                   :         : 3A        :                
+lpci_cben[3]                 : AE21      : bidir  : 3.0-V PCI         :         : 3B        : Y              
+VREFB3BN0                    : AE22      : power  :                   :         : 3B        :                
+lpci_ad[23]                  : AE23      : bidir  : 3.0-V PCI         :         : 3B        : Y              
+RESERVED_INPUT               : AE24      :        :                   :         : 3B        :                
+CONF_DONE                    : AE25      :        :                   :         : 3C        :                
+lpci_ad[18]                  : AE26      : bidir  : 3.0-V PCI         :         : 3B        : Y              
+lpci_ad[16]                  : AE27      : bidir  : 3.0-V PCI         :         : 3B        : Y              
+lpci_devseln                 : AE28      : bidir  : 3.0-V PCI         :         : 3B        : Y              
+GXB_GND*                     : AE29      :        :                   :         : QL0       :                
+GXB_GND*                     : AE30      :        :                   :         : QL0       :                
+GND                          : AE31      : gnd    :                   :         :           :                
+GND                          : AE32      : gnd    :                   :         :           :                
+GXB_GND*                     : AE33      :        :                   :         : QL1       :                
+GXB_GND*                     : AE34      :        :                   :         : QL1       :                
+HDMI_TX_DSD_R[3]             : AF1       : output : 3.0-V PCI         :         : 5A        : Y              
+HDMI_TX_RD[2]                : AF2       : output : 3.0-V PCI         :         : 5A        : Y              
+HDMI_TX_RD[3]                : AF3       : output : 3.0-V PCI         :         : 5A        : Y              
+HDMI_TX_DSD_L[3]             : AF4       : output : 3.0-V PCI         :         : 5A        : Y              
+lpci_ad[31]                  : AF5       : bidir  : 3.0-V PCI         :         : 5B        : Y              
+lpci_ad[26]                  : AF6       : bidir  : 3.0-V PCI         :         : 5B        : Y              
+lpci_intan                   : AF7       : output : 3.0-V PCI         :         : 5B        : Y              
+lpci_ad[20]                  : AF8       : bidir  : 3.0-V PCI         :         : 5B        : Y              
+GND                          : AF9       : gnd    :                   :         :           :                
+VCCA_PLL_3                   : AF10      : power  :                   : 2.5V    :           :                
+RESERVED_INPUT               : AF11      :        :                   :         : 4B        :                
+RESERVED_INPUT               : AF12      :        :                   :         : 4B        :                
+RESERVED_INPUT               : AF13      :        :                   :         : 4B        :                
+RESERVED_INPUT               : AF14      :        :                   :         : 4A        :                
+RESERVED_INPUT               : AF15      :        :                   :         : 4A        :                
+RESERVED_INPUT               : AF16      :        :                   :         : 4A        :                
+RESERVED_INPUT               : AF17      :        :                   :         : 4A        :                
+RESERVED_INPUT               : AF18      :        :                   :         : 3A        :                
+RESERVED_INPUT               : AF19      :        :                   :         : 3A        :                
+RESERVED_INPUT               : AF20      :        :                   :         : 3A        :                
+VCCIO3B                      : AF21      : power  :                   : 3.0V    : 3B        :                
+VCCIO3B                      : AF22      : power  :                   : 3.0V    : 3B        :                
+RESERVED_INPUT               : AF23      :        :                   :         : 3B        :                
+lpci_ad[21]                  : AF24      : bidir  : 3.0-V PCI         :         : 3B        : Y              
+lpci_framen                  : AF25      : bidir  : 3.0-V PCI         :         : 3B        : Y              
+VCCD_PLL_4                   : AF26      : power  :                   : 0.9V    :           :                
+lpci_ad[19]                  : AF27      : bidir  : 3.0-V PCI         :         : 3B        : Y              
+lpci_ad[15]                  : AF28      : bidir  : 3.0-V PCI         :         : 3B        : Y              
+GND                          : AF29      : gnd    :                   :         :           :                
+GND                          : AF30      : gnd    :                   :         :           :                
+GXB_NC                       : AF31      :        :                   :         : QL0       :                
+GXB_NC                       : AF32      :        :                   :         : QL0       :                
+GND                          : AF33      : gnd    :                   :         :           :                
+GND                          : AF34      : gnd    :                   :         :           :                
+HDMI_TX_DSD_L[2]             : AG1       : output : 3.0-V PCI         :         : 5A        : Y              
+GND                          : AG2       : gnd    :                   :         :           :                
+VCCIO5A                      : AG3       : power  :                   : 3.0V    : 5A        :                
+lpci_ad[24]                  : AG4       : bidir  : 3.0-V PCI         :         : 5B        : Y              
+GND                          : AG5       : gnd    :                   :         :           :                
+lpci_gntn                    : AG6       : input  : 3.0-V PCI         :         : 5B        : Y              
+lpci_ad[30]                  : AG7       : bidir  : 3.0-V PCI         :         : 5B        : Y              
+GND                          : AG8       : gnd    :                   :         :           :                
+RESERVED_INPUT               : AG9       :        :                   :         : 4B        :                
+RESERVED_INPUT               : AG10      :        :                   :         : 4B        :                
+GND                          : AG11      : gnd    :                   :         :           :                
+RESERVED_INPUT               : AG12      :        :                   :         : 4A        :                
+RESERVED_INPUT               : AG13      :        :                   :         : 4A        :                
+GND                          : AG14      : gnd    :                   :         :           :                
+RESERVED_INPUT               : AG15      :        :                   :         : 4A        :                
+RESERVED_INPUT               : AG16      :        :                   :         : 4A        :                
+GND                          : AG17      : gnd    :                   :         :           :                
+RESERVED_INPUT               : AG18      :        :                   :         : 3A        :                
+RESERVED_INPUT               : AG19      :        :                   :         : 3A        :                
+GND                          : AG20      : gnd    :                   :         :           :                
+RESERVED_INPUT               : AG21      :        :                   :         : 3A        :                
+RESERVED_INPUT               : AG22      :        :                   :         : 3A        :                
+GND                          : AG23      : gnd    :                   :         :           :                
+lpci_trdyn                   : AG24      : bidir  : 3.0-V PCI         :         : 3B        : Y              
+VCCA_PLL_4                   : AG25      : power  :                   : 2.5V    :           :                
+GND                          : AG26      : gnd    :                   :         :           :                
+lpci_ad[17]                  : AG27      : bidir  : 3.0-V PCI         :         : 3B        : Y              
+RESERVED_INPUT               : AG28      :        :                   :         : 3B        :                
+GND                          : AG29      : gnd    :                   :         :           :                
+RESERVED_INPUT               : AG30      :        :                   :         : 3B        :                
+GND                          : AG31      : gnd    :                   :         :           :                
+GND                          : AG32      : gnd    :                   :         :           :                
+GXB_GND*                     : AG33      :        :                   :         : QL0       :                
+GXB_GND*                     : AG34      :        :                   :         : QL0       :                
+HDMI_TX_RD[8]                : AH1       : output : 3.0-V PCI         :         : 5A        : Y              
+HDMI_TX_RD[9]                : AH2       : output : 3.0-V PCI         :         : 5A        : Y              
+lpci_ad[7]                   : AH3       : bidir  : 3.0-V PCI         :         : 5B        : Y              
+lpci_ad[5]                   : AH4       : bidir  : 3.0-V PCI         :         : 5B        : Y              
+lpci_ad[29]                  : AH5       : bidir  : 3.0-V PCI         :         : 5B        : Y              
+lpci_ad[11]                  : AH6       : bidir  : 3.0-V PCI         :         : 5B        : Y              
+lpci_ad[28]                  : AH7       : bidir  : 3.0-V PCI         :         : 5B        : Y              
+VCCIO5B                      : AH8       : power  :                   : 3.0V    : 5B        :                
+RESERVED_INPUT               : AH9       :        :                   :         : 4B        :                
+RESERVED_INPUT               : AH10      :        :                   :         : 4B        :                
+VCCIO4B                      : AH11      : power  :                   : 2.5V    : 4B        :                
+RESERVED_INPUT               : AH12      :        :                   :         : 4A        :                
+RESERVED_INPUT               : AH13      :        :                   :         : 4A        :                
+RESERVED_INPUT               : AH14      :        :                   :         : 4A        :                
+RESERVED_INPUT               : AH15      :        :                   :         : 4A        :                
+RESERVED_INPUT               : AH16      :        :                   :         : 4A        :                
+RESERVED_INPUT               : AH17      :        :                   :         : 4A        :                
+RESERVED_INPUT               : AH18      :        :                   :         : 4A        :                
+RESERVED_INPUT               : AH19      :        :                   :         : 3A        :                
+RESERVED_INPUT               : AH20      :        :                   :         : 3A        :                
+RESERVED_INPUT               : AH21      :        :                   :         : 3A        :                
+VCCIO3A                      : AH22      : power  :                   : 2.5V    : 3A        :                
+RESERVED_INPUT               : AH23      :        :                   :         : 3A        :                
+RESERVED_INPUT               : AH24      :        :                   :         : 3A        :                
+RESERVED_INPUT               : AH25      :        :                   :         : 3A        :                
+lpci_stopn                   : AH26      : bidir  : 3.0-V PCI         :         : 3B        : Y              
+lpci_cben[2]                 : AH27      : bidir  : 3.0-V PCI         :         : 3B        : Y              
+lpci_irdyn                   : AH28      : bidir  : 3.0-V PCI         :         : 3B        : Y              
+RESERVED_INPUT               : AH29      :        :                   :         : 3B        :                
+RESERVED_INPUT               : AH30      :        :                   :         : 3B        :                
+GXB_NC                       : AH31      :        :                   :         : QL0       :                
+GXB_NC                       : AH32      :        :                   :         : QL0       :                
+GND                          : AH33      : gnd    :                   :         :           :                
+GND                          : AH34      : gnd    :                   :         :           :                
+lpci_ad[8]                   : AJ1       : bidir  : 3.0-V PCI         :         : 5B        : Y              
+lpci_ad[13]                  : AJ2       : bidir  : 3.0-V PCI         :         : 5B        : Y              
+lpci_ad[12]                  : AJ3       : bidir  : 3.0-V PCI         :         : 5B        : Y              
+lpci_ad[14]                  : AJ4       : bidir  : 3.0-V PCI         :         : 5B        : Y              
+VCCIO5B                      : AJ5       : power  :                   : 3.0V    : 5B        :                
+lpci_rstn                    : AJ6       : input  : 3.0-V PCI         :         : 5B        : Y              
+RESERVED_INPUT               : AJ7       :        :                   :         : 4B        :                
+VCCIO4B                      : AJ8       : power  :                   : 2.5V    : 4B        :                
+RESERVED_INPUT               : AJ9       :        :                   :         : 4B        :                
+RESERVED_INPUT               : AJ10      :        :                   :         : 4B        :                
+RESERVED_INPUT               : AJ11      :        :                   :         : 4A        :                
+RESERVED_INPUT               : AJ12      :        :                   :         : 4A        :                
+RESERVED_INPUT               : AJ13      :        :                   :         : 4A        :                
+VCCIO4A                      : AJ14      : power  :                   : 2.5V    : 4A        :                
+RESERVED_INPUT               : AJ15      :        :                   :         : 4A        :                
+RESERVED_INPUT               : AJ16      :        :                   :         : 4A        :                
+VCCIO4A                      : AJ17      : power  :                   : 2.5V    : 4A        :                
+RESERVED_INPUT               : AJ18      :        :                   :         : 3A        :                
+GND+                         : AJ19      :        :                   :         : 3A        :                
+VCCIO3A                      : AJ20      : power  :                   : 2.5V    : 3A        :                
+RESERVED_INPUT               : AJ21      :        :                   :         : 3A        :                
+RESERVED_INPUT               : AJ22      :        :                   :         : 3A        :                
+RESERVED_INPUT               : AJ23      :        :                   :         : 3A        :                
+RESERVED_INPUT               : AJ24      :        :                   :         : 3A        :                
+RESERVED_INPUT               : AJ25      :        :                   :         : 3A        :                
+lpci_perrn                   : AJ26      : bidir  : 3.0-V PCI         :         : 3B        : Y              
+RESERVED_INPUT               : AJ27      :        :                   :         : 3B        :                
+lpci_par                     : AJ28      : bidir  : 3.0-V PCI         :         : 3B        : Y              
+lpci_lockn                   : AJ29      : bidir  : 3.0-V PCI         :         : 3B        : Y              
+RESERVED_INPUT               : AJ30      :        :                   :         : 3B        :                
+GND                          : AJ31      : gnd    :                   :         :           :                
+GND                          : AJ32      : gnd    :                   :         :           :                
+GXB_GND*                     : AJ33      :        :                   :         : QL0       :                
+GXB_GND*                     : AJ34      :        :                   :         : QL0       :                
+lpci_ad[10]                  : AK1       : bidir  : 3.0-V PCI         :         : 5B        : Y              
+GND                          : AK2       : gnd    :                   :         :           :                
+RESERVED_INPUT               : AK3       :        :                   :         : 5B        :                
+RESERVED_INPUT               : AK4       :        :                   :         : 5B        :                
+GND                          : AK5       : gnd    :                   :         :           :                
+RESERVED_INPUT               : AK6       :        :                   :         : 4B        :                
+RESERVED_INPUT               : AK7       :        :                   :         : 4B        :                
+GND                          : AK8       : gnd    :                   :         :           :                
+RESERVED_INPUT               : AK9       :        :                   :         : 4B        :                
+RESERVED_INPUT               : AK10      :        :                   :         : 4B        :                
+GND                          : AK11      : gnd    :                   :         :           :                
+RESERVED_INPUT               : AK12      :        :                   :         : 4A        :                
+RESERVED_INPUT               : AK13      :        :                   :         : 4A        :                
+GND                          : AK14      : gnd    :                   :         :           :                
+RESERVED_INPUT               : AK15      :        :                   :         : 4A        :                
+RESERVED_INPUT               : AK16      :        :                   :         : 4A        :                
+GND                          : AK17      : gnd    :                   :         :           :                
+RESERVED_INPUT               : AK18      :        :                   :         : 3A        :                
+GND+                         : AK19      :        :                   :         : 3A        :                
+GND                          : AK20      : gnd    :                   :         :           :                
+RESERVED_INPUT               : AK21      :        :                   :         : 3A        :                
+RESERVED_INPUT               : AK22      :        :                   :         : 3A        :                
+GND                          : AK23      : gnd    :                   :         :           :                
+VCCIO3A                      : AK24      : power  :                   : 2.5V    : 3A        :                
+RESERVED_INPUT               : AK25      :        :                   :         : 3A        :                
+GND                          : AK26      : gnd    :                   :         :           :                
+RESERVED_INPUT               : AK27      :        :                   :         : 3B        :                
+lpci_cben[1]                 : AK28      : bidir  : 3.0-V PCI         :         : 3B        : Y              
+GND                          : AK29      : gnd    :                   :         :           :                
+RESERVED_INPUT               : AK30      :        :                   :         : 3B        :                
+GXB_NC                       : AK31      :        :                   :         : QL0       :                
+GXB_NC                       : AK32      :        :                   :         : QL0       :                
+GND                          : AK33      : gnd    :                   :         :           :                
+GND                          : AK34      : gnd    :                   :         :           :                
+RESERVED_INPUT               : AL1       :        :                   :         : 5B        :                
+RESERVED_INPUT               : AL2       :        :                   :         : 5B        :                
+RESERVED_INPUT               : AL3       :        :                   :         : 4B        :                
+RESERVED_INPUT               : AL4       :        :                   :         : 4B        :                
+RESERVED_INPUT               : AL5       :        :                   :         : 4B        :                
+RESERVED_INPUT               : AL6       :        :                   :         : 4B        :                
+RESERVED_INPUT               : AL7       :        :                   :         : 4B        :                
+RESERVED_INPUT               : AL8       :        :                   :         : 4B        :                
+RESERVED_INPUT               : AL9       :        :                   :         : 4B        :                
+RESERVED_INPUT               : AL10      :        :                   :         : 4A        :                
+RESERVED_INPUT               : AL11      :        :                   :         : 4A        :                
+RESERVED_INPUT               : AL12      :        :                   :         : 4A        :                
+RESERVED_INPUT               : AL13      :        :                   :         : 4A        :                
+RESERVED_INPUT               : AL14      :        :                   :         : 4A        :                
+RESERVED_INPUT               : AL15      :        :                   :         : 4A        :                
+RESERVED_INPUT               : AL16      :        :                   :         : 4A        :                
+VCCIO4A                      : AL17      : power  :                   : 2.5V    : 4A        :                
+RESERVED_INPUT               : AL18      :        :                   :         : 3A        :                
+RESERVED_INPUT               : AL19      :        :                   :         : 3A        :                
+RESERVED_INPUT               : AL20      :        :                   :         : 3A        :                
+RESERVED_INPUT               : AL21      :        :                   :         : 3A        :                
+RESERVED_INPUT               : AL22      :        :                   :         : 3A        :                
+RESERVED_INPUT               : AL23      :        :                   :         : 3A        :                
+RESERVED_INPUT               : AL24      :        :                   :         : 3A        :                
+RESERVED_INPUT               : AL25      :        :                   :         : 3A        :                
+RESERVED_INPUT               : AL26      :        :                   :         : 3A        :                
+RESERVED_INPUT               : AL27      :        :                   :         : 3A        :                
+lpci_serrn                   : AL28      : bidir  : 3.0-V PCI         :         : 3B        : Y              
+RESERVED_INPUT               : AL29      :        :                   :         : 3A        :                
+NC                           : AL30      :        :                   :         :           :                
+GND                          : AL31      : gnd    :                   :         :           :                
+GND                          : AL32      : gnd    :                   :         :           :                
+GXB_GND*                     : AL33      :        :                   :         : QL0       :                
+GXB_GND*                     : AL34      :        :                   :         : QL0       :                
+RESERVED_INPUT               : AM1       :        :                   :         : 4B        :                
+RESERVED_INPUT               : AM2       :        :                   :         : 4B        :                
+RESERVED_INPUT               : AM3       :        :                   :         : 4B        :                
+RESERVED_INPUT               : AM4       :        :                   :         : 4B        :                
+RESERVED_INPUT               : AM5       :        :                   :         : 4B        :                
+RESERVED_INPUT               : AM6       :        :                   :         : 4B        :                
+RESERVED_INPUT               : AM7       :        :                   :         : 4A        :                
+RESERVED_INPUT               : AM8       :        :                   :         : 4A        :                
+RESERVED_INPUT               : AM9       :        :                   :         : 4A        :                
+RESERVED_INPUT               : AM10      :        :                   :         : 4A        :                
+VCCIO4A                      : AM11      : power  :                   : 2.5V    : 4A        :                
+RESERVED_INPUT               : AM12      :        :                   :         : 4A        :                
+RESERVED_INPUT               : AM13      :        :                   :         : 4A        :                
+VCCIO4A                      : AM14      : power  :                   : 2.5V    : 4A        :                
+RESERVED_INPUT               : AM15      :        :                   :         : 4A        :                
+RESERVED_INPUT               : AM16      :        :                   :         : 4A        :                
+RESERVED_INPUT               : AM17      :        :                   :         : 4A        :                
+RESERVED_INPUT               : AM18      :        :                   :         : 3A        :                
+RESERVED_INPUT               : AM19      :        :                   :         : 3A        :                
+VCCIO3A                      : AM20      : power  :                   : 2.5V    : 3A        :                
+RESERVED_INPUT               : AM21      :        :                   :         : 3A        :                
+RESERVED_INPUT               : AM22      :        :                   :         : 3A        :                
+RESERVED_INPUT               : AM23      :        :                   :         : 3A        :                
+RESERVED_INPUT               : AM24      :        :                   :         : 3A        :                
+RESERVED_INPUT               : AM25      :        :                   :         : 3A        :                
+RESERVED_INPUT               : AM26      :        :                   :         : 3A        :                
+RESERVED_INPUT               : AM27      :        :                   :         : 3A        :                
+RESERVED_INPUT               : AM28      :        :                   :         : 3A        :                
+RESERVED_INPUT               : AM29      :        :                   :         : 3A        :                
+NC                           : AM30      :        :                   :         :           :                
+GXB_NC                       : AM31      :        :                   :         : QL0       :                
+GXB_NC                       : AM32      :        :                   :         : QL0       :                
+GND                          : AM33      : gnd    :                   :         :           :                
+GND                          : AM34      : gnd    :                   :         :           :                
+RESERVED_INPUT               : AN1       :        :                   :         : 4B        :                
+GND                          : AN2       : gnd    :                   :         :           :                
+RESERVED_INPUT               : AN3       :        :                   :         : 4A        :                
+RESERVED_INPUT               : AN4       :        :                   :         : 4A        :                
+GND                          : AN5       : gnd    :                   :         :           :                
+RESERVED_INPUT               : AN6       :        :                   :         : 4A        :                
+RESERVED_INPUT               : AN7       :        :                   :         : 4A        :                
+GND                          : AN8       : gnd    :                   :         :           :                
+RESERVED_INPUT               : AN9       :        :                   :         : 4A        :                
+RESERVED_INPUT               : AN10      :        :                   :         : 4A        :                
+GND                          : AN11      : gnd    :                   :         :           :                
+RESERVED_INPUT               : AN12      :        :                   :         : 4A        :                
+RESERVED_INPUT               : AN13      :        :                   :         : 4A        :                
+GND                          : AN14      : gnd    :                   :         :           :                
+RESERVED_INPUT               : AN15      :        :                   :         : 4A        :                
+RESERVED_INPUT               : AN16      :        :                   :         : 4A        :                
+GND                          : AN17      : gnd    :                   :         :           :                
+RESERVED_INPUT               : AN18      :        :                   :         : 3A        :                
+RESERVED_INPUT               : AN19      :        :                   :         : 3A        :                
+GND                          : AN20      : gnd    :                   :         :           :                
+RESERVED_INPUT               : AN21      :        :                   :         : 3A        :                
+RESERVED_INPUT               : AN22      :        :                   :         : 3A        :                
+GND                          : AN23      : gnd    :                   :         :           :                
+RESERVED_INPUT               : AN24      :        :                   :         : 3A        :                
+RESERVED_INPUT               : AN25      :        :                   :         : 3A        :                
+GND                          : AN26      : gnd    :                   :         :           :                
+RESERVED_INPUT               : AN27      :        :                   :         : 3A        :                
+RESERVED_INPUT               : AN28      :        :                   :         : 3A        :                
+GND                          : AN29      : gnd    :                   :         :           :                
+GND                          : AN30      : gnd    :                   :         :           :                
+GND                          : AN31      : gnd    :                   :         :           :                
+GND                          : AN32      : gnd    :                   :         :           :                
+GXB_GND*                     : AN33      :        :                   :         : QL0       :                
+GXB_GND*                     : AN34      :        :                   :         : QL0       :                
+RESERVED_INPUT               : AP2       :        :                   :         : 4A        :                
+RESERVED_INPUT               : AP3       :        :                   :         : 4A        :                
+RESERVED_INPUT               : AP4       :        :                   :         : 4A        :                
+RESERVED_INPUT               : AP5       :        :                   :         : 4A        :                
+RESERVED_INPUT               : AP6       :        :                   :         : 4A        :                
+RESERVED_INPUT               : AP7       :        :                   :         : 4A        :                
+RESERVED_INPUT               : AP8       :        :                   :         : 4A        :                
+RESERVED_INPUT               : AP9       :        :                   :         : 4A        :                
+RESERVED_INPUT               : AP10      :        :                   :         : 4A        :                
+RESERVED_INPUT               : AP11      :        :                   :         : 4A        :                
+RESERVED_INPUT               : AP12      :        :                   :         : 4A        :                
+RESERVED_INPUT               : AP13      :        :                   :         : 4A        :                
+RESERVED_INPUT               : AP14      :        :                   :         : 4A        :                
+RESERVED_INPUT               : AP15      :        :                   :         : 4A        :                
+GND+                         : AP16      :        :                   :         : 4A        :                
+GND+                         : AP17      :        :                   :         : 4A        :                
+RESERVED_INPUT               : AP18      :        :                   :         : 3A        :                
+RESERVED_INPUT               : AP19      :        :                   :         : 3A        :                
+RESERVED_INPUT               : AP20      :        :                   :         : 3A        :                
+RESERVED_INPUT               : AP21      :        :                   :         : 3A        :                
+RESERVED_INPUT               : AP22      :        :                   :         : 3A        :                
+RESERVED_INPUT               : AP23      :        :                   :         : 3A        :                
+RESERVED_INPUT               : AP24      :        :                   :         : 3A        :                
+RESERVED_INPUT               : AP25      :        :                   :         : 3A        :                
+~ALTERA_nCEO~ / RESERVED_OUTPUT_OPEN_DRAIN : AP26      : output : 2.5 V             :         : 3A        : N              
+RESERVED_INPUT               : AP27      :        :                   :         : 3A        :                
+RESERVED_INPUT               : AP28      :        :                   :         : 3A        :                
+RESERVED_INPUT               : AP29      :        :                   :         : 3A        :                
+GND                          : AP30      : gnd    :                   :         :           :                
+RREF                         : AP31      :        :                   :         :           :                
+GND                          : AP32      : gnd    :                   :         :           :                
+GND                          : AP33      : gnd    :                   :         :           :                
+RESERVED_INPUT               : B1        :        :                   :         : 7A        :                
+GND                          : B2        : gnd    :                   :         :           :                
+RESERVED_INPUT               : B3        :        :                   :         : 7A        :                
+RESERVED_INPUT               : B4        :        :                   :         : 7A        :                
+GND                          : B5        : gnd    :                   :         :           :                
+RESERVED_INPUT               : B6        :        :                   :         : 7A        :                
+RESERVED_INPUT               : B7        :        :                   :         : 7A        :                
+GND                          : B8        : gnd    :                   :         :           :                
+RESERVED_INPUT               : B9        :        :                   :         : 7A        :                
+RESERVED_INPUT               : B10       :        :                   :         : 7A        :                
+GND                          : B11       : gnd    :                   :         :           :                
+RESERVED_INPUT               : B12       :        :                   :         : 7A        :                
+RESERVED_INPUT               : B13       :        :                   :         : 7A        :                
+GND                          : B14       : gnd    :                   :         :           :                
+RESERVED_INPUT               : B15       :        :                   :         : 7A        :                
+max2_wen                     : B16       : output : 1.5 V             :         : 7A        : Y              
+GND                          : B17       : gnd    :                   :         :           :                
+RESERVED_INPUT               : B18       :        :                   :         : 8A        :                
+RESERVED_INPUT               : B19       :        :                   :         : 8A        :                
+GND                          : B20       : gnd    :                   :         :           :                
+RESERVED_INPUT               : B21       :        :                   :         : 8A        :                
+RESERVED_INPUT               : B22       :        :                   :         : 8A        :                
+GND                          : B23       : gnd    :                   :         :           :                
+RESERVED_INPUT               : B24       :        :                   :         : 8A        :                
+RESERVED_INPUT               : B25       :        :                   :         : 8A        :                
+GND                          : B26       : gnd    :                   :         :           :                
+sram_zz                      : B27       : output : 2.5 V             :         : 8A        : Y              
+GND                          : B28       : gnd    :                   :         :           :                
+GND                          : B29       : gnd    :                   :         :           :                
+GND                          : B30       : gnd    :                   :         :           :                
+GXB_NC                       : B31       :        :                   :         : QL3       :                
+GXB_NC                       : B32       :        :                   :         : QL3       :                
+GND                          : B33       : gnd    :                   :         :           :                
+GND                          : B34       : gnd    :                   :         :           :                
+RESERVED_INPUT               : C1        :        :                   :         : 6A        :                
+RESERVED_INPUT               : C2        :        :                   :         : 6A        :                
+RESERVED_INPUT               : C3        :        :                   :         : 7A        :                
+DNU                          : C4        :        :                   :         :           :                
+RESERVED_INPUT               : C5        :        :                   :         : 6B        :                
+RESERVED_INPUT               : C6        :        :                   :         : 6B        :                
+flash_wen                    : C7        : output : 2.5 V             :         : 7B        : Y              
+RESERVED_INPUT               : C8        :        :                   :         : 7B        :                
+RESERVED_INPUT               : C9        :        :                   :         : 7A        :                
+sram_adscn                   : C10       : output : 2.5 V             :         : 7B        : Y              
+VCCIO7A                      : C11       : power  :                   : 1.5V    : 7A        :                
+RESERVED_INPUT               : C12       :        :                   :         : 7A        :                
+RESERVED_INPUT               : C13       :        :                   :         : 7A        :                
+VCCIO7A                      : C14       : power  :                   : 1.5V    : 7A        :                
+max2_ben[0]                  : C15       : output : 1.5 V             :         : 7A        : Y              
+RESERVED_INPUT               : C16       :        :                   :         : 7A        :                
+VCCIO8A                      : C17       : power  :                   : 2.5V    : 8A        :                
+RESERVED_INPUT               : C18       :        :                   :         : 8A        :                
+RESERVED_INPUT               : C19       :        :                   :         : 8A        :                
+VCCIO8A                      : C20       : power  :                   : 2.5V    : 8A        :                
+RESERVED_INPUT               : C21       :        :                   :         : 8A        :                
+RESERVED_INPUT               : C22       :        :                   :         : 8A        :                
+VCCIO8A                      : C23       : power  :                   : 2.5V    : 8A        :                
+RESERVED_INPUT               : C24       :        :                   :         : 8A        :                
+enet_tx_d[1]                 : C25       : output : 2.5 V             :         : 8A        : Y              
+RESERVED_INPUT               : C26       :        :                   :         : 8A        :                
+pcie_led_x8                  : C27       : output : 2.5 V             :         : 8A        : Y              
+pcie_led_x1                  : C28       : output : 2.5 V             :         : 8A        : Y              
+RESERVED_INPUT               : C29       :        :                   :         : 8A        :                
+pcie_waken                   : C30       : output : 2.5 V             :         : 8A        : Y              
+GND                          : C31       : gnd    :                   :         :           :                
+GND                          : C32       : gnd    :                   :         :           :                
+GXB_GND*                     : C33       :        :                   :         : QL3       :                
+GXB_GND*                     : C34       :        :                   :         : QL3       :                
+RESERVED_INPUT               : D1        :        :                   :         : 6A        :                
+RESERVED_INPUT               : D2        :        :                   :         : 6A        :                
+RESERVED_INPUT               : D3        :        :                   :         : 6B        :                
+RESERVED_INPUT               : D4        :        :                   :         : 6B        :                
+RESERVED_INPUT               : D5        :        :                   :         : 6B        :                
+RESERVED_INPUT               : D6        :        :                   :         : 6B        :                
+RESERVED_INPUT               : D7        :        :                   :         : 7B        :                
+VCCIO7B                      : D8        : power  :                   : 2.5V    : 7B        :                
+sram_advn                    : D9        : output : 2.5 V             :         : 7B        : Y              
+sram_oen                     : D10       : output : 2.5 V             :         : 7B        : Y              
+RESERVED_INPUT               : D11       :        :                   :         : 7A        :                
+RESERVED_INPUT               : D12       :        :                   :         : 7A        :                
+RESERVED_INPUT               : D13       :        :                   :         : 7A        :                
+max2_ben[2]                  : D14       : output : 1.5 V             :         : 7A        : Y              
+RESERVED_INPUT               : D15       :        :                   :         : 7A        :                
+RESERVED_INPUT               : D16       :        :                   :         : 7A        :                
+RESERVED_INPUT               : D17       :        :                   :         : 8A        :                
+RESERVED_INPUT               : D18       :        :                   :         : 8A        :                
+RESERVED_INPUT               : D19       :        :                   :         : 8A        :                
+RESERVED_INPUT               : D20       :        :                   :         : 8A        :                
+RESERVED_INPUT               : D21       :        :                   :         : 8A        :                
+RESERVED_INPUT               : D22       :        :                   :         : 8A        :                
+RESERVED_INPUT               : D23       :        :                   :         : 8A        :                
+RESERVED_INPUT               : D24       :        :                   :         : 8A        :                
+enet_gtx_clk                 : D25       : output : 2.5 V             :         : 8A        : Y              
+pcie_led_x4                  : D26       : output : 2.5 V             :         : 8A        : Y              
+RESERVED_INPUT               : D27       :        :                   :         : 8A        :                
+RESERVED_INPUT               : D28       :        :                   :         : 8A        :                
+RESERVED_INPUT               : D29       :        :                   :         : 8A        :                
+RESERVED_INPUT               : D30       :        :                   :         : 8B        :                
+GXB_NC                       : D31       :        :                   :         : QL3       :                
+GXB_NC                       : D32       :        :                   :         : QL3       :                
+GND                          : D33       : gnd    :                   :         :           :                
+GND                          : D34       : gnd    :                   :         :           :                
+RESERVED_INPUT               : E1        :        :                   :         : 6A        :                
+GND                          : E2        : gnd    :                   :         :           :                
+RESERVED_INPUT               : E3        :        :                   :         : 6B        :                
+RESERVED_INPUT               : E4        :        :                   :         : 6B        :                
+GND                          : E5        : gnd    :                   :         :           :                
+RESERVED_INPUT               : E6        :        :                   :         : 7B        :                
+RESERVED_INPUT               : E7        :        :                   :         : 7B        :                
+GND                          : E8        : gnd    :                   :         :           :                
+sram_bwn[2]                  : E9        : output : 2.5 V             :         : 7B        : Y              
+sram_cen                     : E10       : output : 2.5 V             :         : 7B        : Y              
+GND                          : E11       : gnd    :                   :         :           :                
+RESERVED_INPUT               : E12       :        :                   :         : 7A        :                
+RESERVED_INPUT               : E13       :        :                   :         : 7A        :                
+GND                          : E14       : gnd    :                   :         :           :                
+RESERVED_INPUT               : E15       :        :                   :         : 7A        :                
+RESERVED_INPUT               : E16       :        :                   :         : 7A        :                
+GND                          : E17       : gnd    :                   :         :           :                
+RESERVED_INPUT               : E18       :        :                   :         : 8A        :                
+RESERVED_INPUT               : E19       :        :                   :         : 8A        :                
+GND                          : E20       : gnd    :                   :         :           :                
+RESERVED_INPUT               : E21       :        :                   :         : 8A        :                
+RESERVED_INPUT               : E22       :        :                   :         : 8A        :                
+GND                          : E23       : gnd    :                   :         :           :                
+RESERVED_INPUT               : E24       :        :                   :         : 8A        :                
+RESERVED_INPUT               : E25       :        :                   :         : 8A        :                
+GND                          : E26       : gnd    :                   :         :           :                
+RESERVED_INPUT               : E27       :        :                   :         : 8B        :                
+RESERVED_INPUT               : E28       :        :                   :         : 8B        :                
+GND                          : E29       : gnd    :                   :         :           :                
+RESERVED_INPUT               : E30       :        :                   :         : 8B        :                
+GND                          : E31       : gnd    :                   :         :           :                
+GND                          : E32       : gnd    :                   :         :           :                
+GXB_GND*                     : E33       :        :                   :         : QL3       :                
+GXB_GND*                     : E34       :        :                   :         : QL3       :                
+RESERVED_INPUT               : F1        :        :                   :         : 6A        :                
+RESERVED_INPUT               : F2        :        :                   :         : 6A        :                
+RESERVED_INPUT               : F3        :        :                   :         : 6B        :                
+RESERVED_INPUT               : F4        :        :                   :         : 6B        :                
+RESERVED_INPUT               : F5        :        :                   :         : 6B        :                
+RESERVED_INPUT               : F6        :        :                   :         : 7B        :                
+RESERVED_INPUT               : F7        :        :                   :         : 7B        :                
+RESERVED_INPUT               : F8        :        :                   :         : 7B        :                
+RESERVED_INPUT               : F9        :        :                   :         : 7B        :                
+RESERVED_INPUT               : F10       :        :                   :         : 7B        :                
+VCCIO7A                      : F11       : power  :                   : 1.5V    : 7A        :                
+RESERVED_INPUT               : F12       :        :                   :         : 7A        :                
+RESERVED_INPUT               : F13       :        :                   :         : 7A        :                
+VCCIO7A                      : F14       : power  :                   : 1.5V    : 7A        :                
+RESERVED_INPUT               : F15       :        :                   :         : 7A        :                
+RESERVED_INPUT               : F16       :        :                   :         : 7A        :                
+clkin_top_p(n)               : F17       : input  : LVDS              :         : 8A        : Y              
+clkin_top_p                  : F18       : input  : LVDS              :         : 8A        : Y              
+RESERVED_INPUT               : F19       :        :                   :         : 8A        :                
+VCCIO8A                      : F20       : power  :                   : 2.5V    : 8A        :                
+RESERVED_INPUT               : F21       :        :                   :         : 8A        :                
+VCCIO8A                      : F22       : power  :                   : 2.5V    : 8A        :                
+RESERVED_INPUT               : F23       :        :                   :         : 8A        :                
+RESERVED_INPUT               : F24       :        :                   :         : 8A        :                
+RESERVED_INPUT               : F25       :        :                   :         : 8A        :                
+RESERVED_INPUT               : F26       :        :                   :         : 8A        :                
+RESERVED_INPUT               : F27       :        :                   :         : 8B        :                
+RESERVED_INPUT               : F28       :        :                   :         : 8B        :                
+RESERVED_INPUT               : F29       :        :                   :         : 8B        :                
+RESERVED_INPUT               : F30       :        :                   :         : 8B        :                
+GXB_NC                       : F31       :        :                   :         : QL3       :                
+GXB_NC                       : F32       :        :                   :         : QL3       :                
+GND                          : F33       : gnd    :                   :         :           :                
+GND                          : F34       : gnd    :                   :         :           :                
+user_led[0]                  : G1        : output : 2.5 V             :         : 6A        : Y              
+RESERVED_INPUT               : G2        :        :                   :         : 6A        :                
+RESERVED_INPUT               : G3        :        :                   :         : 6B        :                
+RESERVED_INPUT               : G4        :        :                   :         : 6B        :                
+RESERVED_INPUT               : G5        :        :                   :         : 6B        :                
+RESERVED_INPUT               : G6        :        :                   :         : 6B        :                
+RESERVED_INPUT               : G7        :        :                   :         : 7B        :                
+VCCIO7B                      : G8        : power  :                   : 2.5V    : 7B        :                
+RESERVED_INPUT               : G9        :        :                   :         : 7B        :                
+RESERVED_INPUT               : G10       :        :                   :         : 7B        :                
+RESERVED_INPUT               : G11       :        :                   :         : 7A        :                
+RESERVED_INPUT               : G12       :        :                   :         : 7A        :                
+RESERVED_INPUT               : G13       :        :                   :         : 7A        :                
+RESERVED_INPUT               : G14       :        :                   :         : 7A        :                
+RESERVED_INPUT               : G15       :        :                   :         : 7A        :                
+RESERVED_INPUT               : G16       :        :                   :         : 7A        :                
+RESERVED_INPUT               : G17       :        :                   :         : 7A        :                
+RESERVED_INPUT               : G18       :        :                   :         : 7A        :                
+RESERVED_INPUT               : G19       :        :                   :         : 8A        :                
+enet_tx_en                   : G20       : output : 2.5 V             :         : 8A        : Y              
+enet_tx_d[3]                 : G21       : output : 2.5 V             :         : 8A        : Y              
+enet_tx_d[2]                 : G22       : output : 2.5 V             :         : 8A        : Y              
+RESERVED_INPUT               : G23       :        :                   :         : 8A        :                
+RESERVED_INPUT               : G24       :        :                   :         : 8B        :                
+RESERVED_INPUT               : G25       :        :                   :         : 8B        :                
+RESERVED_INPUT               : G26       :        :                   :         : 8B        :                
+RESERVED_INPUT               : G27       :        :                   :         : 8B        :                
+RESERVED_INPUT               : G28       :        :                   :         : 8B        :                
+RESERVED_INPUT               : G29       :        :                   :         : 8B        :                
+RESERVED_INPUT               : G30       :        :                   :         : 8B        :                
+GND                          : G31       : gnd    :                   :         :           :                
+GND                          : G32       : gnd    :                   :         :           :                
+GXB_GND*                     : G33       :        :                   :         : QL3       :                
+GXB_GND*                     : G34       :        :                   :         : QL3       :                
+lcd_wen                      : H1        : output : 2.5 V             :         : 6A        : Y              
+GND                          : H2        : gnd    :                   :         :           :                
+RESERVED_INPUT               : H3        :        :                   :         : 6A        :                
+RESERVED_INPUT               : H4        :        :                   :         : 6B        :                
+GND                          : H5        : gnd    :                   :         :           :                
+VCCIO6B                      : H6        : power  :                   : 3.0V    : 6B        :                
+RESERVED_INPUT               : H7        :        :                   :         : 6B        :                
+GND                          : H8        : gnd    :                   :         :           :                
+RESERVED_INPUT               : H9        :        :                   :         : 7B        :                
+RESERVED_INPUT               : H10       :        :                   :         : 7B        :                
+GND                          : H11       : gnd    :                   :         :           :                
+sram_bwn[1]                  : H12       : output : 2.5 V             :         : 7B        : Y              
+sram_bwn[3]                  : H13       : output : 2.5 V             :         : 7B        : Y              
+GND                          : H14       : gnd    :                   :         :           :                
+RESERVED_INPUT               : H15       :        :                   :         : 7A        :                
+max2_ben[1]                  : H16       : output : 1.5 V             :         : 7A        : Y              
+GND                          : H17       : gnd    :                   :         :           :                
+RESERVED_INPUT               : H18       :        :                   :         : 7A        :                
+RESERVED_INPUT               : H19       :        :                   :         : 8A        :                
+GND                          : H20       : gnd    :                   :         :           :                
+RESERVED_INPUT               : H21       :        :                   :         : 8A        :                
+VCCIO8B                      : H22       : power  :                   : 2.5V    : 8B        :                
+GND                          : H23       : gnd    :                   :         :           :                
+RESERVED_INPUT               : H24       :        :                   :         : 8B        :                
+VCCA_PLL_1                   : H25       : power  :                   : 2.5V    :           :                
+GND                          : H26       : gnd    :                   :         :           :                
+RESERVED_INPUT               : H27       :        :                   :         : 8B        :                
+RESERVED_INPUT               : H28       :        :                   :         : 8B        :                
+GND                          : H29       : gnd    :                   :         :           :                
+RESERVED_INPUT               : H30       :        :                   :         : 8B        :                
+GXB_NC                       : H31       :        :                   :         : QL3       :                
+GXB_NC                       : H32       :        :                   :         : QL3       :                
+GND                          : H33       : gnd    :                   :         :           :                
+GND                          : H34       : gnd    :                   :         :           :                
+lcd_d_cn                     : J1        : output : 2.5 V             :         : 6A        : Y              
+lcd_csn                      : J2        : output : 2.5 V             :         : 6A        : Y              
+RESERVED_INPUT               : J3        :        :                   :         : 6A        :                
+user_led[1]                  : J4        : output : 2.5 V             :         : 6A        : Y              
+user_led[2]                  : J5        : output : 2.5 V             :         : 6A        : Y              
+RESERVED_INPUT               : J6        :        :                   :         : 6B        :                
+RESERVED_INPUT               : J7        :        :                   :         : 6B        :                
+RESERVED_INPUT               : J8        :        :                   :         : 6B        :                
+GND                          : J9        : gnd    :                   :         :           :                
+VCCA_PLL_2                   : J10       : power  :                   : 2.5V    :           :                
+sram_bwen                    : J11       : output : 2.5 V             :         : 7B        : Y              
+sram_clk                     : J12       : output : 2.5 V             :         : 7B        : Y              
+sram_bwn[0]                  : J13       : output : 2.5 V             :         : 7B        : Y              
+max2_clk                     : J14       : output : 1.5 V             :         : 7A        : Y              
+RESERVED_INPUT               : J15       :        :                   :         : 7A        :                
+RESERVED_INPUT               : J16       :        :                   :         : 7A        :                
+RESERVED_INPUT               : J17       :        :                   :         : 7A        :                
+GND+                         : J18       :        :                   :         : 7A        :                
+RESERVED_INPUT               : J19       :        :                   :         : 8A        :                
+enet_tx_d[0]                 : J20       : output : 2.5 V             :         : 8A        : Y              
+RESERVED_INPUT               : J21       :        :                   :         : 8A        :                
+RESERVED_INPUT               : J22       :        :                   :         : 8B        :                
+VCCIO8B                      : J23       : power  :                   : 2.5V    : 8B        :                
+RESERVED_INPUT               : J24       :        :                   :         : 8B        :                
+RESERVED_INPUT               : J25       :        :                   :         : 8B        :                
+VCCD_PLL_1                   : J26       : power  :                   : 0.9V    :           :                
+RESERVED_INPUT               : J27       :        :                   :         : 8B        :                
+RESERVED_INPUT               : J28       :        :                   :         : 8B        :                
+RESERVED_INPUT               : J29       :        :                   :         : 8B        :                
+RESERVED_INPUT               : J30       :        :                   :         : 8B        :                
+GND                          : J31       : gnd    :                   :         :           :                
+GND                          : J32       : gnd    :                   :         :           :                
+GXB_GND*                     : J33       :        :                   :         : QL3       :                
+GXB_GND*                     : J34       :        :                   :         : QL3       :                
+RESERVED_INPUT               : K1        :        :                   :         : 6A        :                
+RESERVED_INPUT               : K2        :        :                   :         : 6A        :                
+RESERVED_INPUT               : K3        :        :                   :         : 6A        :                
+RESERVED_INPUT               : K4        :        :                   :         : 6A        :                
+flash_oen                    : K5        : output : 2.5 V             :         : 6A        : Y              
+lpci_ad[0]                   : K6        : bidir  : 3.0-V PCI         :         : 6B        : Y              
+lpci_ad[2]                   : K7        : bidir  : 3.0-V PCI         :         : 6B        : Y              
+RESERVED_INPUT               : K8        :        :                   :         : 6B        :                
+VCCD_PLL_2                   : K9        : power  :                   : 0.9V    :           :                
+GND                          : K10       : gnd    :                   :         :           :                
+RESERVED_INPUT               : K11       :        :                   :         : 7B        :                
+sram_gwn                     : K12       : output : 2.5 V             :         : 7B        : Y              
+VREFB7BN0                    : K13       : power  :                   :         : 7B        :                
+RESERVED_INPUT               : K14       :        :                   :         : 7A        :                
+RESERVED_INPUT               : K15       :        :                   :         : 7A        :                
+RESERVED_INPUT               : K16       :        :                   :         : 7A        :                
+RESERVED_INPUT               : K17       :        :                   :         : 7A        :                
+GND+                         : K18       :        :                   :         : 7A        :                
+VREFB8AN0                    : K19       : power  :                   :         : 8A        :                
+enet_mdc                     : K20       : output : 2.5 V             :         : 8A        : Y              
+RESERVED_INPUT               : K21       :        :                   :         : 8A        :                
+RESERVED_INPUT               : K22       :        :                   :         : 8B        :                
+RESERVED_INPUT               : K23       :        :                   :         : 8B        :                
+RESERVED_INPUT               : K24       :        :                   :         : 8B        :                
+DNU                          : K25       :        :                   :         :           :                
+VCCIO8C                      : K26       : power  :                   : 2.5V    : 8C        :                
+ASDO                         : K27       :        :                   :         : 8C        :                
+RESERVED_INPUT               : K28       :        :                   :         : 8B        :                
+GND                          : K29       : gnd    :                   :         :           :                
+GND                          : K30       : gnd    :                   :         :           :                
+GXB_NC                       : K31       :        :                   :         : QL2       :                
+GXB_NC                       : K32       :        :                   :         : QL2       :                
+GND                          : K33       : gnd    :                   :         :           :                
+GND                          : K34       : gnd    :                   :         :           :                
+RESERVED_INPUT               : L1        :        :                   :         : 6A        :                
+GND                          : L2        : gnd    :                   :         :           :                
+VCCIO6A                      : L3        : power  :                   : 2.5V    : 6A        :                
+RESERVED_INPUT               : L4        :        :                   :         : 6A        :                
+GND                          : L5        : gnd    :                   :         :           :                
+VCCIO6B                      : L6        : power  :                   : 3.0V    : 6B        :                
+RESERVED_INPUT               : L7        :        :                   :         : 6B        :                
+GND                          : L8        : gnd    :                   :         :           :                
+RESERVED_INPUT               : L9        :        :                   :         : 7B        :                
+RESERVED_INPUT               : L10       :        :                   :         : 7B        :                
+RESERVED_INPUT               : L11       :        :                   :         : 7B        :                
+VCCPD7B                      : L12       : power  :                   : 2.5V    : 7B        :                
+RESERVED_INPUT               : L13       :        :                   :         : 7B        :                
+GND                          : L14       : gnd    :                   :         :           :                
+VREFB7AN0                    : L15       : power  :                   :         : 7A        :                
+RESERVED_INPUT               : L16       :        :                   :         : 7A        :                
+GND                          : L17       : gnd    :                   :         :           :                
+VCCCB                        : L18       : power  :                   : 1.5V    :           :                
+VCCPD8A                      : L19       : power  :                   : 2.5V    : 8A        :                
+GND                          : L20       : gnd    :                   :         :           :                
+RESERVED_INPUT               : L21       :        :                   :         : 8A        :                
+RESERVED_INPUT               : L22       :        :                   :         : 8B        :                
+GND                          : L23       : gnd    :                   :         :           :                
+TCK                          : L24       : input  :                   :         : 8C        :                
+DCLK                         : L25       : bidir  :                   :         : 8C        :                
+GND                          : L26       : gnd    :                   :         :           :                
+VCCBAT                       : L27       : power  :                   : 2.5V    :           :                
+RESERVED_INPUT               : L28       :        :                   :         : 8B        :                
+GXB_GND*                     : L29       :        :                   :         : QL3       :                
+GXB_GND*                     : L30       :        :                   :         : QL3       :                
+GND                          : L31       : gnd    :                   :         :           :                
+GND                          : L32       : gnd    :                   :         :           :                
+GXB_GND*                     : L33       :        :                   :         : QL2       :                
+GXB_GND*                     : L34       :        :                   :         : QL2       :                
+HDMI_TX_PCSDA                : M1        : bidir  : 2.5 V             :         : 6A        : Y              
+RESERVED_INPUT               : M2        :        :                   :         : 6A        :                
+flash_cen                    : M3        : output : 2.5 V             :         : 6A        : Y              
+RESERVED_INPUT               : M4        :        :                   :         : 6A        :                
+RESERVED_INPUT               : M5        :        :                   :         : 6B        :                
+RESERVED_INPUT               : M6        :        :                   :         : 6B        :                
+lpci_ad[4]                   : M7        : bidir  : 3.0-V PCI         :         : 6B        : Y              
+lpci_ad[6]                   : M8        : bidir  : 3.0-V PCI         :         : 6B        : Y              
+lpci_ad[1]                   : M9        : bidir  : 3.0-V PCI         :         : 6B        : Y              
+lpci_ad[3]                   : M10       : bidir  : 3.0-V PCI         :         : 6B        : Y              
+VCCPD6B                      : M11       : power  :                   : 3.0V    : 6B        :                
+VREFB6BN0                    : M12       : power  :                   :         : 6B        :                
+RESERVED_INPUT               : M13       :        :                   :         : 7B        :                
+VCCPD7A                      : M14       : power  :                   : 2.5V    : 7A        :                
+VCCPD7A                      : M15       : power  :                   : 2.5V    : 7A        :                
+RESERVED_INPUT               : M16       :        :                   :         : 7A        :                
+RESERVED_INPUT               : M17       :        :                   :         : 7A        :                
+RESERVED_INPUT               : M18       :        :                   :         : 8A        :                
+VCCPD8A                      : M19       : power  :                   : 2.5V    : 8A        :                
+enet_resetn                  : M20       : output : 2.5 V             :         : 8A        : Y              
+RESERVED_INPUT               : M21       :        :                   :         : 8A        :                
+VCCPD8B                      : M22       : power  :                   : 2.5V    : 8B        :                
+VREFB8BN0                    : M23       : power  :                   :         : 8B        :                
+VCCPD8C                      : M24       : power  :                   : 2.5V    : 8C        :                
+TDI                          : M25       : input  :                   :         : 8C        :                
+nCSO                         : M26       :        :                   :         : 8C        :                
+TDO                          : M27       : output :                   :         : 8C        :                
+GND                          : M28       : gnd    :                   :         :           :                
+GND                          : M29       : gnd    :                   :         :           :                
+GND                          : M30       : gnd    :                   :         :           :                
+GXB_NC                       : M31       :        :                   :         : QL2       :                
+GXB_NC                       : M32       :        :                   :         : QL2       :                
+GND                          : M33       : gnd    :                   :         :           :                
+GND                          : M34       : gnd    :                   :         :           :                
+RESERVED_INPUT               : N1        :        :                   :         : 6A        :                
+RESERVED_INPUT               : N2        :        :                   :         : 6A        :                
+flash_resetn                 : N3        : output : 2.5 V             :         : 6A        : Y              
+flash_clk                    : N4        : output : 2.5 V             :         : 6A        : Y              
+RESERVED_INPUT               : N5        :        :                   :         : 6A        :                
+RESERVED_INPUT               : N6        :        :                   :         : 6A        :                
+RESERVED_INPUT               : N7        :        :                   :         : 6B        :                
+RESERVED_INPUT               : N8        :        :                   :         : 6B        :                
+RESERVED_INPUT               : N9        :        :                   :         : 6A        :                
+cpu_resetn                   : N10       : input  : 2.5 V             :         : 6A        : Y              
+VREFB6AN0                    : N11       : power  :                   :         : 6A        :                
+GND                          : N12       : gnd    :                   :         :           :                
+VCC                          : N13       : power  :                   : 0.9V    :           :                
+GND                          : N14       : gnd    :                   :         :           :                
+VCC                          : N15       : power  :                   : 0.9V    :           :                
+GND                          : N16       : gnd    :                   :         :           :                
+VCC                          : N17       : power  :                   : 0.9V    :           :                
+GND                          : N18       : gnd    :                   :         :           :                
+RESERVED_INPUT               : N19       :        :                   :         : 8A        :                
+RESERVED_INPUT               : N20       :        :                   :         : 8A        :                
+VCC                          : N21       : power  :                   : 0.9V    :           :                
+GND                          : N22       : gnd    :                   :         :           :                
+VCC                          : N23       : power  :                   : 0.9V    :           :                
+GND                          : N24       : gnd    :                   :         :           :                
+TMS                          : N25       : input  :                   :         : 8C        :                
+DATA0                        : N26       : input  :                   :         : 8C        :                
+GND                          : N27       : gnd    :                   :         :           :                
+VCCH_GXB                     : N28       : power  :                   : 1.5V    :           :                
+GXB_GND*                     : N29       :        :                   :         : QL3       :                
+GXB_GND*                     : N30       :        :                   :         : QL3       :                
+GND                          : N31       : gnd    :                   :         :           :                
+GND                          : N32       : gnd    :                   :         :           :                
+GXB_GND*                     : N33       :        :                   :         : QL2       :                
+GXB_GND*                     : N34       :        :                   :         : QL2       :                
+RESERVED_INPUT               : P1        :        :                   :         : 6A        :                
+GND                          : P2        : gnd    :                   :         :           :                
+VCCIO6A                      : P3        : power  :                   : 2.5V    : 6A        :                
+RESERVED_INPUT               : P4        :        :                   :         : 6A        :                
+GND                          : P5        : gnd    :                   :         :           :                
+RESERVED_INPUT               : P6        :        :                   :         : 6A        :                
+RESERVED_INPUT               : P7        :        :                   :         : 6A        :                
+GND                          : P8        : gnd    :                   :         :           :                
+RESERVED_INPUT               : P9        :        :                   :         : 6A        :                
+RESERVED_INPUT               : P10       :        :                   :         : 6A        :                
+GND                          : P11       : gnd    :                   :         :           :                
+VCC                          : P12       : power  :                   : 0.9V    :           :                
+GND                          : P13       : gnd    :                   :         :           :                
+VCC                          : P14       : power  :                   : 0.9V    :           :                
+GND                          : P15       : gnd    :                   :         :           :                
+VCC                          : P16       : power  :                   : 0.9V    :           :                
+GND                          : P17       : gnd    :                   :         :           :                
+VCC                          : P18       : power  :                   : 0.9V    :           :                
+GND                          : P19       : gnd    :                   :         :           :                
+VCC                          : P20       : power  :                   : 0.9V    :           :                
+GND                          : P21       : gnd    :                   :         :           :                
+VCC                          : P22       : power  :                   : 0.9V    :           :                
+GND                          : P23       : gnd    :                   :         :           :                
+VCC                          : P24       : power  :                   : 0.9V    :           :                
+GND                          : P25       : gnd    :                   :         :           :                
+GND                          : P26       : gnd    :                   :         :           :                
+VCCH_GXB                     : P27       : power  :                   : 1.5V    :           :                
+GND                          : P28       : gnd    :                   :         :           :                
+GND                          : P29       : gnd    :                   :         :           :                
+GND                          : P30       : gnd    :                   :         :           :                
+GXB_NC                       : P31       :        :                   :         : QL2       :                
+GXB_NC                       : P32       :        :                   :         : QL2       :                
+GND                          : P33       : gnd    :                   :         :           :                
+GND                          : P34       : gnd    :                   :         :           :                
+RESERVED_INPUT               : R1        :        :                   :         : 6A        :                
+HDMI_TX_BD[11]               : R2        : output : 2.5 V             :         : 6A        : Y              
+RESERVED_INPUT               : R3        :        :                   :         : 6A        :                
+RESERVED_INPUT               : R4        :        :                   :         : 6A        :                
+user_led[3]                  : R5        : output : 2.5 V             :         : 6A        : Y              
+HDMI_TX_PCSCL                : R6        : output : 2.5 V             :         : 6A        : Y              
+HDMI_TX_GD[1]                : R7        : output : 2.5 V             :         : 6A        : Y              
+RESERVED_INPUT               : R8        :        :                   :         : 6A        :                
+RESERVED_INPUT               : R9        :        :                   :         : 6A        :                
+RESERVED_INPUT               : R10       :        :                   :         : 6A        :                
+RESERVED_INPUT               : R11       :        :                   :         : 6A        :                
+VCCPD6A                      : R12       : power  :                   : 2.5V    : 6A        :                
+VCC                          : R13       : power  :                   : 0.9V    :           :                
+GND                          : R14       : gnd    :                   :         :           :                
+VCC                          : R15       : power  :                   : 0.9V    :           :                
+GND                          : R16       : gnd    :                   :         :           :                
+VCC                          : R17       : power  :                   : 0.9V    :           :                
+GND                          : R18       : gnd    :                   :         :           :                
+VCC                          : R19       : power  :                   : 0.9V    :           :                
+GND                          : R20       : gnd    :                   :         :           :                
+VCC                          : R21       : power  :                   : 0.9V    :           :                
+GND                          : R22       : gnd    :                   :         :           :                
+VCC                          : R23       : power  :                   : 0.9V    :           :                
+VCCA                         : R24       : power  :                   : 2.5V    :           :                
+VCCL_GXB                     : R25       : power  :                   : 1.1V    :           :                
+GND                          : R26       : gnd    :                   :         :           :                
+VCCL_GXB                     : R27       : power  :                   : 1.1V    :           :                
+GND                          : R28       : gnd    :                   :         :           :                
+GXB_GND*                     : R29       :        :                   :         : QL2       :                
+GXB_GND*                     : R30       :        :                   :         : QL2       :                
+GND                          : R31       : gnd    :                   :         :           :                
+GND                          : R32       : gnd    :                   :         :           :                
+GXB_GND*                     : R33       :        :                   :         : QL2       :                
+GXB_GND*                     : R34       :        :                   :         : QL2       :                
+RESERVED_INPUT               : T1        :        :                   :         : 6A        :                
+GND                          : T2        : gnd    :                   :         :           :                
+VCCIO6A                      : T3        : power  :                   : 2.5V    : 6A        :                
+flash_advn                   : T4        : output : 2.5 V             :         : 6A        : Y              
+GND                          : T5        : gnd    :                   :         :           :                
+VCCIO6A                      : T6        : power  :                   : 2.5V    : 6A        :                
+HDMI_TX_GD[0]                : T7        : output : 2.5 V             :         : 6A        : Y              
+GND                          : T8        : gnd    :                   :         :           :                
+VCCA_PLL_5                   : T9        : power  :                   : 2.5V    :           :                
+RESERVED_INPUT               : T10       :        :                   :         : 6A        :                
+GND                          : T11       : gnd    :                   :         :           :                
+VCCPD6A                      : T12       : power  :                   : 2.5V    : 6A        :                
+GND                          : T13       : gnd    :                   :         :           :                
+VCC                          : T14       : power  :                   : 0.9V    :           :                
+GND                          : T15       : gnd    :                   :         :           :                
+VCC                          : T16       : power  :                   : 0.9V    :           :                
+GND                          : T17       : gnd    :                   :         :           :                
+VCC                          : T18       : power  :                   : 0.9V    :           :                
+GND                          : T19       : gnd    :                   :         :           :                
+VCC                          : T20       : power  :                   : 0.9V    :           :                
+GND                          : T21       : gnd    :                   :         :           :                
+VCC                          : T22       : power  :                   : 0.9V    :           :                
+GND                          : T23       : gnd    :                   :         :           :                
+VCC                          : T24       : power  :                   : 0.9V    :           :                
+GND                          : T25       : gnd    :                   :         :           :                
+VCCL_GXB                     : T26       : power  :                   : 1.1V    :           :                
+GND                          : T27       : gnd    :                   :         :           :                
+VCCL_GXB                     : T28       : power  :                   : 1.1V    :           :                
+GND                          : T29       : gnd    :                   :         :           :                
+GND                          : T30       : gnd    :                   :         :           :                
+GXB_NC                       : T31       :        :                   :         : QL2       :                
+GXB_NC                       : T32       :        :                   :         : QL2       :                
+GND                          : T33       : gnd    :                   :         :           :                
+GND                          : T34       : gnd    :                   :         :           :                
+HDMI_TX_BD[7]                : U1        : output : 2.5 V             :         : 6A        : Y              
+HDMI_TX_BD[8]                : U2        : output : 2.5 V             :         : 6A        : Y              
+RESERVED_INPUT               : U3        :        :                   :         : 6A        :                
+RESERVED_INPUT               : U4        :        :                   :         : 6A        :                
+GND+                         : U5        :        :                   :         : 6A        :                
+GND+                         : U6        :        :                   :         : 6A        :                
+HDMI_TX_BD[0]                : U7        : output : 3.0-V PCI         :         : 5A        : Y              
+VCCD_PLL_5                   : U8        : power  :                   : 0.9V    :           :                
+RESERVED_INPUT               : U9        :        :                   :         : 6A        :                
+HDMI_TX_I2S[2]               : U10       : output : 2.5 V             :         : 6A        : Y              
+HDMI_TX_I2S[3]               : U11       : output : 2.5 V             :         : 6A        : Y              
+VCCCB                        : U12       : power  :                   : 1.5V    :           :                
+VCC                          : U13       : power  :                   : 0.9V    :           :                
+GND                          : U14       : gnd    :                   :         :           :                
+VCC                          : U15       : power  :                   : 0.9V    :           :                
+GND                          : U16       : gnd    :                   :         :           :                
+GND                          : U17       : gnd    :                   :         :           :                
+GND                          : U18       : gnd    :                   :         :           :                
+VCC                          : U19       : power  :                   : 0.9V    :           :                
+GND                          : U20       : gnd    :                   :         :           :                
+VCC                          : U21       : power  :                   : 0.9V    :           :                
+GND                          : U22       : gnd    :                   :         :           :                
+VCCCB                        : U23       : power  :                   : 1.5V    :           :                
+VCCA                         : U24       : power  :                   : 2.5V    :           :                
+VCCL_GXB                     : U25       : power  :                   : 1.1V    :           :                
+GND                          : U26       : gnd    :                   :         :           :                
+VCCL_GXB                     : U27       : power  :                   : 1.1V    :           :                
+GND                          : U28       : gnd    :                   :         :           :                
+GXB_GND*                     : U29       :        :                   :         : QL2       :                
+GXB_GND*                     : U30       :        :                   :         : QL2       :                
+GND                          : U31       : gnd    :                   :         :           :                
+GND                          : U32       : gnd    :                   :         :           :                
+GXB_GND*                     : U33       :        :                   :         : QL2       :                
+GXB_GND*                     : U34       :        :                   :         : QL2       :                
+HDMI_TX_I2S[1]               : V1        : output : 3.0-V PCI         :         : 5A        : Y              
+HDMI_TX_I2S[0]               : V2        : output : 3.0-V PCI         :         : 5A        : Y              
+RESERVED_INPUT               : V3        :        :                   :         : 5A        :                
+RESERVED_INPUT               : V4        :        :                   :         : 5A        :                
+lpci_clk                     : V5        : input  : 3.0-V PCI         :         : 5A        : Y              
+GND+                         : V6        :        :                   :         : 5A        :                
+HDMI_TX_DE                   : V7        : output : 3.0-V PCI         :         : 5A        : Y              
+VCCD_PLL_6                   : V8        : power  :                   : 0.9V    :           :                
+RESERVED_INPUT               : V9        :        :                   :         : 6A        :                
+HDMI_TX_SPDIF                : V10       : output : 3.0-V PCI         :         : 5A        : Y              
+RESERVED_INPUT               : V11       :        :                   :         : 5A        :                
+HDMI_TX_MCLK                 : V12       : output : 3.0-V PCI         :         : 5A        : Y              
+GND                          : V13       : gnd    :                   :         :           :                
+VCC                          : V14       : power  :                   : 0.9V    :           :                
+GND                          : V15       : gnd    :                   :         :           :                
+VCC                          : V16       : power  :                   : 0.9V    :           :                
+DNU                          : V17       :        :                   :         :           :                
+VCC                          : V18       : power  :                   : 0.9V    :           :                
+GND                          : V19       : gnd    :                   :         :           :                
+VCC                          : V20       : power  :                   : 0.9V    :           :                
+GND                          : V21       : gnd    :                   :         :           :                
+VCC                          : V22       : power  :                   : 0.9V    :           :                
+GND                          : V23       : gnd    :                   :         :           :                
+VCC                          : V24       : power  :                   : 0.9V    :           :                
+GND                          : V25       : gnd    :                   :         :           :                
+VCCL_GXB                     : V26       : power  :                   : 1.1V    :           :                
+GND                          : V27       : gnd    :                   :         :           :                
+VCCL_GXB                     : V28       : power  :                   : 1.1V    :           :                
+GND                          : V29       : gnd    :                   :         :           :                
+GND                          : V30       : gnd    :                   :         :           :                
+GXB_NC                       : V31       :        :                   :         : QL1       :                
+GXB_NC                       : V32       :        :                   :         : QL1       :                
+GND                          : V33       : gnd    :                   :         :           :                
+GND                          : V34       : gnd    :                   :         :           :                
+HDMI_TX_SCK                  : W1        : output : 3.0-V PCI         :         : 5A        : Y              
+GND                          : W2        : gnd    :                   :         :           :                
+HDMI_TX_BD[9]                : W3        : output : 3.0-V PCI         :         : 5A        : Y              
+HDMI_TX_BD[10]               : W4        : output : 3.0-V PCI         :         : 5A        : Y              
+GND                          : W5        : gnd    :                   :         :           :                
+HDMI_TX_GD[8]                : W6        : output : 3.0-V PCI         :         : 5A        : Y              
+HDMI_TX_GD[9]                : W7        : output : 3.0-V PCI         :         : 5A        : Y              
+GND                          : W8        : gnd    :                   :         :           :                
+VCCA_PLL_6                   : W9        : power  :                   : 2.5V    :           :                
+HDMI_TX_GD[3]                : W10       : output : 3.0-V PCI         :         : 5A        : Y              
+GND                          : W11       : gnd    :                   :         :           :                
+HDMI_TX_DCLK                 : W12       : output : 3.0-V PCI         :         : 5A        : Y              
+VCC                          : W13       : power  :                   : 0.9V    :           :                
+GND                          : W14       : gnd    :                   :         :           :                
+VCC                          : W15       : power  :                   : 0.9V    :           :                
+GND                          : W16       : gnd    :                   :         :           :                
+VCC                          : W17       : power  :                   : 0.9V    :           :                
+GND                          : W18       : gnd    :                   :         :           :                
+VCC                          : W19       : power  :                   : 0.9V    :           :                
+GND                          : W20       : gnd    :                   :         :           :                
+VCC                          : W21       : power  :                   : 0.9V    :           :                
+GND                          : W22       : gnd    :                   :         :           :                
+VCC                          : W23       : power  :                   : 0.9V    :           :                
+VCCA                         : W24       : power  :                   : 2.5V    :           :                
+VCCL_GXB                     : W25       : power  :                   : 1.1V    :           :                
+GND                          : W26       : gnd    :                   :         :           :                
+VCCL_GXB                     : W27       : power  :                   : 1.1V    :           :                
+GND                          : W28       : gnd    :                   :         :           :                
+GXB_GND*                     : W29       :        :                   :         : QL1       :                
+GXB_GND*                     : W30       :        :                   :         : QL1       :                
+GND                          : W31       : gnd    :                   :         :           :                
+GND                          : W32       : gnd    :                   :         :           :                
+GXB_GND*                     : W33       :        :                   :         : QL1       :                
+GXB_GND*                     : W34       :        :                   :         : QL1       :                
+RESERVED_INPUT               : Y1        :        :                   :         : 5A        :                
+HDMI_TX_PCLK                 : Y2        : output : 3.0-V PCI         :         : 5A        : Y              
+HDMI_TX_BD[5]                : Y3        : output : 3.0-V PCI         :         : 5A        : Y              
+HDMI_TX_BD[6]                : Y4        : output : 3.0-V PCI         :         : 5A        : Y              
+HDMI_TX_GD[7]                : Y5        : output : 3.0-V PCI         :         : 5A        : Y              
+HDMI_TX_GD[10]               : Y6        : output : 3.0-V PCI         :         : 5A        : Y              
+HDMI_TX_RD[4]                : Y7        : output : 3.0-V PCI         :         : 5A        : Y              
+HDMI_TX_RD[5]                : Y8        : output : 3.0-V PCI         :         : 5A        : Y              
+HDMI_TX_GD[2]                : Y9        : output : 3.0-V PCI         :         : 5A        : Y              
+HDMI_TX_RD[10]               : Y10       : output : 3.0-V PCI         :         : 5A        : Y              
+HDMI_TX_RD[11]               : Y11       : output : 3.0-V PCI         :         : 5A        : Y              
+VCCPD5A                      : Y12       : power  :                   : 3.0V    : 5A        :                
+GND                          : Y13       : gnd    :                   :         :           :                
+VCC                          : Y14       : power  :                   : 0.9V    :           :                
+GND                          : Y15       : gnd    :                   :         :           :                
+VCC                          : Y16       : power  :                   : 0.9V    :           :                
+GND                          : Y17       : gnd    :                   :         :           :                
+VCC                          : Y18       : power  :                   : 0.9V    :           :                
+GND                          : Y19       : gnd    :                   :         :           :                
+VCC                          : Y20       : power  :                   : 0.9V    :           :                
+GND                          : Y21       : gnd    :                   :         :           :                
+VCC                          : Y22       : power  :                   : 0.9V    :           :                
+GND                          : Y23       : gnd    :                   :         :           :                
+VCC                          : Y24       : power  :                   : 0.9V    :           :                
+GND                          : Y25       : gnd    :                   :         :           :                
+VCCL_GXB                     : Y26       : power  :                   : 1.1V    :           :                
+GND                          : Y27       : gnd    :                   :         :           :                
+VCCL_GXB                     : Y28       : power  :                   : 1.1V    :           :                
+GND                          : Y29       : gnd    :                   :         :           :                
+GND                          : Y30       : gnd    :                   :         :           :                
+GXB_NC                       : Y31       :        :                   :         : QL1       :                
+GXB_NC                       : Y32       :        :                   :         : QL1       :                
+GND                          : Y33       : gnd    :                   :         :           :                
+GND                          : Y34       : gnd    :                   :         :           :                
