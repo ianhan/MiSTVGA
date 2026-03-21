@@ -1,7 +1,7 @@
 # MiST VGA
 
-This is a speedrun port of the VGA core written by Aleksander Osman and updated by the MiSTer dev team from `ao486_Mister`, adapted to run on an Arria II GX development kit with a PCI target front end.
-The original `ao486` VGA IP expected an Avalon-like host-side interface. This is driven by [`rtl/pci_vga_bridge.sv`](rtl/pci_vga_bridge.sv), which translates PCI target transactions into the original VGA I/O and VGA memory accesses.
+This is a speedrun port of the VGA core written by [Aleksander Osman](https://github.com/alfikpl) and updated by the MiSTer dev team from [`ao486_Mister`](https://github.com/MiSTer-devel/ao486_MiSTer/), adapted to run on an Arria II GX development kit with a PCI target front end.
+The original [`ao486`](https://github.com/alfikpl/ao486) VGA IP expected an Avalon-like host-side interface. This is driven by [`rtl/pci_vga_bridge.sv`](rtl/pci_vga_bridge.sv), which translates PCI target transactions into the original VGA I/O and VGA memory accesses.
 
 <p align="center">
   <img src="quake.gif" alt="Quake demo">
