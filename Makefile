@@ -1,16 +1,24 @@
-# MiST VGA — ao486/MiSTer VGA core wrapped for simulation and A2GX hardware
+# MiST VGA — ao486/MiSTer VGA core wrapped for simulation and FPGA hardware
 #
 # Targets:
-#   sim       — build and run Verilator simulation
-#   a2gx      — synthesize for Arria II GX development kit (requires Quartus)
-#   prog      — program the A2GX board via JTAG
-#   lint      — Verilator lint check on A2GX wrapper
-#   clean     — remove build artifacts
+#   sim             — build and run Verilator simulation
+#   a2gx            — synthesize for Arria II GX development kit (requires Quartus)
+#   a2gx prog       — program the A2GX board via JTAG
+#   a2gx sta        — run A2GX static timing analysis
+#   a2gx lint       — Verilator lint check on A2GX wrapper
+#   a2gx clean      — remove A2GX build artifacts
+#   clean           — remove sim and FPGA build artifacts
 
-A2GX_PROJECT_DIR = fpga
-A2GX_PROJECT = a2gx_mistvga
-A2GX_BUILD_DIR = build
-A2GX_SOF = $(A2GX_BUILD_DIR)/$(A2GX_PROJECT).sof
+FPGA_TARGETS := a2gx
+FPGA_COMMANDS := build prog sta lint clean
+SELECTED_FPGA := $(firstword $(filter $(FPGA_TARGETS),$(MAKECMDGOALS)))
+FPGA_COMMAND_GOALS := $(filter $(FPGA_COMMANDS),$(filter-out $(FPGA_TARGETS),$(MAKECMDGOALS)))
+FPGA_COMMAND_EXAMPLE := $(if $(FPGA_COMMAND_GOALS),$(FPGA_COMMAND_GOALS),build)
+
+A2GX_PROJECT_DIR := fpga/a2gx
+A2GX_PROJECT := a2gx_mistvga
+A2GX_BUILD_DIR := build/a2gx
+A2GX_SOF := $(A2GX_BUILD_DIR)/$(A2GX_PROJECT).sof
 
 A2GX_RTL_SOURCES = \
 	rtl/a2gx_mistvga_top.sv \
@@ -28,34 +36,61 @@ A2GX_PROJECT_FILES = \
 	$(A2GX_PROJECT_DIR)/$(A2GX_PROJECT).qsf \
 	$(A2GX_PROJECT_DIR)/$(A2GX_PROJECT).sdc
 
-ROMHEX = $(A2GX_PROJECT_DIR)/boot1.hex
+A2GX_ROMHEX := $(A2GX_PROJECT_DIR)/boot1.hex
 
-.PHONY: all sim a2gx prog lint sta clean
+ifeq ($(SELECTED_FPGA),a2gx)
+FPGA_PROJECT_DIR := $(A2GX_PROJECT_DIR)
+FPGA_PROJECT := $(A2GX_PROJECT)
+FPGA_SOF := $(A2GX_SOF)
+endif
+
+.PHONY: all sim $(FPGA_TARGETS) build prog lint sta clean clean-a2gx require-fpga
 
 all: sim
 
 sim:
 	$(MAKE) -C sim
 
-a2gx: $(A2GX_SOF)
+ifeq ($(FPGA_COMMAND_GOALS),)
+a2gx: build
+else
+a2gx:
+	@:
+endif
 
-$(ROMHEX): vgabios/boot1.rom vgabios/patch_rom.py
-	python3 vgabios/patch_rom.py vgabios/boot1.rom $(ROMHEX)
+build: require-fpga $(FPGA_SOF)
 
-$(A2GX_SOF): $(A2GX_PROJECT_FILES) $(A2GX_RTL_SOURCES) $(ROMHEX)
+require-fpga:
+	@if [ -z "$(SELECTED_FPGA)" ]; then \
+		echo "Select an FPGA target, for example: make a2gx $(FPGA_COMMAND_EXAMPLE)"; \
+		exit 2; \
+	fi
+
+$(A2GX_ROMHEX): vgabios/boot1.rom vgabios/patch_rom.py
+	python3 vgabios/patch_rom.py vgabios/boot1.rom $(A2GX_ROMHEX)
+
+$(A2GX_SOF): $(A2GX_PROJECT_FILES) $(A2GX_RTL_SOURCES) $(A2GX_ROMHEX)
 	cd $(A2GX_PROJECT_DIR) && quartus_sh --flow compile $(A2GX_PROJECT)
 
-prog: $(A2GX_SOF)
-	quartus_pgm -m jtag -o "p;$(A2GX_SOF)" -c 1
+prog: require-fpga $(FPGA_SOF)
+	quartus_pgm -m jtag -o "p;$(FPGA_SOF)" -c 1
 
-sta:
-	cd $(A2GX_PROJECT_DIR) && quartus_sta $(A2GX_PROJECT)
+sta: require-fpga
+	cd $(FPGA_PROJECT_DIR) && quartus_sta $(FPGA_PROJECT)
 
-lint:
-	$(MAKE) -C sim lint-a2gx
+lint: require-fpga
+	$(MAKE) -C sim lint-$(SELECTED_FPGA)
 
+ifeq ($(SELECTED_FPGA),a2gx)
+clean: clean-a2gx
+else
 clean:
 	$(MAKE) -C sim clean
+	$(MAKE) clean-a2gx
+	rm -rf build
+endif
+
+clean-a2gx:
 	rm -rf $(A2GX_BUILD_DIR)
 	rm -rf $(A2GX_PROJECT_DIR)/db $(A2GX_PROJECT_DIR)/incremental_db
 	rm -rf $(A2GX_PROJECT_DIR)/*.rpt $(A2GX_PROJECT_DIR)/*.summary
