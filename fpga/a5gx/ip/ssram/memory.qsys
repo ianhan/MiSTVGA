@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<system name="$${FILENAME}">
+ <component
+   name="$${FILENAME}"
+   displayName="$${FILENAME}"
+   version="1.0"
+   description=""
+   tags=""
+   categories="System" />
+ <parameter name="bonusData"><![CDATA[bonusData 
+{
+   element bridge_0
+   {
+      datum _sortIndex
+      {
+         value = "6";
+         type = "int";
+      }
+   }
+   element clk_0
+   {
+      datum _sortIndex
+      {
+         value = "0";
+         type = "int";
+      }
+   }
+   element ext_flash
+   {
+      datum _sortIndex
+      {
+         value = "5";
+         type = "int";
+      }
+   }
+   element ext_flash.uas
+   {
+      datum baseAddress
+      {
+         value = "33554432";
+         type = "String";
+      }
+   }
+   element flash_tristate_bridge_bridge_0
+   {
+      datum _sortIndex
+      {
+         value = "1";
+         type = "int";
+      }
+   }
+   element flash_tristate_bridge_pinSharer_0
+   {
+      datum _sortIndex
+      {
+         value = "2";
+         type = "int";
+      }
+   }
+   element max2_inf
+   {
+      datum _sortIndex
+      {
+         value = "4";
+         type = "int";
+      }
+   }
+   element max2_inf.uas
+   {
+      datum baseAddress
+      {
+         value = "2097152";
+         type = "String";
+      }
+   }
+   element ssram
+   {
+      datum _sortIndex
+      {
+         value = "3";
+         type = "int";
+      }
+   }
+   element ssram.uas
+   {
+      datum baseAddress
+      {
+         value = "268435456";
+         type = "String";
+      }
+   }
+   element tse_mac
+   {
+      datum _sortIndex
+      {
+         value = "20";
+         type = "int";
+      }
+      datum megawizard_uipreferences
+      {
+         value = "{output_language=VHDL, output_directory=D:\\My_111\\RegressionTest_11_1\\arria2gx\\timing\\bts_config}";
+         type = "String";
+      }
+   }
+}
+]]></parameter>
+ <parameter name="clockCrossingAdapter" value="FIFO" />
+ <parameter name="device" value="5AGXFB3H4F35C4" />
+ <parameter name="deviceFamily" value="Arria V" />
+ <parameter name="deviceSpeedGrade" value="4_H4" />
+ <parameter name="fabricMode" value="QSYS" />
+ <parameter name="generateLegacySim" value="false" />
+ <parameter name="generationId" value="0" />
+ <parameter name="globalResetBus" value="false" />
+ <parameter name="hdlLanguage" value="VHDL" />
+ <parameter name="hideFromIPCatalog" value="false" />
+ <parameter name="lockedInterfaceDefinition" value="" />
+ <parameter name="maxAdditionalLatency" value="4" />
+ <parameter name="projectName">a5gx_starter_golden_top.qpf</parameter>
+ <parameter name="sopcBorderPoints" value="false" />
+ <parameter name="systemHash" value="0" />
+ <parameter name="testBenchDutName" value="" />
+ <parameter name="timeStamp" value="0" />
+ <parameter name="useTestBenchNamingPattern" value="false" />
+ <instanceScript></instanceScript>
+ <interface
+   name="bridge_0_external_interface"
+   internal="bridge_0.external_interface"
+   type="conduit"
+   dir="end" />
+ <interface name="clk_0_clk_in" internal="clk_0.clk_in" type="clock" dir="end">
+  <port name="clk_0" internal="in_clk" />
+ </interface>
+ <interface
+   name="clk_0_clk_in_reset"
+   internal="clk_0.clk_in_reset"
+   type="reset"
+   dir="end">
+  <port name="reset_n" internal="reset_n" />
+ </interface>
+ <interface
+   name="flash_tristate_bridge_bridge_0_out"
+   internal="flash_tristate_bridge_bridge_0.out"
+   type="conduit"
+   dir="end">
+  <port name="bwe_n_to_the_ssram" internal="bwe_n_to_the_ssram" />
+  <port name="adsc_n_to_the_max2_inf" internal="adsc_n_to_the_max2_inf" />
+  <port name="adsc_n_to_the_ssram" internal="adsc_n_to_the_ssram" />
+  <port
+     name="chipenable1_n_to_the_max2_inf"
+     internal="chipenable1_n_to_the_max2_inf" />
+  <port name="reset_n_to_the_ssram" internal="reset_n_to_the_ssram" />
+  <port name="write_n_to_the_ext_flash" internal="write_n_to_the_ext_flash" />
+  <port name="select_n_to_the_ext_flash" internal="select_n_to_the_ext_flash" />
+  <port
+     name="flash_tristate_bridge_address"
+     internal="flash_tristate_bridge_address" />
+  <port
+     name="flash_tristate_bridge_data"
+     internal="flash_tristate_bridge_data" />
+  <port name="reset_n_to_the_max2_inf" internal="reset_n_to_the_max2_inf" />
+  <port
+     name="outputenable_n_to_the_max2_inf"
+     internal="outputenable_n_to_the_max2_inf" />
+  <port name="bw_n_to_the_ssram" internal="bw_n_to_the_ssram" />
+  <port name="bw_n_to_the_max2_inf" internal="bw_n_to_the_max2_inf" />
+  <port name="bwe_n_to_the_max2_inf" internal="bwe_n_to_the_max2_inf" />
+  <port name="read_n_to_the_ext_flash" internal="read_n_to_the_ext_flash" />
+  <port
+     name="outputenable_n_to_the_ssram"
+     internal="outputenable_n_to_the_ssram" />
+  <port
+     name="chipenable1_n_to_the_ssram"
+     internal="chipenable1_n_to_the_ssram" />
+ </interface>
+ <module
+   name="bridge_0"
+   kind="altera_up_external_bus_to_avalon_bridge"
+   version="18.0"
+   enabled="1">
+  <parameter name="AUTO_CLK_CLOCK_RATE" value="100000000" />
+  <parameter name="AUTO_DEVICE_FAMILY" value="Arria V" />
+  <parameter name="addr_size" value="1024" />
+  <parameter name="addr_size_multiplier" value="Mbytes" />
+  <parameter name="data_size" value="128" />
+ </module>
+ <module name="clk_0" kind="clock_source" version="20.1" enabled="1">
+  <parameter name="clockFrequency" value="100000000" />
+  <parameter name="clockFrequencyKnown" value="true" />
+  <parameter name="inputClockFrequency" value="0" />
+  <parameter name="resetSynchronousEdges" value="NONE" />
+ </module>
+ <module
+   name="ext_flash"
+   kind="altera_generic_tristate_controller"
+   version="20.1"
+   enabled="1">
+  <parameter name="ACTIVE_LOW_BEGINTRANSFER" value="0" />
+  <parameter name="ACTIVE_LOW_BYTEENABLE" value="0" />
+  <parameter name="ACTIVE_LOW_CHIPSELECT" value="1" />
+  <parameter name="ACTIVE_LOW_IRQ" value="0" />
+  <parameter name="ACTIVE_LOW_LOCK" value="0" />
+  <parameter name="ACTIVE_LOW_OUTPUTENABLE" value="0" />
+  <parameter name="ACTIVE_LOW_READ" value="1" />
+  <parameter name="ACTIVE_LOW_RESETREQUEST" value="0" />
+  <parameter name="ACTIVE_LOW_RESET_OUTPUT" value="0" />
+  <parameter name="ACTIVE_LOW_WAITREQUEST" value="0" />
+  <parameter name="ACTIVE_LOW_WRITE" value="1" />
+  <parameter name="ACTIVE_LOW_WRITEBYTEENABLE" value="0" />
+  <parameter name="AUTO_CLK_CLOCK_DOMAIN" value="1" />
+  <parameter name="AUTO_CLK_RESET_DOMAIN" value="1" />
+  <parameter name="AUTO_DEVICE" value="5AGXFB3H4F35C4" />
+  <parameter name="AUTO_DEVICE_FAMILY" value="Arria V" />
+  <parameter name="AUTO_DEVICE_SPEEDGRADE" value="4_H4" />
+  <parameter name="CHIPSELECT_THROUGH_READLATENCY" value="0" />
+  <parameter name="INTERFACE_ASSIGNMENT_KEYS">embeddedsw.configuration.isFlash,embeddedsw.configuration.isMemoryDevice,embeddedsw.configuration.isNonVolatileStorage</parameter>
+  <parameter name="INTERFACE_ASSIGNMENT_VALUES" value="1,1,1" />
+  <parameter name="IS_MEMORY_DEVICE" value="1" />
+  <parameter name="MODULE_ASSIGNMENT_KEYS">embeddedsw.configuration.hwClassnameDriverSupportList,embeddedsw.configuration.hwClassnameDriverSupportDefault,embeddedsw.CMacro.SETUP_VALUE,embeddedsw.CMacro.WAIT_VALUE,embeddedsw.CMacro.HOLD_VALUE,embeddedsw.CMacro.TIMING_UNITS,embeddedsw.CMacro.SIZE,embeddedsw.memoryInfo.MEM_INIT_DATA_WIDTH,embeddedsw.memoryInfo.HAS_BYTE_LANE,embeddedsw.memoryInfo.IS_FLASH,embeddedsw.memoryInfo.GENERATE_DAT_SYM,embeddedsw.memoryInfo.GENERATE_FLASH,embeddedsw.memoryInfo.DAT_SYM_INSTALL_DIR,embeddedsw.memoryInfo.FLASH_INSTALL_DIR</parameter>
+  <parameter name="MODULE_ASSIGNMENT_VALUES">altera_avalon_lan91c111:altera_avalon_cfi_flash,altera_avalon_cfi_flash,25,100,20,"ns",33554432u,16,1,1,1,1,SIM_DIR,APP_DIR</parameter>
+  <parameter name="TCM_ADDRESS_W" value="25" />
+  <parameter name="TCM_BYTEENABLE_W" value="2" />
+  <parameter name="TCM_DATA_HOLD" value="20" />
+  <parameter name="TCM_DATA_W" value="16" />
+  <parameter name="TCM_MAX_PENDING_READ_TRANSACTIONS" value="3" />
+  <parameter name="TCM_READLATENCY" value="2" />
+  <parameter name="TCM_READ_WAIT" value="100" />
+  <parameter name="TCM_SETUP_WAIT" value="25" />
+  <parameter name="TCM_SYMBOLS_PER_WORD" value="2" />
+  <parameter name="TCM_TIMING_UNITS" value="0" />
+  <parameter name="TCM_TURNAROUND_TIME" value="2" />
+  <parameter name="TCM_WRITE_WAIT" value="100" />
+  <parameter name="USE_ADDRESS" value="1" />
+  <parameter name="USE_BEGINTRANSFER" value="0" />
+  <parameter name="USE_BYTEENABLE" value="0" />
+  <parameter name="USE_CHIPSELECT" value="1" />
+  <parameter name="USE_IRQ" value="0" />
+  <parameter name="USE_LOCK" value="0" />
+  <parameter name="USE_OUTPUTENABLE" value="0" />
+  <parameter name="USE_READ" value="1" />
+  <parameter name="USE_READDATA" value="1" />
+  <parameter name="USE_RESETREQUEST" value="0" />
+  <parameter name="USE_RESET_OUTPUT" value="0" />
+  <parameter name="USE_WAITREQUEST" value="0" />
+  <parameter name="USE_WRITE" value="1" />
+  <parameter name="USE_WRITEBYTEENABLE" value="0" />
+  <parameter name="USE_WRITEDATA" value="1" />
+ </module>
+ <module
+   name="flash_tristate_bridge_bridge_0"
+   kind="altera_tristate_conduit_bridge"
+   version="20.1"
+   enabled="1">
+  <parameter name="INTERFACE_INFO"><![CDATA[<info><slave name="tcs"><master name="flash_tristate_bridge_pinSharer_0.tcm"><pin role="" width="1" type="Invalid" output_name="" output_enable_name="" input_name="" /><pin role="read_n_to_the_ext_flash" width="1" type="Output" output_name="read_n_to_the_ext_flash" output_enable_name="" input_name="" /><pin role="write_n_to_the_ext_flash" width="1" type="Output" output_name="write_n_to_the_ext_flash" output_enable_name="" input_name="" /><pin role="select_n_to_the_ext_flash" width="1" type="Output" output_name="select_n_to_the_ext_flash" output_enable_name="" input_name="" /><pin role="chipenable1_n_to_the_max2_inf" width="1" type="Output" output_name="chipenable1_n_to_the_max2_inf" output_enable_name="" input_name="" /><pin role="bw_n_to_the_max2_inf" width="4" type="Output" output_name="bw_n_to_the_max2_inf" output_enable_name="" input_name="" /><pin role="outputenable_n_to_the_max2_inf" width="1" type="Output" output_name="outputenable_n_to_the_max2_inf" output_enable_name="" input_name="" /><pin role="bwe_n_to_the_max2_inf" width="1" type="Output" output_name="bwe_n_to_the_max2_inf" output_enable_name="" input_name="" /><pin role="reset_n_to_the_max2_inf" width="1" type="Output" output_name="reset_n_to_the_max2_inf" output_enable_name="" input_name="" /><pin role="adsc_n_to_the_max2_inf" width="1" type="Output" output_name="adsc_n_to_the_max2_inf" output_enable_name="" input_name="" /><pin role="chipenable1_n_to_the_ssram" width="1" type="Output" output_name="chipenable1_n_to_the_ssram" output_enable_name="" input_name="" /><pin role="bw_n_to_the_ssram" width="4" type="Output" output_name="bw_n_to_the_ssram" output_enable_name="" input_name="" /><pin role="outputenable_n_to_the_ssram" width="1" type="Output" output_name="outputenable_n_to_the_ssram" output_enable_name="" input_name="" /><pin role="bwe_n_to_the_ssram" width="1" type="Output" output_name="bwe_n_to_the_ssram" output_enable_name="" input_name="" /><pin role="flash_tristate_bridge_data" width="32" type="Bidirectional" output_name="flash_tristate_bridge_data" output_enable_name="flash_tristate_bridge_data_outen" input_name="flash_tristate_bridge_data_in" /><pin role="flash_tristate_bridge_address" width="25" type="Output" output_name="flash_tristate_bridge_address" output_enable_name="" input_name="" /><pin role="reset_n_to_the_ssram" width="1" type="Output" output_name="reset_n_to_the_ssram" output_enable_name="" input_name="" /><pin role="adsc_n_to_the_ssram" width="1" type="Output" output_name="adsc_n_to_the_ssram" output_enable_name="" input_name="" /></master></slave></info>]]></parameter>
+ </module>
+ <module
+   name="flash_tristate_bridge_pinSharer_0"
+   kind="altera_tristate_conduit_pin_sharer"
+   version="20.1"
+   enabled="1">
+  <parameter name="AUTO_CLK_CLOCK_DOMAIN" value="1" />
+  <parameter name="AUTO_CLK_CLOCK_RATE" value="100000000" />
+  <parameter name="AUTO_CLK_RESET_DOMAIN" value="1" />
+  <parameter name="AUTO_DEVICE" value="5AGXFB3H4F35C4" />
+  <parameter name="AUTO_DEVICE_FAMILY" value="Arria V" />
+  <parameter name="AUTO_DEVICE_SPEEDGRADE" value="4_H4" />
+  <parameter name="INTERFACE_INFO"><![CDATA[<info><slave name="tcs0"><master name="ssram.tcm"><pin role="write_n" width="1" type="Output" output_name="tcm_write_n_out" output_enable_name="" input_name="" /><pin role="begintransfer_n" width="1" type="Output" output_name="tcm_begintransfer_n_out" output_enable_name="" input_name="" /><pin role="chipselect_n" width="1" type="Output" output_name="tcm_chipselect_n_out" output_enable_name="" input_name="" /><pin role="outputenable_n" width="1" type="Output" output_name="tcm_outputenable_n_out" output_enable_name="" input_name="" /><pin role="reset_n" width="1" type="Output" output_name="tcm_reset_n_out" output_enable_name="" input_name="" /><pin role="" width="1" type="Invalid" output_name="" output_enable_name="" input_name="" /><pin role="address" width="21" type="Output" output_name="tcm_address_out" output_enable_name="" input_name="" /><pin role="byteenable_n" width="4" type="Output" output_name="tcm_byteenable_n_out" output_enable_name="" input_name="" /><pin role="data" width="32" type="Bidirectional" output_name="tcm_data_out" output_enable_name="tcm_data_outen" input_name="tcm_data_in" /></master></slave><slave name="tcs1"><master name="max2_inf.tcm"><pin role="write_n" width="1" type="Output" output_name="tcm_write_n_out" output_enable_name="" input_name="" /><pin role="begintransfer_n" width="1" type="Output" output_name="tcm_begintransfer_n_out" output_enable_name="" input_name="" /><pin role="chipselect_n" width="1" type="Output" output_name="tcm_chipselect_n_out" output_enable_name="" input_name="" /><pin role="outputenable_n" width="1" type="Output" output_name="tcm_outputenable_n_out" output_enable_name="" input_name="" /><pin role="reset_n" width="1" type="Output" output_name="tcm_reset_n_out" output_enable_name="" input_name="" /><pin role="" width="1" type="Invalid" output_name="" output_enable_name="" input_name="" /><pin role="address" width="20" type="Output" output_name="tcm_address_out" output_enable_name="" input_name="" /><pin role="byteenable_n" width="4" type="Output" output_name="tcm_byteenable_n_out" output_enable_name="" input_name="" /><pin role="data" width="32" type="Bidirectional" output_name="tcm_data_out" output_enable_name="tcm_data_outen" input_name="tcm_data_in" /></master></slave><slave name="tcs2"><master name="ext_flash.tcm"><pin role="write_n" width="1" type="Output" output_name="tcm_write_n_out" output_enable_name="" input_name="" /><pin role="read_n" width="1" type="Output" output_name="tcm_read_n_out" output_enable_name="" input_name="" /><pin role="chipselect_n" width="1" type="Output" output_name="tcm_chipselect_n_out" output_enable_name="" input_name="" /><pin role="" width="1" type="Invalid" output_name="" output_enable_name="" input_name="" /><pin role="address" width="25" type="Output" output_name="tcm_address_out" output_enable_name="" input_name="" /><pin role="data" width="16" type="Bidirectional" output_name="tcm_data_out" output_enable_name="tcm_data_outen" input_name="tcm_data_in" /></master></slave></info>]]></parameter>
+  <parameter name="MODULE_ORIGIN_LIST">ext_flash.tcm,ext_flash.tcm,ext_flash.tcm,ext_flash.tcm,ext_flash.tcm,max2_inf.tcm,max2_inf.tcm,max2_inf.tcm,max2_inf.tcm,max2_inf.tcm,max2_inf.tcm,max2_inf.tcm,max2_inf.tcm,ssram.tcm,ssram.tcm,ssram.tcm,ssram.tcm,ssram.tcm,ssram.tcm,ssram.tcm,ssram.tcm</parameter>
+  <parameter name="NUM_INTERFACES" value="3" />
+  <parameter name="SHARED_SIGNAL_LIST">flash_tristate_bridge_address,read_n_to_the_ext_flash,write_n_to_the_ext_flash,flash_tristate_bridge_data,select_n_to_the_ext_flash,chipenable1_n_to_the_max2_inf,bw_n_to_the_max2_inf,outputenable_n_to_the_max2_inf,bwe_n_to_the_max2_inf,flash_tristate_bridge_data,flash_tristate_bridge_address,reset_n_to_the_max2_inf,adsc_n_to_the_max2_inf,chipenable1_n_to_the_ssram,bw_n_to_the_ssram,outputenable_n_to_the_ssram,bwe_n_to_the_ssram,flash_tristate_bridge_data,flash_tristate_bridge_address,reset_n_to_the_ssram,adsc_n_to_the_ssram</parameter>
+  <parameter name="SIGNAL_ORIGIN_LIST">address,read_n,write_n,data,chipselect_n,chipselect_n,byteenable_n,outputenable_n,write_n,data,address,reset_n,begintransfer_n,chipselect_n,byteenable_n,outputenable_n,write_n,data,address,reset_n,begintransfer_n</parameter>
+ </module>
+ <module
+   name="max2_inf"
+   kind="altera_generic_tristate_controller"
+   version="20.1"
+   enabled="1">
+  <parameter name="ACTIVE_LOW_BEGINTRANSFER" value="1" />
+  <parameter name="ACTIVE_LOW_BYTEENABLE" value="1" />
+  <parameter name="ACTIVE_LOW_CHIPSELECT" value="1" />
+  <parameter name="ACTIVE_LOW_IRQ" value="0" />
+  <parameter name="ACTIVE_LOW_LOCK" value="0" />
+  <parameter name="ACTIVE_LOW_OUTPUTENABLE" value="1" />
+  <parameter name="ACTIVE_LOW_READ" value="0" />
+  <parameter name="ACTIVE_LOW_RESETREQUEST" value="0" />
+  <parameter name="ACTIVE_LOW_RESET_OUTPUT" value="1" />
+  <parameter name="ACTIVE_LOW_WAITREQUEST" value="0" />
+  <parameter name="ACTIVE_LOW_WRITE" value="1" />
+  <parameter name="ACTIVE_LOW_WRITEBYTEENABLE" value="0" />
+  <parameter name="AUTO_CLK_CLOCK_DOMAIN" value="1" />
+  <parameter name="AUTO_CLK_RESET_DOMAIN" value="1" />
+  <parameter name="AUTO_DEVICE" value="5AGXFB3H4F35C4" />
+  <parameter name="AUTO_DEVICE_FAMILY" value="Arria V" />
+  <parameter name="AUTO_DEVICE_SPEEDGRADE" value="4_H4" />
+  <parameter name="CHIPSELECT_THROUGH_READLATENCY" value="1" />
+  <parameter name="INTERFACE_ASSIGNMENT_KEYS">embeddedsw.configuration.isMemoryDevice</parameter>
+  <parameter name="INTERFACE_ASSIGNMENT_VALUES" value="1" />
+  <parameter name="IS_MEMORY_DEVICE" value="1" />
+  <parameter name="MODULE_ASSIGNMENT_KEYS">embeddedsw.configuration.hwClassnameDriverSupportList,embeddedsw.CMacro.SRAM_MEMORY_SIZE,embeddedsw.CMacro.SRAM_MEMORY_UNITS,embeddedsw.CMacro.SSRAM_DATA_WIDTH,embeddedsw.CMacro.SSRAM_READ_LATENCY,embeddedsw.memoryInfo.MEM_INIT_DATA_WIDTH,embeddedsw.memoryInfo.HAS_BYTE_LANE,embeddedsw.memoryInfo.GENERATE_DAT_SYM,embeddedsw.memoryInfo.DAT_SYM_INSTALL_DIR</parameter>
+  <parameter name="MODULE_ASSIGNMENT_VALUES">altera_avalon_lan91c111:altera_avalon_cfi_flash,1,1048576,32,2,32,1,1,SIM_DIR</parameter>
+  <parameter name="TCM_ADDRESS_W" value="20" />
+  <parameter name="TCM_BYTEENABLE_W" value="4" />
+  <parameter name="TCM_DATA_HOLD" value="0" />
+  <parameter name="TCM_DATA_W" value="32" />
+  <parameter name="TCM_MAX_PENDING_READ_TRANSACTIONS" value="5" />
+  <parameter name="TCM_READLATENCY" value="4" />
+  <parameter name="TCM_READ_WAIT" value="0" />
+  <parameter name="TCM_SETUP_WAIT" value="0" />
+  <parameter name="TCM_SYMBOLS_PER_WORD" value="4" />
+  <parameter name="TCM_TIMING_UNITS" value="1" />
+  <parameter name="TCM_TURNAROUND_TIME" value="2" />
+  <parameter name="TCM_WRITE_WAIT" value="0" />
+  <parameter name="USE_ADDRESS" value="1" />
+  <parameter name="USE_BEGINTRANSFER" value="1" />
+  <parameter name="USE_BYTEENABLE" value="1" />
+  <parameter name="USE_CHIPSELECT" value="1" />
+  <parameter name="USE_IRQ" value="0" />
+  <parameter name="USE_LOCK" value="0" />
+  <parameter name="USE_OUTPUTENABLE" value="1" />
+  <parameter name="USE_READ" value="0" />
+  <parameter name="USE_READDATA" value="1" />
+  <parameter name="USE_RESETREQUEST" value="0" />
+  <parameter name="USE_RESET_OUTPUT" value="1" />
+  <parameter name="USE_WAITREQUEST" value="0" />
+  <parameter name="USE_WRITE" value="1" />
+  <parameter name="USE_WRITEBYTEENABLE" value="0" />
+  <parameter name="USE_WRITEDATA" value="1" />
+ </module>
+ <module
+   name="ssram"
+   kind="altera_generic_tristate_controller"
+   version="20.1"
+   enabled="1">
+  <parameter name="ACTIVE_LOW_BEGINTRANSFER" value="1" />
+  <parameter name="ACTIVE_LOW_BYTEENABLE" value="1" />
+  <parameter name="ACTIVE_LOW_CHIPSELECT" value="1" />
+  <parameter name="ACTIVE_LOW_IRQ" value="0" />
+  <parameter name="ACTIVE_LOW_LOCK" value="0" />
+  <parameter name="ACTIVE_LOW_OUTPUTENABLE" value="1" />
+  <parameter name="ACTIVE_LOW_READ" value="0" />
+  <parameter name="ACTIVE_LOW_RESETREQUEST" value="0" />
+  <parameter name="ACTIVE_LOW_RESET_OUTPUT" value="1" />
+  <parameter name="ACTIVE_LOW_WAITREQUEST" value="0" />
+  <parameter name="ACTIVE_LOW_WRITE" value="1" />
+  <parameter name="ACTIVE_LOW_WRITEBYTEENABLE" value="0" />
+  <parameter name="AUTO_CLK_CLOCK_DOMAIN" value="1" />
+  <parameter name="AUTO_CLK_RESET_DOMAIN" value="1" />
+  <parameter name="AUTO_DEVICE" value="5AGXFB3H4F35C4" />
+  <parameter name="AUTO_DEVICE_FAMILY" value="Arria V" />
+  <parameter name="AUTO_DEVICE_SPEEDGRADE" value="4_H4" />
+  <parameter name="CHIPSELECT_THROUGH_READLATENCY" value="1" />
+  <parameter name="INTERFACE_ASSIGNMENT_KEYS">embeddedsw.configuration.isMemoryDevice</parameter>
+  <parameter name="INTERFACE_ASSIGNMENT_VALUES" value="1" />
+  <parameter name="IS_MEMORY_DEVICE" value="1" />
+  <parameter name="MODULE_ASSIGNMENT_KEYS">embeddedsw.configuration.hwClassnameDriverSupportList,embeddedsw.CMacro.SRAM_MEMORY_SIZE,embeddedsw.CMacro.SRAM_MEMORY_UNITS,embeddedsw.CMacro.SSRAM_DATA_WIDTH,embeddedsw.CMacro.SSRAM_READ_LATENCY,embeddedsw.memoryInfo.MEM_INIT_DATA_WIDTH,embeddedsw.memoryInfo.HAS_BYTE_LANE,embeddedsw.memoryInfo.GENERATE_DAT_SYM,embeddedsw.memoryInfo.DAT_SYM_INSTALL_DIR</parameter>
+  <parameter name="MODULE_ASSIGNMENT_VALUES">altera_avalon_lan91c111:altera_avalon_cfi_flash,2,1048576,32,2,32,1,1,SIM_DIR</parameter>
+  <parameter name="TCM_ADDRESS_W" value="21" />
+  <parameter name="TCM_BYTEENABLE_W" value="4" />
+  <parameter name="TCM_DATA_HOLD" value="0" />
+  <parameter name="TCM_DATA_W" value="32" />
+  <parameter name="TCM_MAX_PENDING_READ_TRANSACTIONS" value="5" />
+  <parameter name="TCM_READLATENCY" value="4" />
+  <parameter name="TCM_READ_WAIT" value="0" />
+  <parameter name="TCM_SETUP_WAIT" value="0" />
+  <parameter name="TCM_SYMBOLS_PER_WORD" value="4" />
+  <parameter name="TCM_TIMING_UNITS" value="1" />
+  <parameter name="TCM_TURNAROUND_TIME" value="2" />
+  <parameter name="TCM_WRITE_WAIT" value="0" />
+  <parameter name="USE_ADDRESS" value="1" />
+  <parameter name="USE_BEGINTRANSFER" value="1" />
+  <parameter name="USE_BYTEENABLE" value="1" />
+  <parameter name="USE_CHIPSELECT" value="1" />
+  <parameter name="USE_IRQ" value="0" />
+  <parameter name="USE_LOCK" value="0" />
+  <parameter name="USE_OUTPUTENABLE" value="1" />
+  <parameter name="USE_READ" value="0" />
+  <parameter name="USE_READDATA" value="1" />
+  <parameter name="USE_RESETREQUEST" value="0" />
+  <parameter name="USE_RESET_OUTPUT" value="1" />
+  <parameter name="USE_WAITREQUEST" value="0" />
+  <parameter name="USE_WRITE" value="1" />
+  <parameter name="USE_WRITEBYTEENABLE" value="0" />
+  <parameter name="USE_WRITEDATA" value="1" />
+ </module>
+ <connection
+   kind="avalon"
+   version="20.1"
+   start="bridge_0.avalon_master"
+   end="ssram.uas">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x10000000" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="20.1"
+   start="bridge_0.avalon_master"
+   end="max2_inf.uas">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x00200000" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="20.1"
+   start="bridge_0.avalon_master"
+   end="ext_flash.uas">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x02000000" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection kind="clock" version="20.1" start="clk_0.clk" end="ssram.clk" />
+ <connection
+   kind="clock"
+   version="20.1"
+   start="clk_0.clk"
+   end="flash_tristate_bridge_pinSharer_0.clk" />
+ <connection
+   kind="clock"
+   version="20.1"
+   start="clk_0.clk"
+   end="flash_tristate_bridge_bridge_0.clk" />
+ <connection kind="clock" version="20.1" start="clk_0.clk" end="max2_inf.clk" />
+ <connection kind="clock" version="20.1" start="clk_0.clk" end="ext_flash.clk" />
+ <connection kind="clock" version="20.1" start="clk_0.clk" end="bridge_0.clk" />
+ <connection
+   kind="reset"
+   version="20.1"
+   start="clk_0.clk_reset"
+   end="flash_tristate_bridge_bridge_0.reset" />
+ <connection
+   kind="reset"
+   version="20.1"
+   start="clk_0.clk_reset"
+   end="flash_tristate_bridge_pinSharer_0.reset" />
+ <connection kind="reset" version="20.1" start="clk_0.clk_reset" end="ssram.reset" />
+ <connection
+   kind="reset"
+   version="20.1"
+   start="clk_0.clk_reset"
+   end="max2_inf.reset" />
+ <connection
+   kind="reset"
+   version="20.1"
+   start="clk_0.clk_reset"
+   end="ext_flash.reset" />
+ <connection
+   kind="reset"
+   version="20.1"
+   start="clk_0.clk_reset"
+   end="bridge_0.reset" />
+ <connection
+   kind="tristate_conduit"
+   version="20.1"
+   start="flash_tristate_bridge_pinSharer_0.tcm"
+   end="flash_tristate_bridge_bridge_0.tcs" />
+ <connection
+   kind="tristate_conduit"
+   version="20.1"
+   start="ssram.tcm"
+   end="flash_tristate_bridge_pinSharer_0.tcs0" />
+ <connection
+   kind="tristate_conduit"
+   version="20.1"
+   start="max2_inf.tcm"
+   end="flash_tristate_bridge_pinSharer_0.tcs1" />
+ <connection
+   kind="tristate_conduit"
+   version="20.1"
+   start="ext_flash.tcm"
+   end="flash_tristate_bridge_pinSharer_0.tcs2" />
+ <interconnectRequirement
+   for="$system"
+   name="qsys_mm.burstAdapterImplementation"
+   value="PER_BURST_TYPE_CONVERTER" />
+ <interconnectRequirement for="$system" name="qsys_mm.clockCrossingAdapter" value="FIFO" />
+ <interconnectRequirement for="$system" name="qsys_mm.maxAdditionalLatency" value="4" />
+</system>

@@ -1,0 +1,97 @@
+Info: Starting: Create block symbol file (.bsf)
+Info: qsys-generate /opt/projects/FPGA/NIOS/a52/memory.qsys --block-symbol-file --output-directory=/opt/projects/FPGA/NIOS/a52/memory --family="Arria V" --part=5AGXFB3H4F35C4
+Progress: Loading a52/memory.qsys
+Progress: Reading input file
+Progress: Adding bridge_0 [altera_up_external_bus_to_avalon_bridge 18.0]
+Progress: Parameterizing module bridge_0
+Progress: Adding clk_0 [clock_source 20.1]
+Progress: Parameterizing module clk_0
+Progress: Adding ext_flash [altera_generic_tristate_controller 20.1]
+Progress: Parameterizing module ext_flash
+Progress: Adding flash_tristate_bridge_bridge_0 [altera_tristate_conduit_bridge 20.1]
+Progress: Parameterizing module flash_tristate_bridge_bridge_0
+Progress: Adding flash_tristate_bridge_pinSharer_0 [altera_tristate_conduit_pin_sharer 20.1]
+Progress: Parameterizing module flash_tristate_bridge_pinSharer_0
+Progress: Adding max2_inf [altera_generic_tristate_controller 20.1]
+Progress: Parameterizing module max2_inf
+Progress: Adding ssram [altera_generic_tristate_controller 20.1]
+Progress: Parameterizing module ssram
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Warning: memory.ext_flash: Properties (isFlash,isMemoryDevice,isNonVolatileStorage) have been set on interface uas - in composed mode these are ignored
+Warning: memory.max2_inf: Properties (isMemoryDevice) have been set on interface uas - in composed mode these are ignored
+Warning: memory.ssram: Properties (isMemoryDevice) have been set on interface uas - in composed mode these are ignored
+Info: qsys-generate succeeded.
+Info: Finished: Create block symbol file (.bsf)
+Info: 
+Info: Starting: Create HDL design files for synthesis
+Info: qsys-generate /opt/projects/FPGA/NIOS/a52/memory.qsys --synthesis=VERILOG --output-directory=/opt/projects/FPGA/NIOS/a52/memory/synthesis --family="Arria V" --part=5AGXFB3H4F35C4
+Progress: Loading a52/memory.qsys
+Progress: Reading input file
+Progress: Adding bridge_0 [altera_up_external_bus_to_avalon_bridge 18.0]
+Progress: Parameterizing module bridge_0
+Progress: Adding clk_0 [clock_source 20.1]
+Progress: Parameterizing module clk_0
+Progress: Adding ext_flash [altera_generic_tristate_controller 20.1]
+Progress: Parameterizing module ext_flash
+Progress: Adding flash_tristate_bridge_bridge_0 [altera_tristate_conduit_bridge 20.1]
+Progress: Parameterizing module flash_tristate_bridge_bridge_0
+Progress: Adding flash_tristate_bridge_pinSharer_0 [altera_tristate_conduit_pin_sharer 20.1]
+Progress: Parameterizing module flash_tristate_bridge_pinSharer_0
+Progress: Adding max2_inf [altera_generic_tristate_controller 20.1]
+Progress: Parameterizing module max2_inf
+Progress: Adding ssram [altera_generic_tristate_controller 20.1]
+Progress: Parameterizing module ssram
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Warning: memory.ext_flash: Properties (isFlash,isMemoryDevice,isNonVolatileStorage) have been set on interface uas - in composed mode these are ignored
+Warning: memory.max2_inf: Properties (isMemoryDevice) have been set on interface uas - in composed mode these are ignored
+Warning: memory.ssram: Properties (isMemoryDevice) have been set on interface uas - in composed mode these are ignored
+Info: memory: Generating memory "memory" for QUARTUS_SYNTH
+Info: bridge_0: Starting Generation of External Bus to Avalon Bridge
+Info: bridge_0: "memory" instantiated altera_up_external_bus_to_avalon_bridge "bridge_0"
+Info: ext_flash: "memory" instantiated altera_generic_tristate_controller "ext_flash"
+Info: flash_tristate_bridge_bridge_0: "memory" instantiated altera_tristate_conduit_bridge "flash_tristate_bridge_bridge_0"
+Info: flash_tristate_bridge_pinSharer_0: "memory" instantiated altera_tristate_conduit_pin_sharer "flash_tristate_bridge_pinSharer_0"
+Info: max2_inf: "memory" instantiated altera_generic_tristate_controller "max2_inf"
+Info: ssram: "memory" instantiated altera_generic_tristate_controller "ssram"
+Info: avalon_st_adapter: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_001: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_002: Inserting error_adapter: error_adapter_0
+Info: mm_interconnect_0: "memory" instantiated altera_mm_interconnect "mm_interconnect_0"
+Info: rst_controller: "memory" instantiated altera_reset_controller "rst_controller"
+Info: tdt: "ext_flash" instantiated altera_tristate_controller_translator "tdt"
+Info: slave_translator: "ext_flash" instantiated altera_merlin_slave_translator "slave_translator"
+Info: tda: "ext_flash" instantiated altera_tristate_controller_aggregator "tda"
+Info: pin_sharer: "flash_tristate_bridge_pinSharer_0" instantiated altera_tristate_conduit_pin_sharer_core "pin_sharer"
+Info: arbiter: "flash_tristate_bridge_pinSharer_0" instantiated altera_merlin_std_arbitrator "arbiter"
+Info: bridge_0_avalon_master_translator: "mm_interconnect_0" instantiated altera_merlin_master_translator "bridge_0_avalon_master_translator"
+Info: bridge_0_avalon_master_agent: "mm_interconnect_0" instantiated altera_merlin_master_agent "bridge_0_avalon_master_agent"
+Info: ssram_uas_agent: "mm_interconnect_0" instantiated altera_merlin_slave_agent "ssram_uas_agent"
+Info: ssram_uas_agent_rsp_fifo: "mm_interconnect_0" instantiated altera_avalon_sc_fifo "ssram_uas_agent_rsp_fifo"
+Info: router: "mm_interconnect_0" instantiated altera_merlin_router "router"
+Info: router_001: "mm_interconnect_0" instantiated altera_merlin_router "router_001"
+Info: router_003: "mm_interconnect_0" instantiated altera_merlin_router "router_003"
+Info: ssram_uas_burst_adapter: "mm_interconnect_0" instantiated altera_merlin_burst_adapter "ssram_uas_burst_adapter"
+Info: cmd_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "cmd_demux"
+Info: cmd_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_mux"
+Info: rsp_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "rsp_demux"
+Info: rsp_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "rsp_mux"
+Info: Reusing file /opt/projects/FPGA/NIOS/a52/memory/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: ssram_uas_rsp_width_adapter: "mm_interconnect_0" instantiated altera_merlin_width_adapter "ssram_uas_rsp_width_adapter"
+Info: Reusing file /opt/projects/FPGA/NIOS/a52/memory/synthesis/submodules/altera_merlin_address_alignment.sv
+Info: Reusing file /opt/projects/FPGA/NIOS/a52/memory/synthesis/submodules/altera_merlin_burst_uncompressor.sv
+Info: agent_pipeline: "mm_interconnect_0" instantiated altera_avalon_st_pipeline_stage "agent_pipeline"
+Info: Reusing file /opt/projects/FPGA/NIOS/a52/memory/synthesis/submodules/altera_avalon_st_pipeline_stage.sv
+Info: Reusing file /opt/projects/FPGA/NIOS/a52/memory/synthesis/submodules/altera_avalon_st_pipeline_base.v
+Info: avalon_st_adapter: "mm_interconnect_0" instantiated altera_avalon_st_adapter "avalon_st_adapter"
+Info: avalon_st_adapter_002: "mm_interconnect_0" instantiated altera_avalon_st_adapter "avalon_st_adapter_002"
+Info: error_adapter_0: "avalon_st_adapter" instantiated error_adapter "error_adapter_0"
+Info: error_adapter_0: "avalon_st_adapter_002" instantiated error_adapter "error_adapter_0"
+Info: memory: Done "memory" with 32 modules, 45 files
+Info: qsys-generate succeeded.
+Info: Finished: Create HDL design files for synthesis

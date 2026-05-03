@@ -1,0 +1,1462 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <title>datasheet for memory</title>
+  <style type="text/css">
+body { font-family:arial ;}
+a { text-decoration:underline ; color:#003000 ;}
+a:hover { text-decoration:underline ; color:0030f0 ;}
+td { padding : 5px ;}
+table.topTitle { width:100% ;}
+table.topTitle td.l { text-align:left ; font-weight: bold ; font-size:30px ;}
+table.topTitle td.r { text-align:right ; font-weight: bold ; font-size:16px ;}
+table.blueBar { width : 100% ; border-spacing : 0px ;}
+table.blueBar td { background:#0036ff ; font-size:12px ; color : white ; text-align : left ; font-weight : bold ;}
+table.blueBar td.l { text-align : left ;}
+table.blueBar td.r { text-align : right ;}
+table.items { width:100% ; border-collapse:collapse ;}
+table.items td.label { font-weight:bold ; font-size:16px ; vertical-align:top ;}
+table.items td.mono { font-family:courier ; font-size:12px ; white-space:pre ;}
+div.label { font-weight:bold ; font-size:16px ; vertical-align:top ; text-align:center ;}
+table.grid { border-collapse:collapse ;}
+table.grid td { border:1px solid #bbb ; font-size:12px ;}
+body { font-family:arial ;}
+table.x { font-family:courier ; border-collapse:collapse ; padding:2px ;}
+table.x td { border:1px solid #bbb ;}
+td.tableTitle { font-weight:bold ; text-align:center ;}
+table.grid { border-collapse:collapse ;}
+table.grid td { border:1px solid #bbb ;}
+table.grid td.tableTitle { font-weight:bold ; text-align:center ;}
+table.mmap { border-collapse:collapse ; text-size:11px ; border:1px solid #d8d8d8 ;}
+table.mmap td { border-color:#d8d8d8 ; border-width:1px ; border-style:solid ;}
+table.mmap td.empty { border-style:none ; background-color:#f0f0f0 ;}
+table.mmap td.slavemodule { text-align:left ; font-size:11px ; border-style:solid solid none solid ;}
+table.mmap td.slavem { text-align:right ; font-size:9px ; font-style:italic ; border-style:none solid none solid ;}
+table.mmap td.slaveb { text-align:right ; font-size:9px ; font-style:italic ; border-style:none solid solid solid ;}
+table.mmap td.mastermodule { text-align:center ; font-size:11px ; border-style:solid solid none solid ;}
+table.mmap td.masterlr { text-align:center ; font-size:9px ; font-style:italic ; border-style:none solid solid solid ;}
+table.mmap td.masterl { text-align:center ; font-size:9px ; font-style:italic ; border-style:none none solid solid ;}
+table.mmap td.masterm { text-align:center ; font-size:9px ; font-style:italic ; border-style:none none solid none ;}
+table.mmap td.masterr { text-align:center ; font-size:9px ; font-style:italic ; border-style:none solid solid none ;}
+table.mmap td.addr { font-family:courier ; font-size:9px ; text-align:right ;}
+table.connectionboxes { border-collapse:separate ; border-spacing:0px ; font-family:arial ;}
+table.connectionboxes td.from { border-bottom:1px solid black ; font-size:9px ; font-style:italic ; vertical-align:bottom ; text-align:left ;}
+table.connectionboxes td.to { font-size:9px ; font-style:italic ; vertical-align:top ; text-align:right ;}
+table.connectionboxes td.lefthandwire { border-bottom:1px solid black ; font-size:9px ; font-style:italic ; vertical-align:bottom ; text-align:right ;}
+table.connectionboxes td.righthandwire { border-bottom:1px solid black ; font-size:9px ; font-style:italic ; vertical-align:bottom ; text-align:left ;}
+table.connectionboxes td.righthandlabel { font-size:11px ; vertical-align:bottom ; text-align:left ;}
+table.connectionboxes td.neighbor { padding:3px ; border:1px solid black ; font-size: 11px ; background:#e8e8e8 ; vertical-align:center ; text-align:center ;}
+table.connectionboxes td.main { padding:8px ; border:1px solid black ; font-size: 14px ; font-weight:bold ; background:#ffffff ; vertical-align:center ; text-align:center ;}
+.parametersbox { border:1px solid #d0d0d0 ; display:inline-block ; max-height:160px ; overflow:auto ; width:360px ; font-size:10px ;}
+.flowbox { display:inline-block ;}
+.parametersbox table { font-size:10px ;}
+td.parametername { font-style:italic ;}
+td.parametervalue { font-weight:bold ;}
+div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; border-top:1px solid #707070 ; border-bottom:1px solid #707070 ; padding:20px ; margin:20px ; width:auto ;}</style>
+ </head>
+ <body>
+  <table class="topTitle">
+   <tr>
+    <td class="l">memory</td>
+    <td class="r">
+     <br/>
+     <br/>
+    </td>
+   </tr>
+  </table>
+  <table class="blueBar">
+   <tr>
+    <td class="l">2026.05.01.17:55:34</td>
+    <td class="r">Datasheet</td>
+   </tr>
+  </table>
+  <div style="width:100% ;  height:10px"> </div>
+  <div class="label">Overview</div>
+  <div class="greydiv">
+   <div style="display:inline-block ; text-align:left">
+    <table class="connectionboxes">
+     <tr>
+      <td class="lefthandwire">&#160;&#160;clk_0&#160;</td>
+      <td class="main" rowspan="2">memory</td>
+     </tr>
+     <tr style="height:6px">
+      <td></td>
+     </tr>
+    </table>
+   </div><span style="display:inline-block ; width:28px"> </span>
+   <div style="display:inline-block ; text-align:left"><span>
+     <br/>All Components
+     <br/>&#160;&#160;
+     <a href="#module_ext_flash"><b>ext_flash</b>
+     </a> altera_generic_tristate_controller 20.1
+     <br/>&#160;&#160;
+     <a href="#module_max2_inf"><b>max2_inf</b>
+     </a> altera_generic_tristate_controller 20.1
+     <br/>&#160;&#160;
+     <a href="#module_ssram"><b>ssram</b>
+     </a> altera_generic_tristate_controller 20.1</span>
+   </div>
+  </div>
+  <div style="width:100% ;  height:10px"> </div>
+  <div class="label">Memory Map</div>
+  <table class="mmap">
+   <tr>
+    <td class="empty" rowspan="2"></td>
+    <td class="mastermodule" colspan="1">
+     <a href="#module_bridge_0"><b>bridge_0</b>
+     </a>
+    </td>
+   </tr>
+   <tr>
+    <td class="masterlr">&#160;avalon_master</td>
+   </tr>
+   <tr>
+    <td class="slavemodule">&#160;
+     <a href="#module_ext_flash"><b>ext_flash</b>
+     </a>
+    </td>
+    <td class="empty"></td>
+   </tr>
+   <tr>
+    <td class="slaveb">uas&#160;</td>
+    <td class="addr"><span style="color:#989898">0x</span>02000000</td>
+   </tr>
+   <tr>
+    <td class="slavemodule">&#160;
+     <a href="#module_max2_inf"><b>max2_inf</b>
+     </a>
+    </td>
+    <td class="empty"></td>
+   </tr>
+   <tr>
+    <td class="slaveb">uas&#160;</td>
+    <td class="addr"><span style="color:#989898">0x</span>00200000</td>
+   </tr>
+   <tr>
+    <td class="slavemodule">&#160;
+     <a href="#module_ssram"><b>ssram</b>
+     </a>
+    </td>
+    <td class="empty"></td>
+   </tr>
+   <tr>
+    <td class="slaveb">uas&#160;</td>
+    <td class="addr"><span style="color:#989898">0x</span>10000000</td>
+   </tr>
+  </table>
+  <a name="module_bridge_0"> </a>
+  <div>
+   <hr/>
+   <h2>bridge_0</h2>altera_up_external_bus_to_avalon_bridge v18.0
+   <br/>
+   <div class="greydiv">
+    <table class="connectionboxes">
+     <tr>
+      <td class="neighbor" rowspan="4">
+       <a href="#module_clk_0">clk_0</a>
+      </td>
+      <td class="from">clk&#160;&#160;</td>
+      <td class="main" rowspan="12">bridge_0</td>
+     </tr>
+     <tr>
+      <td class="to">&#160;&#160;clk</td>
+     </tr>
+     <tr>
+      <td class="from">clk_reset&#160;&#160;</td>
+     </tr>
+     <tr>
+      <td class="to">&#160;&#160;reset</td>
+     </tr>
+     <tr>
+      <td></td>
+      <td></td>
+      <td class="from">avalon_master&#160;&#160;</td>
+      <td class="neighbor" rowspan="2">
+       <a href="#module_ssram">ssram</a>
+      </td>
+     </tr>
+     <tr>
+      <td></td>
+      <td></td>
+      <td class="to">&#160;&#160;uas</td>
+     </tr>
+     <tr style="height:6px">
+      <td></td>
+     </tr>
+     <tr>
+      <td></td>
+      <td></td>
+      <td class="from">avalon_master&#160;&#160;</td>
+      <td class="neighbor" rowspan="2">
+       <a href="#module_max2_inf">max2_inf</a>
+      </td>
+     </tr>
+     <tr>
+      <td></td>
+      <td></td>
+      <td class="to">&#160;&#160;uas</td>
+     </tr>
+     <tr style="height:6px">
+      <td></td>
+     </tr>
+     <tr>
+      <td></td>
+      <td></td>
+      <td class="from">avalon_master&#160;&#160;</td>
+      <td class="neighbor" rowspan="2">
+       <a href="#module_ext_flash">ext_flash</a>
+      </td>
+     </tr>
+     <tr>
+      <td></td>
+      <td></td>
+      <td class="to">&#160;&#160;uas</td>
+     </tr>
+    </table>
+   </div>
+   <br/>
+   <br/>
+   <table class="flowbox">
+    <tr>
+     <td class="parametersbox">
+      <h2>Parameters</h2>
+      <table>
+       <tr>
+        <td class="parametername">addr_size</td>
+        <td class="parametervalue">1024</td>
+       </tr>
+       <tr>
+        <td class="parametername">addr_size_multiplier</td>
+        <td class="parametervalue">Mbytes</td>
+       </tr>
+       <tr>
+        <td class="parametername">data_size</td>
+        <td class="parametervalue">128</td>
+       </tr>
+       <tr>
+        <td class="parametername">AUTO_DEVICE_FAMILY</td>
+        <td class="parametervalue">ARRIAV</td>
+       </tr>
+       <tr>
+        <td class="parametername">AUTO_CLK_CLOCK_RATE</td>
+        <td class="parametervalue">100000000</td>
+       </tr>
+       <tr>
+        <td class="parametername">deviceFamily</td>
+        <td class="parametervalue">Arria V</td>
+       </tr>
+       <tr>
+        <td class="parametername">generateLegacySim</td>
+        <td class="parametervalue">false</td>
+       </tr>
+      </table>
+     </td>
+    </tr>
+   </table>&#160;&#160;
+   <table class="flowbox">
+    <tr>
+     <td class="parametersbox">
+      <h2>Software Assignments</h2>(none)</td>
+    </tr>
+   </table>
+  </div>
+  <a name="module_clk_0"> </a>
+  <div>
+   <hr/>
+   <h2>clk_0</h2>clock_source v20.1
+   <br/>
+   <br/>
+   <br/>
+   <table class="flowbox">
+    <tr>
+     <td class="parametersbox">
+      <h2>Parameters</h2>
+      <table>
+       <tr>
+        <td class="parametername">clockFrequency</td>
+        <td class="parametervalue">100000000</td>
+       </tr>
+       <tr>
+        <td class="parametername">clockFrequencyKnown</td>
+        <td class="parametervalue">true</td>
+       </tr>
+       <tr>
+        <td class="parametername">inputClockFrequency</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">resetSynchronousEdges</td>
+        <td class="parametervalue">NONE</td>
+       </tr>
+       <tr>
+        <td class="parametername">deviceFamily</td>
+        <td class="parametervalue">UNKNOWN</td>
+       </tr>
+       <tr>
+        <td class="parametername">generateLegacySim</td>
+        <td class="parametervalue">false</td>
+       </tr>
+      </table>
+     </td>
+    </tr>
+   </table>&#160;&#160;
+   <table class="flowbox">
+    <tr>
+     <td class="parametersbox">
+      <h2>Software Assignments</h2>(none)</td>
+    </tr>
+   </table>
+  </div>
+  <a name="module_ext_flash"> </a>
+  <div>
+   <hr/>
+   <h2>ext_flash</h2>altera_generic_tristate_controller v20.1
+   <br/>
+   <div class="greydiv">
+    <table class="connectionboxes">
+     <tr>
+      <td class="neighbor" rowspan="2">
+       <a href="#module_bridge_0">bridge_0</a>
+      </td>
+      <td class="from">avalon_master&#160;&#160;</td>
+      <td class="main" rowspan="9">ext_flash</td>
+     </tr>
+     <tr>
+      <td class="to">&#160;&#160;uas</td>
+     </tr>
+     <tr style="height:6px">
+      <td></td>
+     </tr>
+     <tr>
+      <td class="neighbor" rowspan="4">
+       <a href="#module_clk_0">clk_0</a>
+      </td>
+      <td class="from">clk&#160;&#160;</td>
+     </tr>
+     <tr>
+      <td class="to">&#160;&#160;clk</td>
+     </tr>
+     <tr>
+      <td class="from">clk_reset&#160;&#160;</td>
+     </tr>
+     <tr>
+      <td class="to">&#160;&#160;reset</td>
+     </tr>
+     <tr>
+      <td></td>
+      <td></td>
+      <td class="from">tcm&#160;&#160;</td>
+      <td class="neighbor" rowspan="2">
+       <a href="#module_flash_tristate_bridge_pinSharer_0">flash_tristate_bridge_pinSharer_0</a>
+      </td>
+     </tr>
+     <tr>
+      <td></td>
+      <td></td>
+      <td class="to">&#160;&#160;tcs2</td>
+     </tr>
+    </table>
+   </div>
+   <br/>
+   <br/>
+   <table class="flowbox">
+    <tr>
+     <td class="parametersbox">
+      <h2>Parameters</h2>
+      <table>
+       <tr>
+        <td class="parametername">TCM_ADDRESS_W</td>
+        <td class="parametervalue">25</td>
+       </tr>
+       <tr>
+        <td class="parametername">TCM_DATA_W</td>
+        <td class="parametervalue">16</td>
+       </tr>
+       <tr>
+        <td class="parametername">TCM_BYTEENABLE_W</td>
+        <td class="parametervalue">2</td>
+       </tr>
+       <tr>
+        <td class="parametername">TCM_READ_WAIT</td>
+        <td class="parametervalue">100</td>
+       </tr>
+       <tr>
+        <td class="parametername">TCM_WRITE_WAIT</td>
+        <td class="parametervalue">100</td>
+       </tr>
+       <tr>
+        <td class="parametername">TCM_SETUP_WAIT</td>
+        <td class="parametervalue">25</td>
+       </tr>
+       <tr>
+        <td class="parametername">TCM_DATA_HOLD</td>
+        <td class="parametervalue">20</td>
+       </tr>
+       <tr>
+        <td class="parametername">TCM_MAX_PENDING_READ_TRANSACTIONS</td>
+        <td class="parametervalue">3</td>
+       </tr>
+       <tr>
+        <td class="parametername">TCM_TURNAROUND_TIME</td>
+        <td class="parametervalue">2</td>
+       </tr>
+       <tr>
+        <td class="parametername">TCM_TIMING_UNITS</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">TCM_READLATENCY</td>
+        <td class="parametervalue">2</td>
+       </tr>
+       <tr>
+        <td class="parametername">TCM_SYMBOLS_PER_WORD</td>
+        <td class="parametervalue">2</td>
+       </tr>
+       <tr>
+        <td class="parametername">USE_READDATA</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">USE_WRITEDATA</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">USE_READ</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">USE_WRITE</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">USE_BEGINTRANSFER</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">USE_BYTEENABLE</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">USE_CHIPSELECT</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">USE_LOCK</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">USE_ADDRESS</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">USE_WAITREQUEST</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">USE_WRITEBYTEENABLE</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">USE_OUTPUTENABLE</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">USE_RESETREQUEST</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">USE_IRQ</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">USE_RESET_OUTPUT</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">ACTIVE_LOW_READ</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">ACTIVE_LOW_LOCK</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">ACTIVE_LOW_WRITE</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">ACTIVE_LOW_CHIPSELECT</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">ACTIVE_LOW_BYTEENABLE</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">ACTIVE_LOW_OUTPUTENABLE</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">ACTIVE_LOW_WRITEBYTEENABLE</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">ACTIVE_LOW_WAITREQUEST</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">ACTIVE_LOW_BEGINTRANSFER</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">ACTIVE_LOW_RESETREQUEST</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">ACTIVE_LOW_IRQ</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">ACTIVE_LOW_RESET_OUTPUT</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">CHIPSELECT_THROUGH_READLATENCY</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">IS_MEMORY_DEVICE</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">MODULE_ASSIGNMENT_KEYS</td>
+        <td class="parametervalue">embeddedsw.configuration.hwClassnameDriverSupportList,embeddedsw.configuration.hwClassnameDriverSupportDefault,embeddedsw.CMacro.SETUP_VALUE,embeddedsw.CMacro.WAIT_VALUE,embeddedsw.CMacro.HOLD_VALUE,embeddedsw.CMacro.TIMING_UNITS,embeddedsw.CMacro.SIZE,embeddedsw.memoryInfo.MEM_INIT_DATA_WIDTH,embeddedsw.memoryInfo.HAS_BYTE_LANE,embeddedsw.memoryInfo.IS_FLASH,embeddedsw.memoryInfo.GENERATE_DAT_SYM,embeddedsw.memoryInfo.GENERATE_FLASH,embeddedsw.memoryInfo.DAT_SYM_INSTALL_DIR,embeddedsw.memoryInfo.FLASH_INSTALL_DIR</td>
+       </tr>
+       <tr>
+        <td class="parametername">MODULE_ASSIGNMENT_VALUES</td>
+        <td class="parametervalue">altera_avalon_lan91c111:altera_avalon_cfi_flash,altera_avalon_cfi_flash,25,100,20,"ns",33554432u,16,1,1,1,1,SIM_DIR,APP_DIR</td>
+       </tr>
+       <tr>
+        <td class="parametername">INTERFACE_ASSIGNMENT_KEYS</td>
+        <td class="parametervalue">embeddedsw.configuration.isFlash,embeddedsw.configuration.isMemoryDevice,embeddedsw.configuration.isNonVolatileStorage</td>
+       </tr>
+       <tr>
+        <td class="parametername">INTERFACE_ASSIGNMENT_VALUES</td>
+        <td class="parametervalue">1,1,1</td>
+       </tr>
+       <tr>
+        <td class="parametername">CLOCK_RATE</td>
+        <td class="parametervalue">100000000</td>
+       </tr>
+       <tr>
+        <td class="parametername">AUTO_DEVICE_FAMILY</td>
+        <td class="parametervalue">ARRIAV</td>
+       </tr>
+       <tr>
+        <td class="parametername">AUTO_DEVICE</td>
+        <td class="parametervalue">5AGXFB3H4F35C4</td>
+       </tr>
+       <tr>
+        <td class="parametername">AUTO_DEVICE_SPEEDGRADE</td>
+        <td class="parametervalue">4_H4</td>
+       </tr>
+       <tr>
+        <td class="parametername">AUTO_CLK_CLOCK_DOMAIN</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">AUTO_CLK_RESET_DOMAIN</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">deviceFamily</td>
+        <td class="parametervalue">Arria V</td>
+       </tr>
+       <tr>
+        <td class="parametername">generateLegacySim</td>
+        <td class="parametervalue">false</td>
+       </tr>
+      </table>
+     </td>
+    </tr>
+   </table>&#160;&#160;
+   <table class="flowbox">
+    <tr>
+     <td class="parametersbox">
+      <h2>Software Assignments</h2>
+      <table>
+       <tr>
+        <td class="parametername">HOLD_VALUE</td>
+        <td class="parametervalue">20</td>
+       </tr>
+       <tr>
+        <td class="parametername">SETUP_VALUE</td>
+        <td class="parametervalue">25</td>
+       </tr>
+       <tr>
+        <td class="parametername">SIZE</td>
+        <td class="parametervalue">33554432u</td>
+       </tr>
+       <tr>
+        <td class="parametername">TIMING_UNITS</td>
+        <td class="parametervalue">"ns"</td>
+       </tr>
+       <tr>
+        <td class="parametername">WAIT_VALUE</td>
+        <td class="parametervalue">100</td>
+       </tr>
+      </table>
+     </td>
+    </tr>
+   </table>
+  </div>
+  <a name="module_flash_tristate_bridge_bridge_0"> </a>
+  <div>
+   <hr/>
+   <h2>flash_tristate_bridge_bridge_0</h2>altera_tristate_conduit_bridge v20.1
+   <br/>
+   <div class="greydiv">
+    <table class="connectionboxes">
+     <tr>
+      <td class="neighbor" rowspan="4">
+       <a href="#module_clk_0">clk_0</a>
+      </td>
+      <td class="from">clk&#160;&#160;</td>
+      <td class="main" rowspan="7">flash_tristate_bridge_bridge_0</td>
+     </tr>
+     <tr>
+      <td class="to">&#160;&#160;clk</td>
+     </tr>
+     <tr>
+      <td class="from">clk_reset&#160;&#160;</td>
+     </tr>
+     <tr>
+      <td class="to">&#160;&#160;reset</td>
+     </tr>
+     <tr style="height:6px">
+      <td></td>
+     </tr>
+     <tr>
+      <td class="neighbor" rowspan="2">
+       <a href="#module_flash_tristate_bridge_pinSharer_0">flash_tristate_bridge_pinSharer_0</a>
+      </td>
+      <td class="from">tcm&#160;&#160;</td>
+     </tr>
+     <tr>
+      <td class="to">&#160;&#160;tcs</td>
+     </tr>
+    </table>
+   </div>
+   <br/>
+   <br/>
+   <table class="flowbox">
+    <tr>
+     <td class="parametersbox">
+      <h2>Parameters</h2>
+      <table>
+       <tr>
+        <td class="parametername">INTERFACE_INFO</td>
+        <td class="parametervalue">&lt;info&gt;&lt;slave name="tcs"&gt;&lt;master name="flash_tristate_bridge_pinSharer_0.tcm"&gt;&lt;pin role="" width="1" type="Invalid" output_name="" output_enable_name="" input_name="" /&gt;&lt;pin role="read_n_to_the_ext_flash" width="1" type="Output" output_name="read_n_to_the_ext_flash" output_enable_name="" input_name="" /&gt;&lt;pin role="write_n_to_the_ext_flash" width="1" type="Output" output_name="write_n_to_the_ext_flash" output_enable_name="" input_name="" /&gt;&lt;pin role="select_n_to_the_ext_flash" width="1" type="Output" output_name="select_n_to_the_ext_flash" output_enable_name="" input_name="" /&gt;&lt;pin role="chipenable1_n_to_the_max2_inf" width="1" type="Output" output_name="chipenable1_n_to_the_max2_inf" output_enable_name="" input_name="" /&gt;&lt;pin role="bw_n_to_the_max2_inf" width="4" type="Output" output_name="bw_n_to_the_max2_inf" output_enable_name="" input_name="" /&gt;&lt;pin role="outputenable_n_to_the_max2_inf" width="1" type="Output" output_name="outputenable_n_to_the_max2_inf" output_enable_name="" input_name="" /&gt;&lt;pin role="bwe_n_to_the_max2_inf" width="1" type="Output" output_name="bwe_n_to_the_max2_inf" output_enable_name="" input_name="" /&gt;&lt;pin role="reset_n_to_the_max2_inf" width="1" type="Output" output_name="reset_n_to_the_max2_inf" output_enable_name="" input_name="" /&gt;&lt;pin role="adsc_n_to_the_max2_inf" width="1" type="Output" output_name="adsc_n_to_the_max2_inf" output_enable_name="" input_name="" /&gt;&lt;pin role="chipenable1_n_to_the_ssram" width="1" type="Output" output_name="chipenable1_n_to_the_ssram" output_enable_name="" input_name="" /&gt;&lt;pin role="bw_n_to_the_ssram" width="4" type="Output" output_name="bw_n_to_the_ssram" output_enable_name="" input_name="" /&gt;&lt;pin role="outputenable_n_to_the_ssram" width="1" type="Output" output_name="outputenable_n_to_the_ssram" output_enable_name="" input_name="" /&gt;&lt;pin role="bwe_n_to_the_ssram" width="1" type="Output" output_name="bwe_n_to_the_ssram" output_enable_name="" input_name="" /&gt;&lt;pin role="flash_tristate_bridge_data" width="32" type="Bidirectional" output_name="flash_tristate_bridge_data" output_enable_name="flash_tristate_bridge_data_outen" input_name="flash_tristate_bridge_data_in" /&gt;&lt;pin role="flash_tristate_bridge_address" width="25" type="Output" output_name="flash_tristate_bridge_address" output_enable_name="" input_name="" /&gt;&lt;pin role="reset_n_to_the_ssram" width="1" type="Output" output_name="reset_n_to_the_ssram" output_enable_name="" input_name="" /&gt;&lt;pin role="adsc_n_to_the_ssram" width="1" type="Output" output_name="adsc_n_to_the_ssram" output_enable_name="" input_name="" /&gt;&lt;/master&gt;&lt;/slave&gt;&lt;/info&gt;</td>
+       </tr>
+       <tr>
+        <td class="parametername">deviceFamily</td>
+        <td class="parametervalue">UNKNOWN</td>
+       </tr>
+       <tr>
+        <td class="parametername">generateLegacySim</td>
+        <td class="parametervalue">false</td>
+       </tr>
+      </table>
+     </td>
+    </tr>
+   </table>&#160;&#160;
+   <table class="flowbox">
+    <tr>
+     <td class="parametersbox">
+      <h2>Software Assignments</h2>(none)</td>
+    </tr>
+   </table>
+  </div>
+  <a name="module_flash_tristate_bridge_pinSharer_0"> </a>
+  <div>
+   <hr/>
+   <h2>flash_tristate_bridge_pinSharer_0</h2>altera_tristate_conduit_pin_sharer v20.1
+   <br/>
+   <div class="greydiv">
+    <table class="connectionboxes">
+     <tr>
+      <td class="neighbor" rowspan="4">
+       <a href="#module_clk_0">clk_0</a>
+      </td>
+      <td class="from">clk&#160;&#160;</td>
+      <td class="main" rowspan="15">flash_tristate_bridge_pinSharer_0</td>
+     </tr>
+     <tr>
+      <td class="to">&#160;&#160;clk</td>
+     </tr>
+     <tr>
+      <td class="from">clk_reset&#160;&#160;</td>
+     </tr>
+     <tr>
+      <td class="to">&#160;&#160;reset</td>
+     </tr>
+     <tr style="height:6px">
+      <td></td>
+     </tr>
+     <tr>
+      <td class="neighbor" rowspan="2">
+       <a href="#module_ssram">ssram</a>
+      </td>
+      <td class="from">tcm&#160;&#160;</td>
+     </tr>
+     <tr>
+      <td class="to">&#160;&#160;tcs0</td>
+     </tr>
+     <tr style="height:6px">
+      <td></td>
+     </tr>
+     <tr>
+      <td class="neighbor" rowspan="2">
+       <a href="#module_max2_inf">max2_inf</a>
+      </td>
+      <td class="from">tcm&#160;&#160;</td>
+     </tr>
+     <tr>
+      <td class="to">&#160;&#160;tcs1</td>
+     </tr>
+     <tr style="height:6px">
+      <td></td>
+     </tr>
+     <tr>
+      <td class="neighbor" rowspan="2">
+       <a href="#module_ext_flash">ext_flash</a>
+      </td>
+      <td class="from">tcm&#160;&#160;</td>
+     </tr>
+     <tr>
+      <td class="to">&#160;&#160;tcs2</td>
+     </tr>
+     <tr>
+      <td></td>
+      <td></td>
+      <td class="from">tcm&#160;&#160;</td>
+      <td class="neighbor" rowspan="2">
+       <a href="#module_flash_tristate_bridge_bridge_0">flash_tristate_bridge_bridge_0</a>
+      </td>
+     </tr>
+     <tr>
+      <td></td>
+      <td></td>
+      <td class="to">&#160;&#160;tcs</td>
+     </tr>
+    </table>
+   </div>
+   <br/>
+   <br/>
+   <table class="flowbox">
+    <tr>
+     <td class="parametersbox">
+      <h2>Parameters</h2>
+      <table>
+       <tr>
+        <td class="parametername">INTERFACE_INFO</td>
+        <td class="parametervalue">&lt;info&gt;&lt;slave name="tcs0"&gt;&lt;master name="ssram.tcm"&gt;&lt;pin role="write_n" width="1" type="Output" output_name="tcm_write_n_out" output_enable_name="" input_name="" /&gt;&lt;pin role="begintransfer_n" width="1" type="Output" output_name="tcm_begintransfer_n_out" output_enable_name="" input_name="" /&gt;&lt;pin role="chipselect_n" width="1" type="Output" output_name="tcm_chipselect_n_out" output_enable_name="" input_name="" /&gt;&lt;pin role="outputenable_n" width="1" type="Output" output_name="tcm_outputenable_n_out" output_enable_name="" input_name="" /&gt;&lt;pin role="reset_n" width="1" type="Output" output_name="tcm_reset_n_out" output_enable_name="" input_name="" /&gt;&lt;pin role="" width="1" type="Invalid" output_name="" output_enable_name="" input_name="" /&gt;&lt;pin role="address" width="21" type="Output" output_name="tcm_address_out" output_enable_name="" input_name="" /&gt;&lt;pin role="byteenable_n" width="4" type="Output" output_name="tcm_byteenable_n_out" output_enable_name="" input_name="" /&gt;&lt;pin role="data" width="32" type="Bidirectional" output_name="tcm_data_out" output_enable_name="tcm_data_outen" input_name="tcm_data_in" /&gt;&lt;/master&gt;&lt;/slave&gt;&lt;slave name="tcs1"&gt;&lt;master name="max2_inf.tcm"&gt;&lt;pin role="write_n" width="1" type="Output" output_name="tcm_write_n_out" output_enable_name="" input_name="" /&gt;&lt;pin role="begintransfer_n" width="1" type="Output" output_name="tcm_begintransfer_n_out" output_enable_name="" input_name="" /&gt;&lt;pin role="chipselect_n" width="1" type="Output" output_name="tcm_chipselect_n_out" output_enable_name="" input_name="" /&gt;&lt;pin role="outputenable_n" width="1" type="Output" output_name="tcm_outputenable_n_out" output_enable_name="" input_name="" /&gt;&lt;pin role="reset_n" width="1" type="Output" output_name="tcm_reset_n_out" output_enable_name="" input_name="" /&gt;&lt;pin role="" width="1" type="Invalid" output_name="" output_enable_name="" input_name="" /&gt;&lt;pin role="address" width="20" type="Output" output_name="tcm_address_out" output_enable_name="" input_name="" /&gt;&lt;pin role="byteenable_n" width="4" type="Output" output_name="tcm_byteenable_n_out" output_enable_name="" input_name="" /&gt;&lt;pin role="data" width="32" type="Bidirectional" output_name="tcm_data_out" output_enable_name="tcm_data_outen" input_name="tcm_data_in" /&gt;&lt;/master&gt;&lt;/slave&gt;&lt;slave name="tcs2"&gt;&lt;master name="ext_flash.tcm"&gt;&lt;pin role="write_n" width="1" type="Output" output_name="tcm_write_n_out" output_enable_name="" input_name="" /&gt;&lt;pin role="read_n" width="1" type="Output" output_name="tcm_read_n_out" output_enable_name="" input_name="" /&gt;&lt;pin role="chipselect_n" width="1" type="Output" output_name="tcm_chipselect_n_out" output_enable_name="" input_name="" /&gt;&lt;pin role="" width="1" type="Invalid" output_name="" output_enable_name="" input_name="" /&gt;&lt;pin role="address" width="25" type="Output" output_name="tcm_address_out" output_enable_name="" input_name="" /&gt;&lt;pin role="data" width="16" type="Bidirectional" output_name="tcm_data_out" output_enable_name="tcm_data_outen" input_name="tcm_data_in" /&gt;&lt;/master&gt;&lt;/slave&gt;&lt;/info&gt;</td>
+       </tr>
+       <tr>
+        <td class="parametername">NUM_INTERFACES</td>
+        <td class="parametervalue">3</td>
+       </tr>
+       <tr>
+        <td class="parametername">MODULE_ORIGIN_LIST</td>
+        <td class="parametervalue">ext_flash.tcm,ext_flash.tcm,ext_flash.tcm,ext_flash.tcm,ext_flash.tcm,max2_inf.tcm,max2_inf.tcm,max2_inf.tcm,max2_inf.tcm,max2_inf.tcm,max2_inf.tcm,max2_inf.tcm,max2_inf.tcm,ssram.tcm,ssram.tcm,ssram.tcm,ssram.tcm,ssram.tcm,ssram.tcm,ssram.tcm,ssram.tcm</td>
+       </tr>
+       <tr>
+        <td class="parametername">SIGNAL_ORIGIN_LIST</td>
+        <td class="parametervalue">address,read_n,write_n,data,chipselect_n,chipselect_n,byteenable_n,outputenable_n,write_n,data,address,reset_n,begintransfer_n,chipselect_n,byteenable_n,outputenable_n,write_n,data,address,reset_n,begintransfer_n</td>
+       </tr>
+       <tr>
+        <td class="parametername">SIGNAL_ORIGIN_TYPE</td>
+        <td class="parametervalue">Output,Output,Output,Bidirectional,Output,Output,Output,Output,Output,Bidirectional,Output,Output,Output,Output,Output,Output,Output,Bidirectional,Output,Output,Output</td>
+       </tr>
+       <tr>
+        <td class="parametername">SIGNAL_ORIGIN_WIDTH</td>
+        <td class="parametervalue">25,1,1,16,1,1,4,1,1,32,20,1,1,1,4,1,1,32,21,1,1</td>
+       </tr>
+       <tr>
+        <td class="parametername">SHARED_SIGNAL_LIST</td>
+        <td class="parametervalue">flash_tristate_bridge_address,read_n_to_the_ext_flash,write_n_to_the_ext_flash,flash_tristate_bridge_data,select_n_to_the_ext_flash,chipenable1_n_to_the_max2_inf,bw_n_to_the_max2_inf,outputenable_n_to_the_max2_inf,bwe_n_to_the_max2_inf,flash_tristate_bridge_data,flash_tristate_bridge_address,reset_n_to_the_max2_inf,adsc_n_to_the_max2_inf,chipenable1_n_to_the_ssram,bw_n_to_the_ssram,outputenable_n_to_the_ssram,bwe_n_to_the_ssram,flash_tristate_bridge_data,flash_tristate_bridge_address,reset_n_to_the_ssram,adsc_n_to_the_ssram</td>
+       </tr>
+       <tr>
+        <td class="parametername">SIGNAL_OUTPUT_NAMES</td>
+        <td class="parametervalue">tcm_address_out,tcm_read_n_out,tcm_write_n_out,tcm_data_out,tcm_chipselect_n_out,tcm_chipselect_n_out,tcm_byteenable_n_out,tcm_outputenable_n_out,tcm_write_n_out,tcm_data_out,tcm_address_out,tcm_reset_n_out,tcm_begintransfer_n_out,tcm_chipselect_n_out,tcm_byteenable_n_out,tcm_outputenable_n_out,tcm_write_n_out,tcm_data_out,tcm_address_out,tcm_reset_n_out,tcm_begintransfer_n_out</td>
+       </tr>
+       <tr>
+        <td class="parametername">SIGNAL_INPUT_NAMES</td>
+        <td class="parametervalue">,,,tcm_data_in,,,,,,tcm_data_in,,,,,,,,tcm_data_in,</td>
+       </tr>
+       <tr>
+        <td class="parametername">SIGNAL_OUTPUT_ENABLE_NAMES</td>
+        <td class="parametervalue">,,,tcm_data_outen,,,,,,tcm_data_outen,,,,,,,,tcm_data_outen,</td>
+       </tr>
+       <tr>
+        <td class="parametername">REALTIME_MODULE_ORIGIN_LIST</td>
+        <td class="parametervalue">ext_flash.tcm,ext_flash.tcm,ext_flash.tcm,ext_flash.tcm,ext_flash.tcm,max2_inf.tcm,max2_inf.tcm,max2_inf.tcm,max2_inf.tcm,max2_inf.tcm,max2_inf.tcm,max2_inf.tcm,max2_inf.tcm,ssram.tcm,ssram.tcm,ssram.tcm,ssram.tcm,ssram.tcm,ssram.tcm,ssram.tcm,ssram.tcm</td>
+       </tr>
+       <tr>
+        <td class="parametername">REALTIME_SIGNAL_ORIGIN_LIST</td>
+        <td class="parametervalue">address,read_n,write_n,data,chipselect_n,chipselect_n,byteenable_n,outputenable_n,write_n,data,address,reset_n,begintransfer_n,chipselect_n,byteenable_n,outputenable_n,write_n,data,address,reset_n,begintransfer_n</td>
+       </tr>
+       <tr>
+        <td class="parametername">REALTIME_SHARED_SIGNAL_LIST</td>
+        <td class="parametervalue">flash_tristate_bridge_address,read_n_to_the_ext_flash,write_n_to_the_ext_flash,flash_tristate_bridge_data,select_n_to_the_ext_flash,chipenable1_n_to_the_max2_inf,bw_n_to_the_max2_inf,outputenable_n_to_the_max2_inf,bwe_n_to_the_max2_inf,flash_tristate_bridge_data,flash_tristate_bridge_address,reset_n_to_the_max2_inf,adsc_n_to_the_max2_inf,chipenable1_n_to_the_ssram,bw_n_to_the_ssram,outputenable_n_to_the_ssram,bwe_n_to_the_ssram,flash_tristate_bridge_data,flash_tristate_bridge_address,reset_n_to_the_ssram,adsc_n_to_the_ssram</td>
+       </tr>
+       <tr>
+        <td class="parametername">AUTO_DEVICE_FAMILY</td>
+        <td class="parametervalue">ARRIAV</td>
+       </tr>
+       <tr>
+        <td class="parametername">AUTO_DEVICE</td>
+        <td class="parametervalue">5AGXFB3H4F35C4</td>
+       </tr>
+       <tr>
+        <td class="parametername">AUTO_DEVICE_SPEEDGRADE</td>
+        <td class="parametervalue">4_H4</td>
+       </tr>
+       <tr>
+        <td class="parametername">AUTO_CLK_CLOCK_RATE</td>
+        <td class="parametervalue">100000000</td>
+       </tr>
+       <tr>
+        <td class="parametername">AUTO_CLK_CLOCK_DOMAIN</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">AUTO_CLK_RESET_DOMAIN</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">deviceFamily</td>
+        <td class="parametervalue">Arria V</td>
+       </tr>
+       <tr>
+        <td class="parametername">generateLegacySim</td>
+        <td class="parametervalue">false</td>
+       </tr>
+      </table>
+     </td>
+    </tr>
+   </table>&#160;&#160;
+   <table class="flowbox">
+    <tr>
+     <td class="parametersbox">
+      <h2>Software Assignments</h2>(none)</td>
+    </tr>
+   </table>
+  </div>
+  <a name="module_max2_inf"> </a>
+  <div>
+   <hr/>
+   <h2>max2_inf</h2>altera_generic_tristate_controller v20.1
+   <br/>
+   <div class="greydiv">
+    <table class="connectionboxes">
+     <tr>
+      <td class="neighbor" rowspan="2">
+       <a href="#module_bridge_0">bridge_0</a>
+      </td>
+      <td class="from">avalon_master&#160;&#160;</td>
+      <td class="main" rowspan="9">max2_inf</td>
+     </tr>
+     <tr>
+      <td class="to">&#160;&#160;uas</td>
+     </tr>
+     <tr style="height:6px">
+      <td></td>
+     </tr>
+     <tr>
+      <td class="neighbor" rowspan="4">
+       <a href="#module_clk_0">clk_0</a>
+      </td>
+      <td class="from">clk&#160;&#160;</td>
+     </tr>
+     <tr>
+      <td class="to">&#160;&#160;clk</td>
+     </tr>
+     <tr>
+      <td class="from">clk_reset&#160;&#160;</td>
+     </tr>
+     <tr>
+      <td class="to">&#160;&#160;reset</td>
+     </tr>
+     <tr>
+      <td></td>
+      <td></td>
+      <td class="from">tcm&#160;&#160;</td>
+      <td class="neighbor" rowspan="2">
+       <a href="#module_flash_tristate_bridge_pinSharer_0">flash_tristate_bridge_pinSharer_0</a>
+      </td>
+     </tr>
+     <tr>
+      <td></td>
+      <td></td>
+      <td class="to">&#160;&#160;tcs1</td>
+     </tr>
+    </table>
+   </div>
+   <br/>
+   <br/>
+   <table class="flowbox">
+    <tr>
+     <td class="parametersbox">
+      <h2>Parameters</h2>
+      <table>
+       <tr>
+        <td class="parametername">TCM_ADDRESS_W</td>
+        <td class="parametervalue">20</td>
+       </tr>
+       <tr>
+        <td class="parametername">TCM_DATA_W</td>
+        <td class="parametervalue">32</td>
+       </tr>
+       <tr>
+        <td class="parametername">TCM_BYTEENABLE_W</td>
+        <td class="parametervalue">4</td>
+       </tr>
+       <tr>
+        <td class="parametername">TCM_READ_WAIT</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">TCM_WRITE_WAIT</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">TCM_SETUP_WAIT</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">TCM_DATA_HOLD</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">TCM_MAX_PENDING_READ_TRANSACTIONS</td>
+        <td class="parametervalue">5</td>
+       </tr>
+       <tr>
+        <td class="parametername">TCM_TURNAROUND_TIME</td>
+        <td class="parametervalue">2</td>
+       </tr>
+       <tr>
+        <td class="parametername">TCM_TIMING_UNITS</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">TCM_READLATENCY</td>
+        <td class="parametervalue">4</td>
+       </tr>
+       <tr>
+        <td class="parametername">TCM_SYMBOLS_PER_WORD</td>
+        <td class="parametervalue">4</td>
+       </tr>
+       <tr>
+        <td class="parametername">USE_READDATA</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">USE_WRITEDATA</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">USE_READ</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">USE_WRITE</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">USE_BEGINTRANSFER</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">USE_BYTEENABLE</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">USE_CHIPSELECT</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">USE_LOCK</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">USE_ADDRESS</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">USE_WAITREQUEST</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">USE_WRITEBYTEENABLE</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">USE_OUTPUTENABLE</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">USE_RESETREQUEST</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">USE_IRQ</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">USE_RESET_OUTPUT</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">ACTIVE_LOW_READ</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">ACTIVE_LOW_LOCK</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">ACTIVE_LOW_WRITE</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">ACTIVE_LOW_CHIPSELECT</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">ACTIVE_LOW_BYTEENABLE</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">ACTIVE_LOW_OUTPUTENABLE</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">ACTIVE_LOW_WRITEBYTEENABLE</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">ACTIVE_LOW_WAITREQUEST</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">ACTIVE_LOW_BEGINTRANSFER</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">ACTIVE_LOW_RESETREQUEST</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">ACTIVE_LOW_IRQ</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">ACTIVE_LOW_RESET_OUTPUT</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">CHIPSELECT_THROUGH_READLATENCY</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">IS_MEMORY_DEVICE</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">MODULE_ASSIGNMENT_KEYS</td>
+        <td class="parametervalue">embeddedsw.configuration.hwClassnameDriverSupportList,embeddedsw.CMacro.SRAM_MEMORY_SIZE,embeddedsw.CMacro.SRAM_MEMORY_UNITS,embeddedsw.CMacro.SSRAM_DATA_WIDTH,embeddedsw.CMacro.SSRAM_READ_LATENCY,embeddedsw.memoryInfo.MEM_INIT_DATA_WIDTH,embeddedsw.memoryInfo.HAS_BYTE_LANE,embeddedsw.memoryInfo.GENERATE_DAT_SYM,embeddedsw.memoryInfo.DAT_SYM_INSTALL_DIR</td>
+       </tr>
+       <tr>
+        <td class="parametername">MODULE_ASSIGNMENT_VALUES</td>
+        <td class="parametervalue">altera_avalon_lan91c111:altera_avalon_cfi_flash,1,1048576,32,2,32,1,1,SIM_DIR</td>
+       </tr>
+       <tr>
+        <td class="parametername">INTERFACE_ASSIGNMENT_KEYS</td>
+        <td class="parametervalue">embeddedsw.configuration.isMemoryDevice</td>
+       </tr>
+       <tr>
+        <td class="parametername">INTERFACE_ASSIGNMENT_VALUES</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">CLOCK_RATE</td>
+        <td class="parametervalue">100000000</td>
+       </tr>
+       <tr>
+        <td class="parametername">AUTO_DEVICE_FAMILY</td>
+        <td class="parametervalue">ARRIAV</td>
+       </tr>
+       <tr>
+        <td class="parametername">AUTO_DEVICE</td>
+        <td class="parametervalue">5AGXFB3H4F35C4</td>
+       </tr>
+       <tr>
+        <td class="parametername">AUTO_DEVICE_SPEEDGRADE</td>
+        <td class="parametervalue">4_H4</td>
+       </tr>
+       <tr>
+        <td class="parametername">AUTO_CLK_CLOCK_DOMAIN</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">AUTO_CLK_RESET_DOMAIN</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">deviceFamily</td>
+        <td class="parametervalue">Arria V</td>
+       </tr>
+       <tr>
+        <td class="parametername">generateLegacySim</td>
+        <td class="parametervalue">false</td>
+       </tr>
+      </table>
+     </td>
+    </tr>
+   </table>&#160;&#160;
+   <table class="flowbox">
+    <tr>
+     <td class="parametersbox">
+      <h2>Software Assignments</h2>
+      <table>
+       <tr>
+        <td class="parametername">SRAM_MEMORY_SIZE</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">SRAM_MEMORY_UNITS</td>
+        <td class="parametervalue">1048576</td>
+       </tr>
+       <tr>
+        <td class="parametername">SSRAM_DATA_WIDTH</td>
+        <td class="parametervalue">32</td>
+       </tr>
+       <tr>
+        <td class="parametername">SSRAM_READ_LATENCY</td>
+        <td class="parametervalue">2</td>
+       </tr>
+      </table>
+     </td>
+    </tr>
+   </table>
+  </div>
+  <a name="module_ssram"> </a>
+  <div>
+   <hr/>
+   <h2>ssram</h2>altera_generic_tristate_controller v20.1
+   <br/>
+   <div class="greydiv">
+    <table class="connectionboxes">
+     <tr>
+      <td class="neighbor" rowspan="2">
+       <a href="#module_bridge_0">bridge_0</a>
+      </td>
+      <td class="from">avalon_master&#160;&#160;</td>
+      <td class="main" rowspan="9">ssram</td>
+     </tr>
+     <tr>
+      <td class="to">&#160;&#160;uas</td>
+     </tr>
+     <tr style="height:6px">
+      <td></td>
+     </tr>
+     <tr>
+      <td class="neighbor" rowspan="4">
+       <a href="#module_clk_0">clk_0</a>
+      </td>
+      <td class="from">clk&#160;&#160;</td>
+     </tr>
+     <tr>
+      <td class="to">&#160;&#160;clk</td>
+     </tr>
+     <tr>
+      <td class="from">clk_reset&#160;&#160;</td>
+     </tr>
+     <tr>
+      <td class="to">&#160;&#160;reset</td>
+     </tr>
+     <tr>
+      <td></td>
+      <td></td>
+      <td class="from">tcm&#160;&#160;</td>
+      <td class="neighbor" rowspan="2">
+       <a href="#module_flash_tristate_bridge_pinSharer_0">flash_tristate_bridge_pinSharer_0</a>
+      </td>
+     </tr>
+     <tr>
+      <td></td>
+      <td></td>
+      <td class="to">&#160;&#160;tcs0</td>
+     </tr>
+    </table>
+   </div>
+   <br/>
+   <br/>
+   <table class="flowbox">
+    <tr>
+     <td class="parametersbox">
+      <h2>Parameters</h2>
+      <table>
+       <tr>
+        <td class="parametername">TCM_ADDRESS_W</td>
+        <td class="parametervalue">21</td>
+       </tr>
+       <tr>
+        <td class="parametername">TCM_DATA_W</td>
+        <td class="parametervalue">32</td>
+       </tr>
+       <tr>
+        <td class="parametername">TCM_BYTEENABLE_W</td>
+        <td class="parametervalue">4</td>
+       </tr>
+       <tr>
+        <td class="parametername">TCM_READ_WAIT</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">TCM_WRITE_WAIT</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">TCM_SETUP_WAIT</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">TCM_DATA_HOLD</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">TCM_MAX_PENDING_READ_TRANSACTIONS</td>
+        <td class="parametervalue">5</td>
+       </tr>
+       <tr>
+        <td class="parametername">TCM_TURNAROUND_TIME</td>
+        <td class="parametervalue">2</td>
+       </tr>
+       <tr>
+        <td class="parametername">TCM_TIMING_UNITS</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">TCM_READLATENCY</td>
+        <td class="parametervalue">4</td>
+       </tr>
+       <tr>
+        <td class="parametername">TCM_SYMBOLS_PER_WORD</td>
+        <td class="parametervalue">4</td>
+       </tr>
+       <tr>
+        <td class="parametername">USE_READDATA</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">USE_WRITEDATA</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">USE_READ</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">USE_WRITE</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">USE_BEGINTRANSFER</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">USE_BYTEENABLE</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">USE_CHIPSELECT</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">USE_LOCK</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">USE_ADDRESS</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">USE_WAITREQUEST</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">USE_WRITEBYTEENABLE</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">USE_OUTPUTENABLE</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">USE_RESETREQUEST</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">USE_IRQ</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">USE_RESET_OUTPUT</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">ACTIVE_LOW_READ</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">ACTIVE_LOW_LOCK</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">ACTIVE_LOW_WRITE</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">ACTIVE_LOW_CHIPSELECT</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">ACTIVE_LOW_BYTEENABLE</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">ACTIVE_LOW_OUTPUTENABLE</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">ACTIVE_LOW_WRITEBYTEENABLE</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">ACTIVE_LOW_WAITREQUEST</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">ACTIVE_LOW_BEGINTRANSFER</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">ACTIVE_LOW_RESETREQUEST</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">ACTIVE_LOW_IRQ</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">ACTIVE_LOW_RESET_OUTPUT</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">CHIPSELECT_THROUGH_READLATENCY</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">IS_MEMORY_DEVICE</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">MODULE_ASSIGNMENT_KEYS</td>
+        <td class="parametervalue">embeddedsw.configuration.hwClassnameDriverSupportList,embeddedsw.CMacro.SRAM_MEMORY_SIZE,embeddedsw.CMacro.SRAM_MEMORY_UNITS,embeddedsw.CMacro.SSRAM_DATA_WIDTH,embeddedsw.CMacro.SSRAM_READ_LATENCY,embeddedsw.memoryInfo.MEM_INIT_DATA_WIDTH,embeddedsw.memoryInfo.HAS_BYTE_LANE,embeddedsw.memoryInfo.GENERATE_DAT_SYM,embeddedsw.memoryInfo.DAT_SYM_INSTALL_DIR</td>
+       </tr>
+       <tr>
+        <td class="parametername">MODULE_ASSIGNMENT_VALUES</td>
+        <td class="parametervalue">altera_avalon_lan91c111:altera_avalon_cfi_flash,2,1048576,32,2,32,1,1,SIM_DIR</td>
+       </tr>
+       <tr>
+        <td class="parametername">INTERFACE_ASSIGNMENT_KEYS</td>
+        <td class="parametervalue">embeddedsw.configuration.isMemoryDevice</td>
+       </tr>
+       <tr>
+        <td class="parametername">INTERFACE_ASSIGNMENT_VALUES</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">CLOCK_RATE</td>
+        <td class="parametervalue">100000000</td>
+       </tr>
+       <tr>
+        <td class="parametername">AUTO_DEVICE_FAMILY</td>
+        <td class="parametervalue">ARRIAV</td>
+       </tr>
+       <tr>
+        <td class="parametername">AUTO_DEVICE</td>
+        <td class="parametervalue">5AGXFB3H4F35C4</td>
+       </tr>
+       <tr>
+        <td class="parametername">AUTO_DEVICE_SPEEDGRADE</td>
+        <td class="parametervalue">4_H4</td>
+       </tr>
+       <tr>
+        <td class="parametername">AUTO_CLK_CLOCK_DOMAIN</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">AUTO_CLK_RESET_DOMAIN</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">deviceFamily</td>
+        <td class="parametervalue">Arria V</td>
+       </tr>
+       <tr>
+        <td class="parametername">generateLegacySim</td>
+        <td class="parametervalue">false</td>
+       </tr>
+      </table>
+     </td>
+    </tr>
+   </table>&#160;&#160;
+   <table class="flowbox">
+    <tr>
+     <td class="parametersbox">
+      <h2>Software Assignments</h2>
+      <table>
+       <tr>
+        <td class="parametername">SRAM_MEMORY_SIZE</td>
+        <td class="parametervalue">2</td>
+       </tr>
+       <tr>
+        <td class="parametername">SRAM_MEMORY_UNITS</td>
+        <td class="parametervalue">1048576</td>
+       </tr>
+       <tr>
+        <td class="parametername">SSRAM_DATA_WIDTH</td>
+        <td class="parametervalue">32</td>
+       </tr>
+       <tr>
+        <td class="parametername">SSRAM_READ_LATENCY</td>
+        <td class="parametervalue">2</td>
+       </tr>
+      </table>
+     </td>
+    </tr>
+   </table>
+  </div>
+  <table class="blueBar">
+   <tr>
+    <td class="l">generation took 0.00 seconds</td>
+    <td class="r">rendering took 0.01 seconds</td>
+   </tr>
+  </table>
+ </body>
+</html>

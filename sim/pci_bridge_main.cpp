@@ -44,6 +44,7 @@ static bool stress_true_back_to_back_vram_write_read();
 static bool stress_true_back_to_back_vram_read_write();
 static bool stress_fizzlefade_no_gap_byte_writes();
 static bool stress_fizzlefade_no_gap_byte_rmw();
+static bool stress_target_disconnect_waits_for_frame_release();
 
 static void tick() {
     top->clk = 0;
@@ -842,6 +843,65 @@ static bool stress_fizzlefade_no_gap_byte_rmw() {
     return pass;
 }
 
+static bool stress_target_disconnect_waits_for_frame_release() {
+    std::printf("[TB] Stressing target disconnect with FRAME# held low...\n");
+
+    bool pass = true;
+
+    pass &= pci_write(0x000B8000u, 0x7u, 0x0u, 0x2E421F41u, false);
+
+    top->host_idsel = 0;
+    top->host_ad_drive = 1;
+    top->host_ad_out = 0x000B8000u;
+    top->host_cben_out = 0x7u;
+    top->host_frame_n_out = 0;
+    top->host_irdy_n_out = 1;
+    tick();
+
+    top->host_idsel = 0;
+    top->host_ad_drive = 1;
+    top->host_ad_out = 0x2E421F41u;
+    top->host_cben_out = 0x0u;
+    top->host_frame_n_out = 0;
+    top->host_irdy_n_out = 0;
+
+    if (!wait_for_target_ready()) {
+        end_transaction();
+        return false;
+    }
+
+    pass &= expect_true("Disconnect data phase asserted STOP#", !top->host_stop_n_in);
+
+    // Keep the old transaction alive and present a following data phase whose
+    // byte-enable pattern aliases the plain Memory Write command.  The target
+    // must keep waiting for termination, not decode this as a new address phase.
+    top->host_ad_out = 0x000B8000u;
+    top->host_cben_out = 0x7u;
+    top->host_frame_n_out = 0;
+    top->host_irdy_n_out = 0;
+    tick();
+
+    pass &= expect_true("Post-STOP keeps DEVSEL# asserted", !top->host_devsel_n_in);
+    pass &= expect_true("Post-STOP keeps STOP# asserted", !top->host_stop_n_in);
+    pass &= expect_true("Post-STOP deasserts TRDY#", top->host_trdy_n_in);
+
+    tick();
+
+    set_idle_bus();
+    tick();
+    tick();
+
+    pass &= expect_equal_u8("MEM B8000h after post-STOP hold", top->mem_18000, 0x41);
+    pass &= expect_equal_u8("MEM B8001h after post-STOP hold", top->mem_18001, 0x1F);
+    pass &= expect_equal_u8("MEM B8002h after post-STOP hold", top->mem_18002, 0x42);
+    pass &= expect_equal_u8("MEM B8003h after post-STOP hold", top->mem_18003, 0x2E);
+
+    if (pass) {
+        std::printf("[TB] PASS: Target disconnect waited for FRAME# release\n");
+    }
+    return pass;
+}
+
 int main(int argc, char** argv) {
     Verilated::commandArgs(argc, argv);
     top = new Vpci_bridge_test_top;
@@ -883,10 +943,17 @@ int main(int argc, char** argv) {
     pass &= expect_equal_u8("MEM B8002h", top->mem_18002, 0x42);
     pass &= expect_equal_u8("MEM B8003h", top->mem_18003, 0x2E);
 
+    std::printf("[TB] Exercising VGA memory write-and-invalidate command...\n");
+    pass &= pci_write(0x000B8000u, 0xFu, 0x0u, 0x66554433u, false);
+    pass &= expect_equal_u8("MWI MEM B8000h", top->mem_18000, 0x33);
+    pass &= expect_equal_u8("MWI MEM B8001h", top->mem_18001, 0x44);
+    pass &= expect_equal_u8("MWI MEM B8002h", top->mem_18002, 0x55);
+    pass &= expect_equal_u8("MWI MEM B8003h", top->mem_18003, 0x66);
+
     std::printf("[TB] Exercising 32-bit VGA memory read...\n");
     uint32_t mem_read_data = 0;
     pass &= pci_read(0x000B8000u, 0x6u, 0x0u, &mem_read_data, false);
-    pass &= expect_equal_u32("MEM readback B8000h", mem_read_data, 0x2E421F41u);
+    pass &= expect_equal_u32("MEM readback B8000h", mem_read_data, 0x66554433u);
 
     pass &= stress_fast_back_to_back_io();
     pass &= stress_fast_back_to_back_vram();
@@ -894,6 +961,7 @@ int main(int argc, char** argv) {
     pass &= stress_true_back_to_back_vram_read_write();
     pass &= stress_fizzlefade_no_gap_byte_writes();
     pass &= stress_fizzlefade_no_gap_byte_rmw();
+    pass &= stress_target_disconnect_waits_for_frame_release();
 
     if (!pass) {
         std::printf("[TB] PCI bridge regression FAILED\n");

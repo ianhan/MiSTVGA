@@ -1,0 +1,377 @@
+set_global_assignment -name FAMILY "Arria V"
+set_global_assignment -name DEVICE 5AGXFB3H4F35C4
+set_global_assignment -name TOP_LEVEL_ENTITY a5gx_mistvga_top
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION "20.1.1 STANDARD EDITION"
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "2026-04-27"
+set_global_assignment -name LAST_QUARTUS_VERSION "20.1.1 Standard Edition"
+set_global_assignment -name DEVICE_FILTER_PACKAGE FBGA
+set_global_assignment -name DEVICE_FILTER_PIN_COUNT 1152
+set_global_assignment -name DEVICE_FILTER_SPEED_GRADE 4_H4
+set_global_assignment -name ALLOW_ANY_ROM_SIZE_FOR_RECOGNITION ON
+set_global_assignment -name ALLOW_ANY_RAM_SIZE_FOR_RECOGNITION ON
+set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 256
+set_global_assignment -name OPTIMIZATION_TECHNIQUE SPEED
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name ENABLE_DEVICE_WIDE_RESET OFF
+set_global_assignment -name USE_CONFIGURATION_DEVICE ON
+set_global_assignment -name CRC_ERROR_OPEN_DRAIN ON
+set_global_assignment -name RESERVE_ALL_UNUSED_PINS_WEAK_PULLUP "AS INPUT TRI-STATED"
+set_global_assignment -name ACTIVE_SERIAL_CLOCK FREQ_100MHZ
+set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "2.5 V"
+set_global_assignment -name SEARCH_PATH .
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY ../../build/a5gx
+set_global_assignment -name SDC_FILE a5gx_mistvga.sdc
+
+set_global_assignment -name QIP_FILE ip/dvi/tmds_tx_phy.qip
+set_global_assignment -name QIP_FILE xcvr_reconfig.qip
+set_global_assignment -name VERILOG_FILE ip/dvi/dvi_tx_top.v
+set_global_assignment -name VERILOG_FILE ip/dvi/dvi_tx_tmds_enc.v
+
+set_global_assignment -name VHDL_FILE ip/ascal.vhd
+set_global_assignment -name SYSTEMVERILOG_FILE ../../rtl/ascal_1080p.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../../rtl/a5gx_mistvga_top.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../../rtl/pci_vga_bridge.sv
+set_global_assignment -name VERILOG_FILE ../../rtl/a5gx_ssram_pll.v
+set_global_assignment -name QIP_FILE ip/ssram/memory/synthesis/memory.qip
+set_global_assignment -name VERILOG_FILE ../../rtl/vga.v
+set_global_assignment -name VERILOG_FILE ../../rtl/dpram_difclk.v
+
+set_instance_assignment -name IO_STANDARD LVDS -to refclk2_qr1_p
+set_location_assignment PIN_U9 -to refclk2_qr1_p
+
+set_instance_assignment -name IO_STANDARD "2.5 V" -to clkin_50_top
+set_location_assignment PIN_A16 -to clkin_50_top
+
+set_instance_assignment -name IO_STANDARD LVDS -to clkintop_100_p
+
+set_instance_assignment -name IO_STANDARD "2.5 V" -to cpu_resetn
+set_location_assignment PIN_D5 -to cpu_resetn
+
+set_location_assignment PIN_C16 -to user_led[0]
+set_location_assignment PIN_C14 -to user_led[1]
+set_location_assignment PIN_C13 -to user_led[2]
+set_location_assignment PIN_D16 -to user_led[3]
+set_instance_assignment -name IO_STANDARD "3.0-V PCI" -to user_led[*]
+
+set_location_assignment PIN_AF8 -to hdmi_tx_hpd
+set_location_assignment PIN_AC9 -to hdmi_tx_oen
+set_instance_assignment -name IO_STANDARD "3.0-V PCI" -to hdmi_tx_hpd
+set_instance_assignment -name IO_STANDARD "3.0-V PCI" -to hdmi_tx_oen
+
+set_location_assignment PIN_AJ3 -to hdmi_tx_p[0]
+set_location_assignment PIN_AG3 -to hdmi_tx_p[1]
+set_location_assignment PIN_AE3 -to hdmi_tx_p[2]
+set_location_assignment PIN_AC3 -to hdmi_tx_clkout_p
+set_instance_assignment -name IO_STANDARD "1.5-V PCML" -to hdmi_tx_p
+set_instance_assignment -name IO_STANDARD "1.5-V PCML" -to hdmi_tx_clkout_p
+
+set_instance_assignment -name IO_STANDARD "3.0-V PCI" -to lpci_ad[*]
+set_instance_assignment -name IO_STANDARD "3.0-V PCI" -to lpci_cben[*]
+set_instance_assignment -name IO_STANDARD "3.0-V PCI" -to lpci_framen
+set_instance_assignment -name IO_STANDARD "3.0-V PCI" -to lpci_irdyn
+set_instance_assignment -name IO_STANDARD "3.0-V PCI" -to lpci_trdyn
+set_instance_assignment -name IO_STANDARD "3.0-V PCI" -to lpci_devseln
+set_instance_assignment -name IO_STANDARD "3.0-V PCI" -to lpci_stopn
+set_instance_assignment -name IO_STANDARD "3.0-V PCI" -to lpci_par
+set_instance_assignment -name IO_STANDARD "3.0-V PCI" -to lpci_perrn
+set_instance_assignment -name IO_STANDARD "3.0-V PCI" -to lpci_serrn
+set_instance_assignment -name IO_STANDARD "3.0-V PCI" -to lpci_lockn
+set_instance_assignment -name IO_STANDARD "3.0-V PCI" -to lpci_reqn
+set_instance_assignment -name IO_STANDARD "3.0-V PCI" -to lpci_gntn
+set_instance_assignment -name IO_STANDARD "3.0-V PCI" -to lpci_intan
+set_instance_assignment -name IO_STANDARD "3.0-V PCI" -to lpci_idsel
+set_instance_assignment -name IO_STANDARD "3.0-V PCI" -to lpci_rstn
+set_instance_assignment -name IO_STANDARD "3.0-V PCI" -to lpci_clk
+set_instance_assignment -name IO_STANDARD "3.0-V PCI" -to lpci_enablen
+set_instance_assignment -name GLOBAL_SIGNAL "GLOBAL CLOCK" -to lpci_clk
+
+set_instance_assignment -name IO_STANDARD "2.5 V" -to fsm_a
+set_instance_assignment -name IO_STANDARD "2.5 V" -to fsm_d
+
+set_instance_assignment -name IO_STANDARD "2.5 V" -to sram_adscn
+set_instance_assignment -name IO_STANDARD "2.5 V" -to sram_adspn
+set_instance_assignment -name IO_STANDARD "2.5 V" -to sram_advn
+set_instance_assignment -name IO_STANDARD "2.5 V" -to sram_bwen
+set_instance_assignment -name IO_STANDARD "2.5 V" -to sram_bwn
+set_instance_assignment -name IO_STANDARD "2.5 V" -to sram_cen
+set_instance_assignment -name IO_STANDARD "2.5 V" -to sram_clk
+set_instance_assignment -name IO_STANDARD "2.5 V" -to sram_dqp
+set_instance_assignment -name IO_STANDARD "2.5 V" -to sram_gwn
+set_instance_assignment -name IO_STANDARD "2.5 V" -to sram_mode
+set_instance_assignment -name IO_STANDARD "2.5 V" -to sram_oen
+set_instance_assignment -name IO_STANDARD "2.5 V" -to sram_zz
+
+
+set_instance_assignment -name FAST_INPUT_REGISTER ON -to lpci_ad[*]
+set_instance_assignment -name FAST_INPUT_REGISTER ON -to lpci_cben[*]
+set_instance_assignment -name FAST_INPUT_REGISTER ON -to lpci_framen
+set_instance_assignment -name FAST_INPUT_REGISTER ON -to lpci_irdyn
+set_instance_assignment -name FAST_INPUT_REGISTER ON -to lpci_idsel
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to lpci_ad[*]
+set_instance_assignment -name FAST_OUTPUT_ENABLE_REGISTER ON -to lpci_ad[*]
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to lpci_stopn
+set_instance_assignment -name FAST_OUTPUT_ENABLE_REGISTER ON -to lpci_stopn
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to lpci_devseln
+set_instance_assignment -name FAST_OUTPUT_ENABLE_REGISTER ON -to lpci_devseln
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to lpci_trdyn
+set_instance_assignment -name FAST_OUTPUT_ENABLE_REGISTER ON -to lpci_trdyn
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to lpci_par
+set_instance_assignment -name FAST_OUTPUT_ENABLE_REGISTER ON -to lpci_par
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to lpci_reqn
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to lpci_enablen
+
+# PCI bus assignments copied from fpga/a5gx/pci2.md for the crossed HSMC cable.
+set_location_assignment PIN_AD9 -to lpci_ad[0]
+set_location_assignment PIN_AJ6 -to lpci_ad[1]
+set_location_assignment PIN_AH6 -to lpci_ad[2]
+set_location_assignment PIN_AC6 -to lpci_ad[3]
+set_location_assignment PIN_AC7 -to lpci_ad[4]
+set_location_assignment PIN_AM4 -to lpci_ad[5]
+set_location_assignment PIN_AM3 -to lpci_ad[6]
+set_location_assignment PIN_AE6 -to lpci_ad[7]
+set_location_assignment PIN_AD8 -to lpci_ad[8]
+set_location_assignment PIN_AC8 -to lpci_ad[9]
+set_location_assignment PIN_AH9 -to lpci_ad[10]
+set_location_assignment PIN_AJ10 -to lpci_ad[11]
+set_location_assignment PIN_AH10 -to lpci_ad[12]
+set_location_assignment PIN_AH8 -to lpci_ad[13]
+set_location_assignment PIN_AP11 -to lpci_ad[14]
+set_location_assignment PIN_AN8 -to lpci_ad[15]
+set_location_assignment PIN_AG12 -to lpci_ad[16]
+set_location_assignment PIN_AJ13 -to lpci_ad[17]
+set_location_assignment PIN_AH13 -to lpci_ad[18]
+set_location_assignment PIN_G9 -to lpci_ad[19]
+set_location_assignment PIN_H9 -to lpci_ad[20]
+set_location_assignment PIN_J6 -to lpci_ad[21]
+set_location_assignment PIN_A13 -to lpci_ad[22]
+set_location_assignment PIN_B12 -to lpci_ad[23]
+set_location_assignment PIN_E11 -to lpci_ad[24]
+set_location_assignment PIN_F11 -to lpci_ad[25]
+set_location_assignment PIN_F10 -to lpci_ad[26]
+set_location_assignment PIN_G10 -to lpci_ad[27]
+set_location_assignment PIN_C11 -to lpci_ad[28]
+set_location_assignment PIN_D11 -to lpci_ad[29]
+set_location_assignment PIN_A10 -to lpci_ad[30]
+set_location_assignment PIN_B9 -to lpci_ad[31]
+set_location_assignment PIN_AD6 -to lpci_cben[0]
+set_location_assignment PIN_AP10 -to lpci_cben[1]
+set_location_assignment PIN_AH12 -to lpci_cben[2]
+set_location_assignment PIN_B11 -to lpci_cben[3]
+set_location_assignment PIN_AL13 -to lpci_framen
+set_location_assignment PIN_AM13 -to lpci_irdyn
+set_location_assignment PIN_AK12 -to lpci_trdyn
+set_location_assignment PIN_AL12 -to lpci_devseln
+set_location_assignment PIN_AM11 -to lpci_stopn
+set_location_assignment PIN_AN9 -to lpci_par
+set_location_assignment PIN_AL8 -to lpci_perrn
+set_location_assignment PIN_AM8 -to lpci_serrn
+set_location_assignment PIN_AN11 -to lpci_lockn
+set_location_assignment PIN_C8 -to lpci_reqn
+set_location_assignment PIN_D7 -to lpci_gntn
+set_location_assignment PIN_B6 -to lpci_intan
+set_location_assignment PIN_A11 -to lpci_idsel
+set_location_assignment PIN_A6 -to lpci_rstn
+set_location_assignment PIN_C1 -to lpci_clk
+set_location_assignment PIN_C7 -to lpci_enablen
+
+# Non-conflicting board pin assignments from the Arria V GX starter HDMI QSF.
+# Old starter DVI assignments whose pins are now used by lpci_* are omitted.
+set_location_assignment PIN_AH17 -to clk_125_p
+set_location_assignment PIN_AP29 -to clkin_50_bot
+set_location_assignment PIN_AH18 -to clkinbot_100_p
+set_location_assignment PIN_AP32 -to clkinbot_125_p
+set_location_assignment PIN_A19 -to clkintop_100_p
+set_location_assignment PIN_A3 -to clkintop_125_p
+set_location_assignment PIN_C3 -to clkout_sma
+set_location_assignment PIN_AD12 -to enet_gtx_clk
+set_location_assignment PIN_AG11 -to enet_intn
+set_location_assignment PIN_AJ11 -to enet_mdc
+set_location_assignment PIN_AH11 -to enet_mdio
+set_location_assignment PIN_AL11 -to enet_resetn
+set_location_assignment PIN_AL4 -to enet_rx_clk
+set_location_assignment PIN_AF11 -to enet_rx_d[0]
+set_location_assignment PIN_AF13 -to enet_rx_d[1]
+set_location_assignment PIN_AE12 -to enet_rx_d[2]
+set_location_assignment PIN_AE13 -to enet_rx_d[3]
+set_location_assignment PIN_AB13 -to enet_rx_dv
+set_location_assignment PIN_AP14 -to enet_rx_p
+set_location_assignment PIN_AC11 -to enet_tx_d[0]
+set_location_assignment PIN_AC12 -to enet_tx_d[1]
+set_location_assignment PIN_AC13 -to enet_tx_d[2]
+set_location_assignment PIN_AB11 -to enet_tx_d[3]
+set_location_assignment PIN_AB12 -to enet_tx_en
+set_location_assignment PIN_AP13 -to enet_tx_p
+set_location_assignment PIN_AJ20 -to flash_advn
+set_location_assignment PIN_AK21 -to flash_cen[0]
+set_location_assignment PIN_AK20 -to flash_cen[1]
+set_location_assignment PIN_AJ22 -to flash_clk
+set_location_assignment PIN_AL22 -to flash_oen
+set_location_assignment PIN_AH20 -to flash_rdybsyn[0]
+set_location_assignment PIN_AG20 -to flash_rdybsyn[1]
+set_location_assignment PIN_AH22 -to flash_resetn
+set_location_assignment PIN_AH21 -to flash_wen
+set_location_assignment PIN_AP22 -to fsm_a[0]
+set_location_assignment PIN_AJ25 -to fsm_a[10]
+set_location_assignment PIN_AH23 -to fsm_a[11]
+set_location_assignment PIN_AH24 -to fsm_a[12]
+set_location_assignment PIN_AH25 -to fsm_a[13]
+set_location_assignment PIN_AG23 -to fsm_a[14]
+set_location_assignment PIN_AG24 -to fsm_a[15]
+set_location_assignment PIN_AF23 -to fsm_a[16]
+set_location_assignment PIN_AF25 -to fsm_a[17]
+set_location_assignment PIN_AE25 -to fsm_a[18]
+set_location_assignment PIN_AE24 -to fsm_a[19]
+set_location_assignment PIN_AP23 -to fsm_a[1]
+set_location_assignment PIN_AE23 -to fsm_a[20]
+set_location_assignment PIN_AP20 -to fsm_a[21]
+set_location_assignment PIN_AN21 -to fsm_a[22]
+set_location_assignment PIN_AN20 -to fsm_a[23]
+set_location_assignment PIN_AM20 -to fsm_a[24]
+set_location_assignment PIN_AM22 -to fsm_a[25]
+set_location_assignment PIN_AL20 -to fsm_a[26]
+set_location_assignment PIN_AN23 -to fsm_a[2]
+set_location_assignment PIN_AN24 -to fsm_a[3]
+set_location_assignment PIN_AM23 -to fsm_a[4]
+set_location_assignment PIN_AL23 -to fsm_a[5]
+set_location_assignment PIN_AL24 -to fsm_a[6]
+set_location_assignment PIN_AK24 -to fsm_a[7]
+set_location_assignment PIN_AK23 -to fsm_a[8]
+set_location_assignment PIN_AJ23 -to fsm_a[9]
+set_location_assignment PIN_AD27 -to fsm_d[0]
+set_location_assignment PIN_AG27 -to fsm_d[10]
+set_location_assignment PIN_AH27 -to fsm_d[11]
+set_location_assignment PIN_AH26 -to fsm_d[12]
+set_location_assignment PIN_AJ26 -to fsm_d[13]
+set_location_assignment PIN_AK27 -to fsm_d[14]
+set_location_assignment PIN_AK26 -to fsm_d[15]
+set_location_assignment PIN_AL27 -to fsm_d[16]
+set_location_assignment PIN_AL28 -to fsm_d[17]
+set_location_assignment PIN_AL29 -to fsm_d[18]
+set_location_assignment PIN_AE29 -to fsm_d[19]
+set_location_assignment PIN_AD26 -to fsm_d[1]
+set_location_assignment PIN_AM31 -to fsm_d[20]
+set_location_assignment PIN_AM29 -to fsm_d[21]
+set_location_assignment PIN_AM28 -to fsm_d[22]
+set_location_assignment PIN_AL26 -to fsm_d[23]
+set_location_assignment PIN_AL25 -to fsm_d[24]
+set_location_assignment PIN_AM26 -to fsm_d[25]
+set_location_assignment PIN_AM25 -to fsm_d[26]
+set_location_assignment PIN_AN26 -to fsm_d[27]
+set_location_assignment PIN_AP28 -to fsm_d[28]
+set_location_assignment PIN_AP27 -to fsm_d[29]
+set_location_assignment PIN_AE26 -to fsm_d[2]
+set_location_assignment PIN_AP26 -to fsm_d[30]
+set_location_assignment PIN_AP25 -to fsm_d[31]
+set_location_assignment PIN_AE28 -to fsm_d[3]
+set_location_assignment PIN_AF29 -to fsm_d[4]
+set_location_assignment PIN_AF28 -to fsm_d[5]
+set_location_assignment PIN_AF26 -to fsm_d[6]
+set_location_assignment PIN_AG29 -to fsm_d[7]
+set_location_assignment PIN_AG26 -to fsm_d[8]
+set_location_assignment PIN_AH29 -to fsm_d[9]
+set_location_assignment PIN_AG8 -to fx2_resetn
+set_location_assignment PIN_AE11 -to hdmi_tx_i2c_scl
+set_location_assignment PIN_AD11 -to hdmi_tx_i2c_sda
+set_location_assignment PIN_H12 -to int_tsd_scl
+set_location_assignment PIN_H11 -to int_tsd_sda
+set_location_assignment PIN_B17 -to lcd_csn
+set_location_assignment PIN_B18 -to lcd_d_cn
+set_location_assignment PIN_C19 -to lcd_data[0]
+set_location_assignment PIN_D19 -to lcd_data[1]
+set_location_assignment PIN_D18 -to lcd_data[2]
+set_location_assignment PIN_D17 -to lcd_data[3]
+set_location_assignment PIN_E17 -to lcd_data[4]
+set_location_assignment PIN_G19 -to lcd_data[5]
+set_location_assignment PIN_E18 -to lcd_data[6]
+set_location_assignment PIN_F19 -to lcd_data[7]
+set_location_assignment PIN_C17 -to lcd_wen
+set_location_assignment PIN_G13 -to max5_ben[0]
+set_location_assignment PIN_F13 -to max5_ben[1]
+set_location_assignment PIN_E12 -to max5_ben[2]
+set_location_assignment PIN_D12 -to max5_ben[3]
+set_location_assignment PIN_G12 -to max5_clk
+set_location_assignment PIN_G11 -to max5_csn
+set_location_assignment PIN_C10 -to max5_oen
+set_location_assignment PIN_D10 -to max5_wen
+set_location_assignment PIN_H8 -to overtemp_fpga
+set_location_assignment PIN_F17 -to pcie_led_g2
+set_location_assignment PIN_G17 -to pcie_led_x1
+set_location_assignment PIN_G16 -to pcie_led_x4
+set_location_assignment PIN_G15 -to pcie_led_x8
+set_location_assignment PIN_B2 -to pcie_perstn
+set_location_assignment PIN_F16 -to pcie_smbclk
+set_location_assignment PIN_F14 -to pcie_smbdat
+set_location_assignment PIN_E14 -to pcie_waken
+set_location_assignment PIN_AB23 -to sdi_clk148_dn
+set_location_assignment PIN_AC23 -to sdi_clk148_up
+set_location_assignment PIN_AJ29 -to sdi_fault
+set_location_assignment PIN_AD24 -to sdi_rx_bypass
+set_location_assignment PIN_AD23 -to sdi_rx_en
+set_location_assignment PIN_AH28 -to sdi_scl
+set_location_assignment PIN_AJ28 -to sdi_sda
+set_location_assignment PIN_AC24 -to sdi_tx_en
+set_location_assignment PIN_AC25 -to sdi_tx_sd_hdn
+set_location_assignment PIN_AP19 -to sram_adscn
+set_location_assignment PIN_AF19 -to sram_adspn
+set_location_assignment PIN_AE19 -to sram_advn
+set_location_assignment PIN_AP17 -to sram_bwen
+set_location_assignment PIN_AM17 -to sram_bwn[0]
+set_location_assignment PIN_AM19 -to sram_bwn[1]
+set_location_assignment PIN_AN17 -to sram_bwn[2]
+set_location_assignment PIN_AN18 -to sram_bwn[3]
+set_location_assignment PIN_AL19 -to sram_cen
+set_location_assignment PIN_AL18 -to sram_clk
+set_location_assignment PIN_AF20 -to sram_dqp[0]
+set_location_assignment PIN_AE20 -to sram_dqp[1]
+set_location_assignment PIN_AE22 -to sram_dqp[2]
+set_location_assignment PIN_AE21 -to sram_dqp[3]
+set_location_assignment PIN_AF22 -to sram_gwn
+set_location_assignment PIN_AG21 -to sram_mode
+set_location_assignment PIN_AL17 -to sram_oen
+set_location_assignment PIN_AD21 -to sram_zz
+set_location_assignment PIN_AH15 -to usb_addr[0]
+set_location_assignment PIN_AH14 -to usb_addr[1]
+set_location_assignment PIN_AG15 -to usb_clk
+set_location_assignment PIN_AP16 -to usb_data[0]
+set_location_assignment PIN_AN15 -to usb_data[1]
+set_location_assignment PIN_AM16 -to usb_data[2]
+set_location_assignment PIN_AM14 -to usb_data[3]
+set_location_assignment PIN_AL16 -to usb_data[4]
+set_location_assignment PIN_AL15 -to usb_data[5]
+set_location_assignment PIN_AL14 -to usb_data[6]
+set_location_assignment PIN_AK14 -to usb_data[7]
+set_location_assignment PIN_AH16 -to usb_empty
+set_location_assignment PIN_AJ16 -to usb_full
+set_location_assignment PIN_AK15 -to usb_oen
+set_location_assignment PIN_AH19 -to usb_rdn
+set_location_assignment PIN_AJ17 -to usb_resetn
+set_location_assignment PIN_AJ19 -to usb_scl
+set_location_assignment PIN_AK17 -to usb_sda
+set_location_assignment PIN_AK18 -to usb_wrn
+set_location_assignment PIN_D15 -to user_dipsw[0]
+set_location_assignment PIN_D14 -to user_dipsw[1]
+set_location_assignment PIN_D13 -to user_dipsw[2]
+set_location_assignment PIN_E15 -to user_dipsw[3]
+set_location_assignment PIN_A14 -to user_pb[0]
+set_location_assignment PIN_B15 -to user_pb[1]
+set_location_assignment PIN_B14 -to user_pb[2]
+
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_global_assignment -name ADVANCED_PHYSICAL_OPTIMIZATION ON
+set_global_assignment -name OPTIMIZATION_MODE BALANCED
+set_global_assignment -name ALLOW_REGISTER_RETIMING ON
+
+set_global_assignment -name ENABLE_OCT_DONE OFF
+set_global_assignment -name STRATIXV_CONFIGURATION_SCHEME "PASSIVE SERIAL"
+set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -rise
+set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -fall
+set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -rise
+set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -fall
+
+
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

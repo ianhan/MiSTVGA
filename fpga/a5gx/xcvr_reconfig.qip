@@ -1,0 +1,87 @@
+set_global_assignment -entity "xcvr_reconfig" -library "xcvr_reconfig" -name IP_TOOL_NAME "alt_xcvr_reconfig"
+set_global_assignment -entity "xcvr_reconfig" -library "xcvr_reconfig" -name IP_TOOL_VERSION "19.1"
+set_global_assignment -entity "xcvr_reconfig" -library "xcvr_reconfig" -name IP_TOOL_ENV "mwpim"
+set_global_assignment -library "xcvr_reconfig" -name MISC_FILE [file join $::quartus(qip_path) "xcvr_reconfig.cmp"]
+set_global_assignment -entity "xcvr_reconfig" -library "xcvr_reconfig" -name IP_TARGETED_DEVICE_FAMILY "Arria V"
+set_global_assignment -entity "xcvr_reconfig" -library "xcvr_reconfig" -name IP_GENERATED_DEVICE_FAMILY "{Arria V}"
+set_global_assignment -entity "xcvr_reconfig" -library "xcvr_reconfig" -name IP_QSYS_MODE "UNKNOWN"
+set_global_assignment -name SYNTHESIS_ONLY_QIP ON
+set_global_assignment -entity "xcvr_reconfig" -library "xcvr_reconfig" -name IP_COMPONENT_NAME "eGN2cl9yZWNvbmZpZw=="
+set_global_assignment -entity "xcvr_reconfig" -library "xcvr_reconfig" -name IP_COMPONENT_DISPLAY_NAME "VHJhbnNjZWl2ZXIgUmVjb25maWd1cmF0aW9uIENvbnRyb2xsZXIgSW50ZWwgRlBHQSBJUA=="
+set_global_assignment -entity "xcvr_reconfig" -library "xcvr_reconfig" -name IP_COMPONENT_REPORT_HIERARCHY "Off"
+set_global_assignment -entity "xcvr_reconfig" -library "xcvr_reconfig" -name IP_COMPONENT_INTERNAL "Off"
+set_global_assignment -entity "xcvr_reconfig" -library "xcvr_reconfig" -name IP_COMPONENT_AUTHOR "QWx0ZXJhIENvcnBvcmF0aW9u"
+set_global_assignment -entity "xcvr_reconfig" -library "xcvr_reconfig" -name IP_COMPONENT_VERSION "MTkuMQ=="
+set_global_assignment -entity "xcvr_reconfig" -library "xcvr_reconfig" -name IP_COMPONENT_DESCRIPTION "VHJhbnNjZWl2ZXIgUmVjb25maWd1cmF0aW9uIENvbnRyb2xsZXIgaXMgdXNlZCB0byBkeW5hbWljYWxseSBjYWxpYnJhdGUgYW5kIHJlY29uZmlndXJlIGZlYXR1cmVzIG9mIFBIWSBJUCBjb3Jlcw=="
+set_global_assignment -entity "alt_xcvr_reconfig" -library "xcvr_reconfig" -name IP_COMPONENT_NAME "YWx0X3hjdnJfcmVjb25maWc="
+set_global_assignment -entity "alt_xcvr_reconfig" -library "xcvr_reconfig" -name IP_COMPONENT_DISPLAY_NAME "VHJhbnNjZWl2ZXIgUmVjb25maWd1cmF0aW9uIENvbnRyb2xsZXIgSW50ZWwgRlBHQSBJUA=="
+set_global_assignment -entity "alt_xcvr_reconfig" -library "xcvr_reconfig" -name IP_COMPONENT_REPORT_HIERARCHY "Off"
+set_global_assignment -entity "alt_xcvr_reconfig" -library "xcvr_reconfig" -name IP_COMPONENT_INTERNAL "Off"
+set_global_assignment -entity "alt_xcvr_reconfig" -library "xcvr_reconfig" -name IP_COMPONENT_AUTHOR "QWx0ZXJhIENvcnBvcmF0aW9u"
+set_global_assignment -entity "alt_xcvr_reconfig" -library "xcvr_reconfig" -name IP_COMPONENT_VERSION "MTkuMQ=="
+set_global_assignment -entity "alt_xcvr_reconfig" -library "xcvr_reconfig" -name IP_COMPONENT_DESCRIPTION "VHJhbnNjZWl2ZXIgUmVjb25maWd1cmF0aW9uIENvbnRyb2xsZXIgaXMgdXNlZCB0byBkeW5hbWljYWxseSBjYWxpYnJhdGUgYW5kIHJlY29uZmlndXJlIGZlYXR1cmVzIG9mIFBIWSBJUCBjb3Jlcw=="
+set_global_assignment -entity "alt_xcvr_reconfig" -library "xcvr_reconfig" -name IP_COMPONENT_PARAMETER "bnVtYmVyX29mX3JlY29uZmlnX2ludGVyZmFjZXM=::NQ==::TnVtYmVyIG9mIHJlY29uZmlndXJhdGlvbiBpbnRlcmZhY2Vz"
+set_global_assignment -entity "alt_xcvr_reconfig" -library "xcvr_reconfig" -name IP_COMPONENT_PARAMETER "ZW5hYmxlX2RjZA==::MA==::RW5hYmxlIGR1dHkgY3ljbGUgY2FsaWJyYXRpb24="
+set_global_assignment -entity "alt_xcvr_reconfig" -library "xcvr_reconfig" -name IP_COMPONENT_PARAMETER "ZW5hYmxlX2FuYWxvZw==::MQ==::RW5hYmxlIEFuYWxvZyBjb250cm9scw=="
+set_global_assignment -entity "alt_xcvr_reconfig" -library "xcvr_reconfig" -name IP_COMPONENT_PARAMETER "ZW5hYmxlX2V5ZW1vbg==::MA==::RW5hYmxlIEV5ZVEgYmxvY2s="
+set_global_assignment -entity "alt_xcvr_reconfig" -library "xcvr_reconfig" -name IP_COMPONENT_PARAMETER "ZW5hYmxlX2Jlcg==::MA==::RW5hYmxlIEJpdCBFcnJvciBSYXRlIEJsb2Nr"
+set_global_assignment -entity "alt_xcvr_reconfig" -library "xcvr_reconfig" -name IP_COMPONENT_PARAMETER "ZW5hYmxlX2RmZQ==::MA==::RW5hYmxlIGRlY2lzaW9uIGZlZWRiYWNrIGVxdWFsaXplciAoREZFKSBibG9jaw=="
+set_global_assignment -entity "alt_xcvr_reconfig" -library "xcvr_reconfig" -name IP_COMPONENT_PARAMETER "ZW5hYmxlX2FkY2U=::MA==::RW5hYmxlIGFkYXB0aXZlIGVxdWFsaXphdGlvbiAoQUVRKSBibG9jaw=="
+set_global_assignment -entity "alt_xcvr_reconfig" -library "xcvr_reconfig" -name IP_COMPONENT_PARAMETER "ZW5hYmxlX21pZg==::MA==::RW5hYmxlIGNoYW5uZWwvUExMIHJlY29uZmlndXJhdGlvbg=="
+set_global_assignment -entity "alt_xcvr_reconfig" -library "xcvr_reconfig" -name IP_COMPONENT_PARAMETER "Z3VpX2VuYWJsZV9wbGw=::MA==::RW5hYmxlIFBMTCByZWNvbmZpZ3VyYXRpb24gc3VwcG9ydCBibG9jaw=="
+set_global_assignment -entity "alt_xcvr_reconfig" -library "xcvr_reconfig" -name IP_COMPONENT_PARAMETER "Z3VpX2NhbF9zdGF0dXNfcG9ydA==::ZmFsc2U=::Q3JlYXRlIG9wdGlvbmFsIGNhbGlicmF0aW9uIHN0YXR1cyBwb3J0cw=="
+
+set_global_assignment -library "xcvr_reconfig" -name VERILOG_FILE [file join $::quartus(qip_path) "xcvr_reconfig.v"]
+set_global_assignment -library "xcvr_reconfig" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "xcvr_reconfig/altera_xcvr_functions.sv"]
+set_global_assignment -library "xcvr_reconfig" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "xcvr_reconfig/av_xcvr_h.sv"]
+set_global_assignment -library "xcvr_reconfig" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "xcvr_reconfig/alt_xcvr_resync.sv"]
+set_global_assignment -library "xcvr_reconfig" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "xcvr_reconfig/alt_xcvr_reconfig_h.sv"]
+set_global_assignment -library "xcvr_reconfig" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "xcvr_reconfig/alt_xcvr_reconfig.sv"]
+set_global_assignment -library "xcvr_reconfig" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "xcvr_reconfig/alt_xcvr_reconfig_cal_seq.sv"]
+set_global_assignment -library "xcvr_reconfig" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "xcvr_reconfig/alt_xreconf_cif.sv"]
+set_global_assignment -library "xcvr_reconfig" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "xcvr_reconfig/alt_xreconf_uif.sv"]
+set_global_assignment -library "xcvr_reconfig" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "xcvr_reconfig/alt_xreconf_basic_acq.sv"]
+set_global_assignment -library "xcvr_reconfig" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "xcvr_reconfig/alt_xcvr_reconfig_analog.sv"]
+set_global_assignment -library "xcvr_reconfig" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "xcvr_reconfig/alt_xcvr_reconfig_analog_av.sv"]
+set_global_assignment -library "xcvr_reconfig" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "xcvr_reconfig/alt_xreconf_analog_datactrl_av.sv"]
+set_global_assignment -library "xcvr_reconfig" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "xcvr_reconfig/alt_xreconf_analog_rmw_av.sv"]
+set_global_assignment -library "xcvr_reconfig" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "xcvr_reconfig/alt_xreconf_analog_ctrlsm.sv"]
+set_global_assignment -library "xcvr_reconfig" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "xcvr_reconfig/alt_xcvr_reconfig_offset_cancellation.sv"]
+set_global_assignment -library "xcvr_reconfig" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "xcvr_reconfig/alt_xcvr_reconfig_offset_cancellation_av.sv"]
+set_global_assignment -library "xcvr_reconfig" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "xcvr_reconfig/alt_xcvr_reconfig_eyemon.sv"]
+set_global_assignment -library "xcvr_reconfig" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "xcvr_reconfig/alt_xcvr_reconfig_dfe.sv"]
+set_global_assignment -library "xcvr_reconfig" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "xcvr_reconfig/alt_xcvr_reconfig_adce.sv"]
+set_global_assignment -library "xcvr_reconfig" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "xcvr_reconfig/alt_xcvr_reconfig_dcd.sv"]
+set_global_assignment -library "xcvr_reconfig" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "xcvr_reconfig/alt_xcvr_reconfig_dcd_av.sv"]
+set_global_assignment -library "xcvr_reconfig" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "xcvr_reconfig/alt_xcvr_reconfig_dcd_cal_av.sv"]
+set_global_assignment -library "xcvr_reconfig" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "xcvr_reconfig/alt_xcvr_reconfig_dcd_control_av.sv"]
+set_global_assignment -library "xcvr_reconfig" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "xcvr_reconfig/alt_xcvr_reconfig_mif.sv"]
+set_global_assignment -library "xcvr_reconfig" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "xcvr_reconfig/av_xcvr_reconfig_mif.sv"]
+set_global_assignment -library "xcvr_reconfig" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "xcvr_reconfig/av_xcvr_reconfig_mif_ctrl.sv"]
+set_global_assignment -library "xcvr_reconfig" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "xcvr_reconfig/av_xcvr_reconfig_mif_avmm.sv"]
+set_global_assignment -library "xcvr_reconfig" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "xcvr_reconfig/alt_xcvr_reconfig_pll.sv"]
+set_global_assignment -library "xcvr_reconfig" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "xcvr_reconfig/av_xcvr_reconfig_pll.sv"]
+set_global_assignment -library "xcvr_reconfig" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "xcvr_reconfig/av_xcvr_reconfig_pll_ctrl.sv"]
+set_global_assignment -library "xcvr_reconfig" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "xcvr_reconfig/alt_xcvr_reconfig_direct.sv"]
+set_global_assignment -library "xcvr_reconfig" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "xcvr_reconfig/alt_arbiter_acq.sv"]
+set_global_assignment -library "xcvr_reconfig" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "xcvr_reconfig/alt_xcvr_reconfig_basic.sv"]
+set_global_assignment -library "xcvr_reconfig" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "xcvr_reconfig/av_xrbasic_l2p_addr.sv"]
+set_global_assignment -library "xcvr_reconfig" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "xcvr_reconfig/av_xrbasic_l2p_ch.sv"]
+set_global_assignment -library "xcvr_reconfig" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "xcvr_reconfig/av_xrbasic_l2p_rom.sv"]
+set_global_assignment -library "xcvr_reconfig" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "xcvr_reconfig/av_xrbasic_lif_csr.sv"]
+set_global_assignment -library "xcvr_reconfig" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "xcvr_reconfig/av_xrbasic_lif.sv"]
+set_global_assignment -library "xcvr_reconfig" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "xcvr_reconfig/av_xcvr_reconfig_basic.sv"]
+set_global_assignment -library "xcvr_reconfig" -name SDC_FILE [file join $::quartus(qip_path) "xcvr_reconfig/av_xcvr_reconfig.sdc"]
+set_global_assignment -library "xcvr_reconfig" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "xcvr_reconfig/alt_xcvr_arbiter.sv"]
+set_global_assignment -library "xcvr_reconfig" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "xcvr_reconfig/alt_xcvr_m2s.sv"]
+set_global_assignment -library "xcvr_reconfig" -name VERILOG_FILE [file join $::quartus(qip_path) "xcvr_reconfig/altera_wait_generate.v"]
+set_global_assignment -library "xcvr_reconfig" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "xcvr_reconfig/alt_xcvr_csr_selector.sv"]
+set_global_assignment -library "xcvr_reconfig" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "xcvr_reconfig/sv_reconfig_bundle_to_basic.sv"]
+set_global_assignment -library "xcvr_reconfig" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "xcvr_reconfig/av_reconfig_bundle_to_basic.sv"]
+set_global_assignment -library "xcvr_reconfig" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "xcvr_reconfig/av_reconfig_bundle_to_xcvr.sv"]
+set_global_assignment -library "xcvr_reconfig" -name SOURCE_FILE [file join $::quartus(qip_path) "xcvr_reconfig/plain_files.txt"]
+set_global_assignment -library "xcvr_reconfig" -name SOURCE_FILE [file join $::quartus(qip_path) "xcvr_reconfig/qencrypt_files.txt"]
+
+set_global_assignment -entity "alt_xcvr_reconfig" -library "xcvr_reconfig" -name IP_TOOL_NAME "alt_xcvr_reconfig"
+set_global_assignment -entity "alt_xcvr_reconfig" -library "xcvr_reconfig" -name IP_TOOL_VERSION "19.1"
+set_global_assignment -entity "alt_xcvr_reconfig" -library "xcvr_reconfig" -name IP_TOOL_ENV "mwpim"
