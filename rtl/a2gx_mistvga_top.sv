@@ -122,6 +122,8 @@ module a2gx_mistvga_top(
     wire        pci_clk;
     wire        pll_locked;
     wire        pci_config_not_done;
+    wire        debug_display_mode;
+    wire        scaler_filter_disabled;
     wire [2:0]  led_debug;
     wire        hdmi_config_ready;
     wire        reset_n = cpu_resetn & pll_locked;
@@ -197,7 +199,9 @@ module a2gx_mistvga_top(
         .mem_write          (mem_write),
         .mem_writedata      (mem_writedata),
 
-        .led_debug          (led_debug)
+        .debug_display_mode    (debug_display_mode),
+        .scaler_filter_disabled(scaler_filter_disabled),
+        .led_debug             (led_debug)
     );
 
     // ─── VGA core (ao486/MiSTer full VGA) ───
@@ -240,6 +244,7 @@ module a2gx_mistvga_top(
         .vga_pal_d      (),
         .vga_pal_a      (),
         .vga_pal_we     (),
+        .vga_border_color(),
         .vga_start_addr (),
         .vga_wr_seg     (),
         .vga_rd_seg     (),

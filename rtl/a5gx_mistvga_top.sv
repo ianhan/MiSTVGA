@@ -90,8 +90,14 @@ module a5gx_mistvga_top (
     wire [7:0]  vga_r;
     wire [7:0]  vga_g;
     wire [7:0]  vga_b;
+    wire [17:0] vga_pal_d;
+    wire [7:0]  vga_pal_a;
+    wire        vga_pal_we;
+    wire [7:0]  vga_border_color;
 
     wire        pci_config_not_done;
+    wire        debug_display_mode;
+    wire        scaler_filter_disabled;
     wire [2:0]  led_debug;
 
     pci_vga_bridge u_pci_bridge (
@@ -130,7 +136,9 @@ module a5gx_mistvga_top (
         .mem_write           (mem_write),
         .mem_writedata       (mem_writedata),
 
-        .led_debug           (led_debug)
+        .debug_display_mode    (debug_display_mode),
+        .scaler_filter_disabled(scaler_filter_disabled),
+        .led_debug             (led_debug)
     );
 
     vga u_vga (
@@ -168,9 +176,10 @@ module a5gx_mistvga_top (
         .vga_g           (vga_g),
         .vga_b           (vga_b),
 
-        .vga_pal_d       (),
-        .vga_pal_a       (),
-        .vga_pal_we      (),
+        .vga_pal_d       (vga_pal_d),
+        .vga_pal_a       (vga_pal_a),
+        .vga_pal_we      (vga_pal_we),
+        .vga_border_color(vga_border_color),
         .vga_start_addr  (),
         .vga_wr_seg      (),
         .vga_rd_seg      (),
@@ -226,20 +235,27 @@ module a5gx_mistvga_top (
     wire [0:0]  memory_sram_chipenable1_n;
 
     ascal_1080p u_scaler (
-        .reset_na          (scaler_reset_n),
+        .reset_na              (scaler_reset_n),
+        .debug_display_mode    (debug_display_mode),
+        .scaler_filter_disabled(scaler_filter_disabled),
+        .palette_clk           (pci_clk),
+        .palette_data          (vga_pal_d),
+        .palette_address       (vga_pal_a),
+        .palette_write         (vga_pal_we),
+        .border_color_index    (vga_border_color),
 
-        .i_clk             (clkin_50_top),
-        .i_ce              (vga_ce),
-        .i_r               (vga_r),
-        .i_g               (vga_g),
-        .i_b               (vga_b),
-        .i_hs              (vga_horiz_sync),
-        .i_vs              (vga_vert_sync),
-        .i_de              (vga_blank_n),
+        .i_clk                 (clkin_50_top),
+        .i_ce                  (vga_ce),
+        .i_r                   (vga_r),
+        .i_g                   (vga_g),
+        .i_b                   (vga_b),
+        .i_hs                  (vga_horiz_sync),
+        .i_vs                  (vga_vert_sync),
+        .i_de                  (vga_blank_n),
 
-        .o_clk             (pixel_clk),
-        .o_ce              (1'b1),
-        .o_r               (scaler_r),
+        .o_clk                 (pixel_clk),
+        .o_ce                  (1'b1),
+        .o_r                   (scaler_r),
         .o_g               (scaler_g),
         .o_b               (scaler_b),
         .o_hs              (scaler_hs),
