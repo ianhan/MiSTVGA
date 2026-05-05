@@ -106,6 +106,13 @@ A2GX_SOURCES := \
 	$(RTL_DIR)/pci_vga_bridge.sv \
 	$(RTL_DIR)/a2gx_mistvga_top.sv
 
+SIVGX_SOURCES := \
+	$(RTL_DIR)/vga.v \
+	$(RTL_DIR)/dpram_difclk.v \
+	$(RTL_DIR)/pci_vga_bridge.sv \
+	$(RTL_DIR)/sivgx_i2c_hdmi_config.v \
+	$(RTL_DIR)/sivgx_mistvga_top.sv
+
 lint-a2gx:
 	verilator --lint-only -Wall \
 		-Wno-WIDTHTRUNC -Wno-WIDTHEXPAND -Wno-CASEINCOMPLETE \
@@ -115,4 +122,14 @@ lint-a2gx:
 		--top-module a2gx_mistvga_top \
 		$(A2GX_SOURCES) $(SIM_DIR)/a2gx_stubs.v
 
-.PHONY: all run bridge-run trace clean lint-a2gx
+lint-sivgx:
+	verilator --lint-only -Wall \
+		-Wno-WIDTHTRUNC -Wno-WIDTHEXPAND -Wno-CASEINCOMPLETE \
+		-Wno-UNUSEDSIGNAL -Wno-UNUSEDPARAM -Wno-UNOPTFLAT \
+		-Wno-BLKSEQ -Wno-INITIALDLY -Wno-LATCH -Wno-MULTIDRIVEN \
+		-Wno-GENUNNAMED -Wno-PINCONNECTEMPTY -Wno-DECLFILENAME \
+		--top-module sivgx_mistvga_top \
+		$(SIVGX_SOURCES) $(RTL_DIR)/a2gx_i2c_controller.v \
+		$(RTL_DIR)/a2gx_i2c_write_wdata.v $(SIM_DIR)/a2gx_stubs.v
+
+.PHONY: all run bridge-run trace clean lint-a2gx lint-sivgx
