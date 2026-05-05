@@ -58,8 +58,12 @@ module ascal_1080p (
     localparam [11:0]  HDMI_HMAX_CENTERED   = 12'd1679;
     localparam [11:0]  HDMI_HMIN_DEBUG      = 12'd0;
     localparam [11:0]  HDMI_HMAX_DEBUG      = 12'd1439;
-    localparam [11:0]  DEBUG_PANEL_X        = 12'd1440;
-    localparam [11:0]  DEBUG_PANEL_Y        = 12'd0;
+    localparam [11:0]  DEBUG_COLUMN_X       = 12'd1440;
+    localparam [11:0]  DEBUG_COLUMN_WIDTH   = 12'd480;
+    localparam [11:0]  DEBUG_TOP_SPACING    = 12'd29;
+    localparam [11:0]  DEBUG_MID_SPACING    = 12'd30;
+    localparam [11:0]  DEBUG_PANEL_X        = DEBUG_COLUMN_X;
+    localparam [11:0]  DEBUG_PANEL_Y        = DEBUG_TOP_SPACING;
     localparam [11:0]  DEBUG_PANEL_SIZE     = 12'd480;
     localparam [11:0]  DEBUG_PANEL_BORDER   = 12'd4;
     localparam [11:0]  DEBUG_GRID_ORIGIN    = 12'd10;
@@ -67,6 +71,13 @@ module ascal_1080p (
     localparam [11:0]  DEBUG_CELL_GAP       = 12'd4;
     localparam [11:0]  DEBUG_CELL_PITCH     = 12'd29;
     localparam [11:0]  DEBUG_GRID_SIZE      = 12'd460;
+    localparam [11:0]  DEBUG_HISTORY_X      =
+        DEBUG_PANEL_X + DEBUG_GRID_ORIGIN;
+    localparam [11:0]  DEBUG_HISTORY_Y      =
+        DEBUG_PANEL_Y + DEBUG_PANEL_SIZE + DEBUG_MID_SPACING;
+    localparam [11:0]  DEBUG_HISTORY_WIDTH  = DEBUG_GRID_SIZE;
+    localparam [11:0]  DEBUG_HISTORY_HEIGHT = 12'd512;
+    localparam [8:0]   DEBUG_HISTORY_COLS   = 9'(DEBUG_GRID_SIZE);
     localparam int     HDMI_VTOTAL          = 1125;
     localparam int     HDMI_VSSTART         = 1084;
     localparam int     HDMI_VSEND           = 1089;
@@ -246,6 +257,15 @@ module ascal_1080p (
     end
     endfunction
 
+    function automatic [23:0] palette_6bpc_to_8bpc(input [17:0] color);
+    begin
+        palette_6bpc_to_8bpc =
+            {color[17:12], color[17:16],
+             color[11:6],  color[11:10],
+             color[5:0],   color[5:4]};
+    end
+    endfunction
+
     reg [FILTER_WRITE_INDEX_WIDTH-1:0] filter_write_index = '0;
     reg [1:0]                          filter_write_cycle = 2'd0;
     reg                                filter_loaded = 1'b0;
@@ -273,6 +293,16 @@ module ascal_1080p (
     reg                                ascal_de_d = 1'b0;
     reg                                palette_border_d = 1'b0;
     reg                                palette_cell_d = 1'b0;
+    reg                                palette_history_d = 1'b0;
+    reg                                debug_column_d = 1'b0;
+    reg [8:0]                          palette_history_write_col = 9'd0;
+    reg [8:0]                          palette_history_capture_count = 9'd0;
+    reg [7:0]                          palette_history_capture_entry = 8'd0;
+    reg                                palette_history_capture_active = 1'b0;
+    reg                                palette_history_capture_valid = 1'b0;
+    reg [16:0]                         palette_history_write_address = 17'd0;
+    reg [17:0]                         palette_history_write_data = 18'd0;
+    reg                                palette_history_write_enable = 1'b0;
     reg [7:0]                          o_r_reg = 8'd0;
     reg [7:0]                          o_g_reg = 8'd0;
     reg [7:0]                          o_b_reg = 8'd0;
@@ -296,12 +326,16 @@ module ascal_1080p (
         filter_axis ? lcd_effect_01_v_filter_phase(filter_source_phase) :
                       lcd_effect_01_h_filter_phase(filter_source_phase);
     wire [23:0]                        palette_rgb =
-        {palette_data[17:12], palette_data[17:16],
-         palette_data[11:6], palette_data[11:10],
-         palette_data[5:0], palette_data[5:4]};
+        palette_6bpc_to_8bpc(palette_data);
     wire [23:0]                        palette_cell_rgb;
     wire [23:0]                        palette_border_rgb;
+    wire [17:0]                        palette_history_source_q;
+    wire [17:0]                        palette_history_q;
+    wire [23:0]                        palette_history_rgb =
+        palette_6bpc_to_8bpc(palette_history_q);
     wire [7:0]                         palette_cell_address;
+    wire [7:0]                         palette_history_source_address;
+    wire [16:0]                        palette_history_read_address;
 
     assign o_r = o_r_reg;
     assign o_g = o_g_reg;
@@ -344,6 +378,32 @@ module ascal_1080p (
         .enable_b  (o_ce),
         .address_b (border_color_index_active),
         .q_b       (palette_border_rgb)
+    );
+
+    dpram_difclk #(8, 18, 8, 18) u_debug_palette_history_source (
+        .clk_a     (palette_clk),
+        .address_a (palette_address),
+        .data_a    (palette_data),
+        .wren_a    (palette_write),
+        .q_a       (),
+
+        .clk_b     (o_clk),
+        .enable_b  (o_ce),
+        .address_b (palette_history_source_address),
+        .q_b       (palette_history_source_q)
+    );
+
+    dpram_difclk #(17, 18, 17, 18) u_debug_palette_history (
+        .clk_a     (o_clk),
+        .address_a (palette_history_write_address),
+        .data_a    (palette_history_write_data),
+        .wren_a    (palette_history_write_enable),
+        .q_a       (),
+
+        .clk_b     (o_clk),
+        .enable_b  (o_ce),
+        .address_b (palette_history_read_address),
+        .q_b       (palette_history_q)
     );
 
     always @(posedge i_clk or negedge reset_na) begin
@@ -410,6 +470,9 @@ module ascal_1080p (
     wire [11:0] hdmi_hmax =
         debug_display_mode_active ? HDMI_HMAX_DEBUG : HDMI_HMAX_CENTERED;
 
+    wire debug_column_active = debug_display_mode_active && ascal_de &&
+        active_x >= DEBUG_COLUMN_X &&
+        active_x < DEBUG_COLUMN_X + DEBUG_COLUMN_WIDTH;
     wire panel_x_active =
         active_x >= DEBUG_PANEL_X && active_x < DEBUG_PANEL_X + DEBUG_PANEL_SIZE;
     wire panel_y_active =
@@ -439,6 +502,75 @@ module ascal_1080p (
         !cell_col[4] && !cell_row[4];
     assign palette_cell_address = {cell_row[3:0], cell_col[3:0]};
 
+    wire history_x_active =
+        active_x >= DEBUG_HISTORY_X &&
+        active_x < DEBUG_HISTORY_X + DEBUG_HISTORY_WIDTH;
+    wire history_y_active =
+        active_y >= DEBUG_HISTORY_Y && active_y < DEBUG_HISTORY_Y + DEBUG_HISTORY_HEIGHT;
+    wire palette_history_active = debug_display_mode_active && ascal_de &&
+        history_x_active && history_y_active;
+    wire [11:0] history_x = active_x - DEBUG_HISTORY_X;
+    wire [11:0] history_y = active_y - DEBUG_HISTORY_Y;
+    wire [9:0] history_col_sum =
+        {1'b0, palette_history_write_col} + {1'b0, history_x[8:0]};
+    wire [9:0] history_col_wrapped =
+        history_col_sum - {1'b0, DEBUG_HISTORY_COLS};
+    wire [8:0] history_col =
+        (history_col_sum >= {1'b0, DEBUG_HISTORY_COLS}) ?
+        history_col_wrapped[8:0] :
+        history_col_sum[8:0];
+    assign palette_history_read_address = {history_col, history_y[8:1]};
+    assign palette_history_source_address =
+        (palette_history_capture_active &&
+         palette_history_capture_count < 9'd256) ?
+        palette_history_capture_count[7:0] : 8'd0;
+
+    wire output_frame_start = ascal_vs && !coord_vs_last;
+
+    always @(posedge o_clk or negedge reset_na) begin
+        if (!reset_na) begin
+            palette_history_write_col <= 9'd0;
+            palette_history_capture_count <= 9'd0;
+            palette_history_capture_entry <= 8'd0;
+            palette_history_capture_active <= 1'b0;
+            palette_history_capture_valid <= 1'b0;
+            palette_history_write_address <= 17'd0;
+            palette_history_write_data <= 18'd0;
+            palette_history_write_enable <= 1'b0;
+        end else if (o_ce) begin
+            palette_history_write_enable <= 1'b0;
+
+            if (output_frame_start) begin
+                palette_history_capture_count <= 9'd1;
+                palette_history_capture_entry <= 8'd0;
+                palette_history_capture_active <= 1'b1;
+                palette_history_capture_valid <= 1'b1;
+            end else if (palette_history_capture_active) begin
+                if (palette_history_capture_valid) begin
+                    palette_history_write_address <=
+                        {palette_history_write_col, palette_history_capture_entry};
+                    palette_history_write_data <= palette_history_source_q;
+                    palette_history_write_enable <= 1'b1;
+                end
+
+                if (palette_history_capture_count < 9'd256) begin
+                    palette_history_capture_entry <= palette_history_capture_count[7:0];
+                    palette_history_capture_valid <= 1'b1;
+                    palette_history_capture_count <= palette_history_capture_count + 9'd1;
+                end else begin
+                    palette_history_capture_active <= 1'b0;
+                    palette_history_capture_valid <= 1'b0;
+                    palette_history_capture_count <= 9'd0;
+                    if (palette_history_write_col == DEBUG_HISTORY_COLS - 9'd1) begin
+                        palette_history_write_col <= 9'd0;
+                    end else begin
+                        palette_history_write_col <= palette_history_write_col + 9'd1;
+                    end
+                end
+            end
+        end
+    end
+
     always @(posedge o_clk or negedge reset_na) begin
         if (!reset_na) begin
             active_x <= 12'd0;
@@ -454,6 +586,8 @@ module ascal_1080p (
             ascal_de_d <= 1'b0;
             palette_border_d <= 1'b0;
             palette_cell_d <= 1'b0;
+            palette_history_d <= 1'b0;
+            debug_column_d <= 1'b0;
             o_r_reg <= 8'd0;
             o_g_reg <= 8'd0;
             o_b_reg <= 8'd0;
@@ -469,6 +603,14 @@ module ascal_1080p (
                 o_r_reg <= palette_cell_rgb[23:16];
                 o_g_reg <= palette_cell_rgb[15:8];
                 o_b_reg <= palette_cell_rgb[7:0];
+            end else if (palette_history_d) begin
+                o_r_reg <= palette_history_rgb[23:16];
+                o_g_reg <= palette_history_rgb[15:8];
+                o_b_reg <= palette_history_rgb[7:0];
+            end else if (debug_column_d) begin
+                o_r_reg <= palette_border_rgb[23:16];
+                o_g_reg <= palette_border_rgb[15:8];
+                o_b_reg <= palette_border_rgb[7:0];
             end else begin
                 o_r_reg <= ascal_r_d;
                 o_g_reg <= ascal_g_d;
@@ -486,6 +628,8 @@ module ascal_1080p (
             ascal_de_d <= ascal_de;
             palette_border_d <= panel_border_active;
             palette_cell_d <= palette_cell_active;
+            palette_history_d <= palette_history_active;
+            debug_column_d <= debug_column_active;
 
             coord_de_last <= ascal_de;
             coord_vs_last <= ascal_vs;
