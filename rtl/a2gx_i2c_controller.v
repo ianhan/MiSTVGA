@@ -26,6 +26,9 @@ a2gx_i2c_write_wdata wrd (
     .SDAI          (I2C_SDAT),
     .SDAO          (sdao),
     .SCLO          (I2C_SCLK),
+    .ST            (),
+    .CNT           (),
+    .BYTE          (),
     .SLAVE_ADDRESS (I2C_DATA[23:16]),
     .REG_DATA      (I2C_DATA[15:0])
 );

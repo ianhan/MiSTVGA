@@ -168,7 +168,7 @@ module pci_bridge_test_top (
     assign mem_18003 = mem_space[17'h18003];
 
     pci_vga_bridge #(
-        .ROM_FILE("../fpga/boot1.hex")
+        .ROM_FILE("../fpga/a2gx/boot1.hex")
     ) u_bridge (
         .pci_enable_n        (),
         .pci_ad              (pci_ad),

@@ -84,6 +84,7 @@ module pci_vga_bridge (
     localparam ST_TURNAROUND    = 5'd15;
     localparam ST_ROMREAD       = 5'd16;
     localparam ST_ROM_WAIT      = 5'd17;
+    localparam ST_STOP_WAIT     = 5'd18;
 
     localparam IOREAD   = 4'b0010;
     localparam IOWRITE  = 4'b0011;
@@ -91,6 +92,7 @@ module pci_vga_bridge (
     localparam MEMWRITE = 4'b0111;
     localparam CFGREAD  = 4'b1010;
     localparam CFGWRITE = 4'b1011;
+    localparam MEMWRITE_INVALIDATE = 4'b1111;
 
     reg [4:0]  state;
     reg [31:0] data;
@@ -124,6 +126,7 @@ module pci_vga_bridge (
     reg devsel_val;
     reg devsel_oe;
     reg disconnect;
+    reg stop_wait_pending;
 
     assign pci_stop_n = (enable == EN_NONE) ? 1'bZ : (disconnect ? 1'b0 : 1'b1);
     assign pci_inta_n = 1'bZ;
@@ -152,7 +155,8 @@ module pci_vga_bridge (
     wire cfg_hit = ((pci_cben == CFGREAD || pci_cben == CFGWRITE) &&
                     pci_idsel && pci_ad[1:0] == 2'b00);
     wire mem_hit = memen &&
-                    ((pci_cben == MEMREAD || pci_cben == MEMWRITE) &&
+                    ((pci_cben == MEMREAD || pci_cben == MEMWRITE ||
+                      pci_cben == MEMWRITE_INVALIDATE) &&
                     (pci_ad[19:17] == 3'b101));
     wire io_hit = ioen &&
                    ((pci_cben == IOREAD || pci_cben == IOWRITE) &&
@@ -265,6 +269,7 @@ module pci_vga_bridge (
         led_debug <= 3'b000;
         address <= pci_ad[19:2];
         ioaddr <= pci_ad;
+        stop_wait_pending <= 1'b0;
 
         if (cfg_hit) begin
             devsel_oe <= 1'b1;
@@ -315,6 +320,7 @@ module pci_vga_bridge (
             ioen <= 1'b0;
             memen <= 1'b0;
             disconnect <= 1'b0;
+            stop_wait_pending <= 1'b0;
             write_data_latched <= 32'h0000_0000;
             data_accum <= 32'h0000_0000;
             byte_mask <= 4'b0000;
@@ -428,6 +434,7 @@ module pci_vga_bridge (
                     end else begin
                         enable <= EN_WR;
                         disconnect <= 1'b1;
+                        stop_wait_pending <= ~pci_frame_n;
                         state <= ST_DONE;
                     end
                 end
@@ -442,6 +449,7 @@ module pci_vga_bridge (
                 end else begin
                     enable <= EN_WR;
                     disconnect <= 1'b1;
+                    stop_wait_pending <= ~pci_frame_n;
                     state <= ST_DONE;
                 end
             end
@@ -475,6 +483,7 @@ module pci_vga_bridge (
                     data <= insert_read_byte(data_accum, current_lane, io_readdata);
                     enable <= EN_RD;
                     disconnect <= 1'b1;
+                    stop_wait_pending <= ~pci_frame_n;
                     state <= ST_DONE;
                 end
             end
@@ -493,6 +502,7 @@ module pci_vga_bridge (
                     end else begin
                         enable <= EN_WR;
                         disconnect <= 1'b1;
+                        stop_wait_pending <= ~pci_frame_n;
                         state <= ST_DONE;
                     end
                 end
@@ -507,6 +517,7 @@ module pci_vga_bridge (
                 end else begin
                     enable <= EN_WR;
                     disconnect <= 1'b1;
+                    stop_wait_pending <= ~pci_frame_n;
                     state <= ST_DONE;
                 end
             end
@@ -540,6 +551,7 @@ module pci_vga_bridge (
                     data <= insert_read_byte(data_accum, current_lane, mem_readdata);
                     enable <= EN_RD;
                     disconnect <= 1'b1;
+                    stop_wait_pending <= ~pci_frame_n;
                     state <= ST_DONE;
                 end
             end
@@ -556,18 +568,45 @@ module pci_vga_bridge (
                 data <= rom_rdata;
                 enable <= EN_RD;
                 disconnect <= 1'b1;
+                stop_wait_pending <= ~pci_frame_n;
                 state <= ST_DONE;
             end
 
             // Complete PCI transaction
             ST_DONE: begin
-                disconnect <= 1'b0;
-                if (enable != EN_RD && ~pci_frame_n) begin
+                if (stop_wait_pending && !(pci_frame_n && pci_irdy_n)) begin
+                    // The accepted beat used target disconnect while the
+                    // initiator still had FRAME# asserted.  Hold STOP# until
+                    // the initiator terminates the current transaction.
+                    devsel_oe <= 1'b1;
+                    devsel_val <= 1'b0;
+                    enable <= EN_TR;
+                    disconnect <= 1'b1;
+                    state <= ST_STOP_WAIT;
+                end else if (enable != EN_RD && ~pci_frame_n) begin
+                    stop_wait_pending <= 1'b0;
+                    disconnect <= 1'b0;
                     begin_transaction_from_bus();
                 end else begin
+                    stop_wait_pending <= 1'b0;
+                    disconnect <= 1'b0;
                     devsel_oe <= 1'b1;
                     devsel_val <= 1'b1;
                     enable <= EN_TR;
+                    state <= ST_TURNAROUND;
+                end
+            end
+
+            ST_STOP_WAIT: begin
+                devsel_oe <= 1'b1;
+                devsel_val <= 1'b0;
+                enable <= EN_TR;
+                disconnect <= 1'b1;
+
+                if (pci_frame_n && pci_irdy_n) begin
+                    stop_wait_pending <= 1'b0;
+                    disconnect <= 1'b0;
+                    devsel_val <= 1'b1;
                     state <= ST_TURNAROUND;
                 end
             end
@@ -577,6 +616,7 @@ module pci_vga_bridge (
                 devsel_oe <= 1'b0;
                 devsel_val <= 1'b1;
                 disconnect <= 1'b0;
+                stop_wait_pending <= 1'b0;
                 if (~pci_frame_n) begin
                     begin_transaction_from_bus();
                 end else begin

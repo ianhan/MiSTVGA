@@ -348,17 +348,17 @@ set_location_assignment PIN_AJ6 -to lpci_rstn
 set_location_assignment PIN_V5 -to lpci_clk
 #set_location_assignment PIN_AD10 -to lpci_clk
 set_location_assignment PIN_AE8 -to lpci_enablen
-set_global_assignment -name PROJECT_OUTPUT_DIRECTORY ../build
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY ../../build/a2gx
 set_global_assignment -name SDC_FILE a2gx_mistvga.sdc
-set_global_assignment -name SYSTEMVERILOG_FILE ../rtl/a2gx_mistvga_top.sv
-set_global_assignment -name SYSTEMVERILOG_FILE ../rtl/pci_vga_bridge.sv
-set_global_assignment -name VERILOG_FILE ../rtl/a2gx_mistvga_pll.v
-set_global_assignment -name VERILOG_FILE ../rtl/a2gx_pci_clk_pll.v
-set_global_assignment -name VERILOG_FILE ../rtl/a2gx_i2c_write_wdata.v
-set_global_assignment -name VERILOG_FILE ../rtl/a2gx_i2c_controller.v
-set_global_assignment -name VERILOG_FILE ../rtl/a2gx_i2c_hdmi_config.v
-set_global_assignment -name VERILOG_FILE ../rtl/vga.v
-set_global_assignment -name VERILOG_FILE ../rtl/dpram_difclk.v
+set_global_assignment -name SYSTEMVERILOG_FILE ../../rtl/a2gx_mistvga_top.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../../rtl/pci_vga_bridge.sv
+set_global_assignment -name VERILOG_FILE ../../rtl/a2gx_mistvga_pll.v
+set_global_assignment -name VERILOG_FILE ../../rtl/a2gx_pci_clk_pll.v
+set_global_assignment -name VERILOG_FILE ../../rtl/a2gx_i2c_write_wdata.v
+set_global_assignment -name VERILOG_FILE ../../rtl/a2gx_i2c_controller.v
+set_global_assignment -name VERILOG_FILE ../../rtl/a2gx_i2c_hdmi_config.v
+set_global_assignment -name VERILOG_FILE ../../rtl/vga.v
+set_global_assignment -name VERILOG_FILE ../../rtl/dpram_difclk.v
 
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top

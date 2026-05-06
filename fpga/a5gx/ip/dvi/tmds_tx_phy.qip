@@ -1,0 +1,138 @@
+set_global_assignment -entity "tmds_tx_phy" -library "tmds_tx_phy" -name IP_TOOL_NAME "altera_xcvr_native_av"
+set_global_assignment -entity "tmds_tx_phy" -library "tmds_tx_phy" -name IP_TOOL_VERSION "19.1"
+set_global_assignment -entity "tmds_tx_phy" -library "tmds_tx_phy" -name IP_TOOL_ENV "mwpim"
+set_global_assignment -library "tmds_tx_phy" -name MISC_FILE [file join $::quartus(qip_path) "tmds_tx_phy.cmp"]
+set_global_assignment -entity "tmds_tx_phy" -library "tmds_tx_phy" -name IP_TARGETED_DEVICE_FAMILY "Arria V"
+set_global_assignment -entity "tmds_tx_phy" -library "tmds_tx_phy" -name IP_GENERATED_DEVICE_FAMILY "{Arria V}"
+set_global_assignment -entity "tmds_tx_phy" -library "tmds_tx_phy" -name IP_QSYS_MODE "UNKNOWN"
+set_global_assignment -name SYNTHESIS_ONLY_QIP ON
+set_global_assignment -entity "tmds_tx_phy" -library "tmds_tx_phy" -name IP_COMPONENT_NAME "dG1kc190eF9waHk="
+set_global_assignment -entity "tmds_tx_phy" -library "tmds_tx_phy" -name IP_COMPONENT_DISPLAY_NAME "QXJyaWEgViBUcmFuc2NlaXZlciBOYXRpdmUgUEhZIEludGVsIEZQR0EgSVA="
+set_global_assignment -entity "tmds_tx_phy" -library "tmds_tx_phy" -name IP_COMPONENT_REPORT_HIERARCHY "Off"
+set_global_assignment -entity "tmds_tx_phy" -library "tmds_tx_phy" -name IP_COMPONENT_INTERNAL "On"
+set_global_assignment -entity "tmds_tx_phy" -library "tmds_tx_phy" -name IP_COMPONENT_AUTHOR "SW50ZWwgQ29ycG9yYXRpb24="
+set_global_assignment -entity "tmds_tx_phy" -library "tmds_tx_phy" -name IP_COMPONENT_VERSION "MTkuMQ=="
+set_global_assignment -entity "tmds_tx_phy" -library "tmds_tx_phy" -name IP_COMPONENT_DESCRIPTION "QXJyaWEgViBUcmFuc2NlaXZlciBOYXRpdmUgUEhZLg=="
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_COMPONENT_NAME "YWx0ZXJhX3hjdnJfbmF0aXZlX2F2"
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_COMPONENT_DISPLAY_NAME "QXJyaWEgViBUcmFuc2NlaXZlciBOYXRpdmUgUEhZIEludGVsIEZQR0EgSVA="
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_COMPONENT_REPORT_HIERARCHY "Off"
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_COMPONENT_INTERNAL "On"
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_COMPONENT_AUTHOR "SW50ZWwgQ29ycG9yYXRpb24="
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_COMPONENT_VERSION "MTkuMQ=="
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_COMPONENT_DESCRIPTION "QXJyaWEgViBUcmFuc2NlaXZlciBOYXRpdmUgUEhZLg=="
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_COMPONENT_PARAMETER "ZGV2aWNlX2ZhbWlseQ==::QXJyaWEgVg==::ZGV2aWNlX2ZhbWlseQ=="
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_COMPONENT_PARAMETER "ZGV2aWNlX3NwZWVkZ3JhZGU=::ZmFzdGVzdA==::RGV2aWNlIHNwZWVkZ3JhZGU="
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_COMPONENT_PARAMETER "bWVzc2FnZV9sZXZlbA==::ZXJyb3I=::TWVzc2FnZSBsZXZlbCBmb3IgcnVsZSB2aW9sYXRpb25z"
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_COMPONENT_PARAMETER "dHhfZW5hYmxl::MQ==::RW5hYmxlIFRYIGRhdGFwYXRo"
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_COMPONENT_PARAMETER "cnhfZW5hYmxl::MA==::RW5hYmxlIFJYIGRhdGFwYXRo"
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_COMPONENT_PARAMETER "ZW5hYmxlX3N0ZA==::MQ==::RW5hYmxlIFN0YW5kYXJkIFBDUw=="
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_COMPONENT_PARAMETER "c2V0X2RhdGFfcGF0aF9zZWxlY3Q=::c3RhbmRhcmQ=::SW5pdGlhbCBQQ1MgZGF0YXBhdGggc2VsZWN0aW9u"
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_COMPONENT_PARAMETER "ZGF0YV9wYXRoX3NlbGVjdA==::c3RhbmRhcmQ=::ZGF0YV9wYXRoX3NlbGVjdA=="
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_COMPONENT_PARAMETER "Y2hhbm5lbHM=::NA==::TnVtYmVyIG9mIGRhdGEgY2hhbm5lbHM="
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_COMPONENT_PARAMETER "Ym9uZGVkX21vZGU=::eE4=::Qm9uZGluZyBtb2Rl"
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_COMPONENT_PARAMETER "ZW5hYmxlX3NpbXBsZV9pbnRlcmZhY2U=::MQ==::RW5hYmxlIHNpbXBsaWZpZWQgZGF0YSBpbnRlcmZhY2U="
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_COMPONENT_PARAMETER "c2V0X2RhdGFfcmF0ZQ==::MTI1MA==::RGF0YSByYXRl"
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_COMPONENT_PARAMETER "ZGF0YV9yYXRl::MTI1MCBNYnBz::ZGF0YV9yYXRl"
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_COMPONENT_PARAMETER "cG1hX3dpZHRo::MTA=::UENTIC8gUE1BIGludGVyZmFjZSB3aWR0aA=="
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_COMPONENT_PARAMETER "cG1hX2RpcmVjdF93aWR0aA==::ODA=::UE1BIGRpcmVjdCBpbnRlcmZhY2Ugd2lkdGg="
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_COMPONENT_PARAMETER "dHhfcG1hX2Nsa19kaXY=::MQ==::VFggbG9jYWwgY2xvY2sgZGl2aXNpb24gZmFjdG9y"
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_COMPONENT_PARAMETER "YmFzZV9kYXRhX3JhdGU=::MTI1MA==::VFggUExMIGJhc2UgZGF0YSByYXRl"
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_COMPONENT_PARAMETER "cGxsX3JlY29uZmlnX2VuYWJsZQ==::MA==::RW5hYmxlIFRYIFBMTCBkeW5hbWljIHJlY29uZmlndXJhdGlvbg=="
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_COMPONENT_PARAMETER "cGxsX2V4dGVybmFsX2VuYWJsZQ==::MA==::VXNlIGV4dGVybmFsIFRYIFBMTA=="
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_COMPONENT_PARAMETER "cGxsX2RhdGFfcmF0ZQ==::MTI1MCBNYnBz::cGxsX2RhdGFfcmF0ZQ=="
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_COMPONENT_PARAMETER "cGxsX3R5cGU=::Q01V::cGxsX3R5cGU="
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_COMPONENT_PARAMETER "cG1hX2JvbmRpbmdfbW9kZQ==::eE4=::cG1hX2JvbmRpbmdfbW9kZQ=="
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_COMPONENT_PARAMETER "cGxscw==::MQ==::TnVtYmVyIG9mIFRYIFBMTHM="
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_COMPONENT_PARAMETER "cGxsX3NlbGVjdA==::MA==::TWFpbiBUWCBQTEwgbG9naWNhbCBpbmRleA=="
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_COMPONENT_PARAMETER "cGxsX3JlZmNsa19jbnQ=::Mg==::TnVtYmVyIG9mIFRYIFBMTCByZWZlcmVuY2UgY2xvY2tz"
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_COMPONENT_PARAMETER "cGxsX3JlZmNsa19zZWxlY3Q=::MQ==::cGxsX3JlZmNsa19zZWxlY3Q="
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_COMPONENT_PARAMETER "cGxsX3JlZmNsa19mcmVx::dW51c2VkLDEyNS4wIE1Ieg==::cGxsX3JlZmNsa19mcmVx"
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_COMPONENT_PARAMETER "cGxsX2ZlZWRiYWNrX3BhdGg=::aW50ZXJuYWw=::cGxsX2ZlZWRiYWNrX3BhdGg="
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_COMPONENT_PARAMETER "c3RkX3Byb3RvY29sX2hpbnQ=::YmFzaWM=::U3RhbmRhcmQgUENTIHByb3RvY29sIG1vZGU="
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_COMPONENT_PARAMETER "c3RkX3Bjc19wbWFfd2lkdGg=::MTA=::U3RhbmRhcmQgUENTIC8gUE1BIGludGVyZmFjZSB3aWR0aA=="
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_COMPONENT_PARAMETER "c3RkX3R4X3BsZF9wY3Nfd2lkdGg=::MTA=::RlBHQSBmYWJyaWMgLyBTdGFuZGFyZCBUWCBQQ1MgaW50ZXJmYWNlIHdpZHRo"
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_COMPONENT_PARAMETER "c3RkX2xvd19sYXRlbmN5X2J5cGFzc19lbmFibGU=::MA==::RW5hYmxlICdTdGFuZGFyZCBQQ1MnIGxvdyBsYXRlbmN5IG1vZGU="
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_COMPONENT_PARAMETER "c3RkX3R4X3BjZmlmb19tb2Rl::bG93X2xhdGVuY3k=::VFggRklGTyBtb2Rl"
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_COMPONENT_PARAMETER "ZW5hYmxlX3BvcnRfdHhfc3RkX3BjZmlmb19mdWxs::MA==::RW5hYmxlIHR4X3N0ZF9wY2ZpZm9fZnVsbCBwb3J0"
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_COMPONENT_PARAMETER "ZW5hYmxlX3BvcnRfdHhfc3RkX3BjZmlmb19lbXB0eQ==::MA==::RW5hYmxlIHR4X3N0ZF9wY2ZpZm9fZW1wdHkgcG9ydA=="
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_COMPONENT_PARAMETER "c3RkX3R4X2J5dGVfc2VyX2VuYWJsZQ==::MA==::RW5hYmxlIFRYIGJ5dGUgc2VyaWFsaXplcg=="
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_COMPONENT_PARAMETER "c3RkX3R4XzhiMTBiX2VuYWJsZQ==::MA==::RW5hYmxlIFRYIDhiLzEwYiBlbmNvZGVy"
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_COMPONENT_PARAMETER "c3RkX3R4XzhiMTBiX2Rpc3BfY3RybF9lbmFibGU=::MA==::RW5hYmxlIFRYIDhiLzEwYiBkaXNwYXJpdHkgY29udHJvbA=="
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_COMPONENT_PARAMETER "c3RkX3R4X2JpdHNsaXBfZW5hYmxl::MA==::RW5hYmxlIFRYIGJpdHNsaXA="
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_COMPONENT_PARAMETER "ZW5hYmxlX3BvcnRfdHhfc3RkX2JpdHNsaXBib3VuZGFyeXNlbA==::MA==::RW5hYmxlIHR4X3N0ZF9iaXRzbGlwYm91bmRhcnlzZWwgcG9ydA=="
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_COMPONENT_PARAMETER "c3RkX3R4X2JpdHJldl9lbmFibGU=::MA==::RW5hYmxlIFRYIGJpdCByZXZlcnNhbA=="
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_COMPONENT_PARAMETER "c3RkX3R4X2J5dGVyZXZfZW5hYmxl::MA==::RW5hYmxlIFRYIGJ5dGUgcmV2ZXJzYWw="
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_COMPONENT_PARAMETER "c3RkX3R4X3BvbGludl9lbmFibGU=::MA==::RW5hYmxlIFRYIHBvbGFyaXR5IGludmVyc2lvbg=="
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_COMPONENT_PARAMETER "ZW5hYmxlX3BvcnRfdHhfc3RkX3BvbGludg==::MA==::RW5hYmxlIHR4X3N0ZF9wb2xpbnYgcG9ydA=="
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_COMPONENT_PARAMETER "ZW5hYmxlX3BvcnRfdHhfc3RkX2VsZWNpZGxl::MA==::RW5hYmxlIHR4X3N0ZF9lbGVjaWRsZSBwb3J0"
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_COMPONENT_PARAMETER "bF9wbGxfc2V0dGluZ3M=::MA==::bF9wbGxfc2V0dGluZ3M="
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_COMPONENT_PARAMETER "bF9lbmFibGVfdHhfcG1hX2RpcmVjdA==::MA==::bF9lbmFibGVfdHhfcG1hX2RpcmVjdA=="
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_COMPONENT_PARAMETER "bF9lbmFibGVfcnhfcG1hX2RpcmVjdA==::MA==::bF9lbmFibGVfcnhfcG1hX2RpcmVjdA=="
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_COMPONENT_PARAMETER "bF9lbmFibGVfdHhfc3Rk::MQ==::bF9lbmFibGVfdHhfc3Rk"
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_COMPONENT_PARAMETER "bF9lbmFibGVfcnhfc3Rk::MA==::bF9lbmFibGVfcnhfc3Rk"
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_COMPONENT_PARAMETER "bF9lbmFibGVfcnhfc3RkX3dvcmRfYWxpZ25lcg==::MA==::bF9lbmFibGVfcnhfc3RkX3dvcmRfYWxpZ25lcg=="
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_COMPONENT_PARAMETER "bF9uZXRsaXN0X3BsbHM=::MQ==::bF9uZXRsaXN0X3BsbHM="
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_COMPONENT_PARAMETER "bF9yY2ZnX2ludGVyZmFjZXM=::NQ==::bF9yY2ZnX2ludGVyZmFjZXM="
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_COMPONENT_PARAMETER "bF9yY2ZnX3RvX3hjdnJfd2lkdGg=::MzUw::bF9yY2ZnX3RvX3hjdnJfd2lkdGg="
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_COMPONENT_PARAMETER "bF9yY2ZnX2Zyb21feGN2cl93aWR0aA==::MjMw::bF9yY2ZnX2Zyb21feGN2cl93aWR0aA=="
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_COMPONENT_PARAMETER "bF9wbWFfZGlyZWN0X3dvcmRfY291bnQ=::OA==::bF9wbWFfZGlyZWN0X3dvcmRfY291bnQ="
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_COMPONENT_PARAMETER "bF9wbWFfZGlyZWN0X3dvcmRfd2lkdGg=::MTA=::bF9wbWFfZGlyZWN0X3dvcmRfd2lkdGg="
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_COMPONENT_PARAMETER "bF9zdGRfdHhfd29yZF9jb3VudA==::MQ==::bF9zdGRfdHhfd29yZF9jb3VudA=="
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_COMPONENT_PARAMETER "bF9zdGRfdHhfd29yZF93aWR0aA==::MTA=::bF9zdGRfdHhfd29yZF93aWR0aA=="
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_COMPONENT_PARAMETER "bF9zdGRfdHhfZmllbGRfd2lkdGg=::MTE=::bF9zdGRfdHhfZmllbGRfd2lkdGg="
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_COMPONENT_PARAMETER "bF9zdGRfcnhfd29yZF9jb3VudA==::MQ==::bF9zdGRfcnhfd29yZF9jb3VudA=="
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_COMPONENT_PARAMETER "bF9zdGRfcnhfd29yZF93aWR0aA==::MTA=::bF9zdGRfcnhfd29yZF93aWR0aA=="
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_COMPONENT_PARAMETER "bF9zdGRfcnhfZmllbGRfd2lkdGg=::MTY=::bF9zdGRfcnhfZmllbGRfd2lkdGg="
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_COMPONENT_PARAMETER "Z3VpX3BsbF9yZWNvbmZpZ19wbGwwX3BsbF90eXBl::Q01V::UExMIHR5cGU="
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_COMPONENT_PARAMETER "Z3VpX3BsbF9yZWNvbmZpZ19wbGwwX2RhdGFfcmF0ZQ==::MTI1MCBNYnBz::UExMIGJhc2UgZGF0YSByYXRl"
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_COMPONENT_PARAMETER "Z3VpX3BsbF9yZWNvbmZpZ19wbGwwX2RhdGFfcmF0ZV9kZXI=::MTI1MCBNYnBz::UExMIGJhc2UgZGF0YSByYXRl"
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_COMPONENT_PARAMETER "Z3VpX3BsbF9yZWNvbmZpZ19wbGwwX3JlZmNsa19mcmVx::MTI1LjAgTUh6::UmVmZXJlbmNlIGNsb2NrIGZyZXF1ZW5jeQ=="
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_COMPONENT_PARAMETER "Z3VpX3BsbF9yZWNvbmZpZ19wbGwwX3JlZmNsa19zZWw=::MQ==::U2VsZWN0ZWQgcmVmZXJlbmNlIGNsb2NrIHNvdXJjZQ=="
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_COMPONENT_PARAMETER "Z3VpX3BsbF9yZWNvbmZpZ19wbGwwX2Nsa19uZXR3b3Jr::eE4=::U2VsZWN0ZWQgY2xvY2sgbmV0d29yaw=="
+
+set_global_assignment -library "tmds_tx_phy" -name VERILOG_FILE [file join $::quartus(qip_path) "tmds_tx_phy.v"]
+set_global_assignment -library "tmds_tx_phy" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "tmds_tx_phy/altera_xcvr_functions.sv"]
+set_global_assignment -library "tmds_tx_phy" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "tmds_tx_phy/sv_reconfig_bundle_to_xcvr.sv"]
+set_global_assignment -library "tmds_tx_phy" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "tmds_tx_phy/sv_reconfig_bundle_to_ip.sv"]
+set_global_assignment -library "tmds_tx_phy" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "tmds_tx_phy/sv_reconfig_bundle_merger.sv"]
+set_global_assignment -library "tmds_tx_phy" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "tmds_tx_phy/av_xcvr_h.sv"]
+set_global_assignment -library "tmds_tx_phy" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "tmds_tx_phy/av_xcvr_avmm_csr.sv"]
+set_global_assignment -library "tmds_tx_phy" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "tmds_tx_phy/av_tx_pma_ch.sv"]
+set_global_assignment -library "tmds_tx_phy" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "tmds_tx_phy/av_tx_pma.sv"]
+set_global_assignment -library "tmds_tx_phy" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "tmds_tx_phy/av_rx_pma.sv"]
+set_global_assignment -library "tmds_tx_phy" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "tmds_tx_phy/av_pma.sv"]
+set_global_assignment -library "tmds_tx_phy" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "tmds_tx_phy/av_pcs_ch.sv"]
+set_global_assignment -library "tmds_tx_phy" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "tmds_tx_phy/av_pcs.sv"]
+set_global_assignment -library "tmds_tx_phy" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "tmds_tx_phy/av_xcvr_avmm.sv"]
+set_global_assignment -library "tmds_tx_phy" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "tmds_tx_phy/av_xcvr_native.sv"]
+set_global_assignment -library "tmds_tx_phy" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "tmds_tx_phy/av_xcvr_plls.sv"]
+set_global_assignment -library "tmds_tx_phy" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "tmds_tx_phy/av_xcvr_data_adapter.sv"]
+set_global_assignment -library "tmds_tx_phy" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "tmds_tx_phy/av_reconfig_bundle_to_basic.sv"]
+set_global_assignment -library "tmds_tx_phy" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "tmds_tx_phy/av_reconfig_bundle_to_xcvr.sv"]
+set_global_assignment -library "tmds_tx_phy" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "tmds_tx_phy/av_hssi_8g_rx_pcs_rbc.sv"]
+set_global_assignment -library "tmds_tx_phy" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "tmds_tx_phy/av_hssi_8g_tx_pcs_rbc.sv"]
+set_global_assignment -library "tmds_tx_phy" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "tmds_tx_phy/av_hssi_common_pcs_pma_interface_rbc.sv"]
+set_global_assignment -library "tmds_tx_phy" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "tmds_tx_phy/av_hssi_common_pld_pcs_interface_rbc.sv"]
+set_global_assignment -library "tmds_tx_phy" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "tmds_tx_phy/av_hssi_pipe_gen1_2_rbc.sv"]
+set_global_assignment -library "tmds_tx_phy" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "tmds_tx_phy/av_hssi_rx_pcs_pma_interface_rbc.sv"]
+set_global_assignment -library "tmds_tx_phy" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "tmds_tx_phy/av_hssi_rx_pld_pcs_interface_rbc.sv"]
+set_global_assignment -library "tmds_tx_phy" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "tmds_tx_phy/av_hssi_tx_pcs_pma_interface_rbc.sv"]
+set_global_assignment -library "tmds_tx_phy" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "tmds_tx_phy/av_hssi_tx_pld_pcs_interface_rbc.sv"]
+set_global_assignment -library "tmds_tx_phy" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "tmds_tx_phy/alt_reset_ctrl_lego.sv"]
+set_global_assignment -library "tmds_tx_phy" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "tmds_tx_phy/alt_reset_ctrl_tgx_cdrauto.sv"]
+set_global_assignment -library "tmds_tx_phy" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "tmds_tx_phy/alt_xcvr_resync.sv"]
+set_global_assignment -library "tmds_tx_phy" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "tmds_tx_phy/alt_xcvr_csr_common_h.sv"]
+set_global_assignment -library "tmds_tx_phy" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "tmds_tx_phy/alt_xcvr_csr_common.sv"]
+set_global_assignment -library "tmds_tx_phy" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "tmds_tx_phy/alt_xcvr_csr_pcs8g_h.sv"]
+set_global_assignment -library "tmds_tx_phy" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "tmds_tx_phy/alt_xcvr_csr_pcs8g.sv"]
+set_global_assignment -library "tmds_tx_phy" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "tmds_tx_phy/alt_xcvr_csr_selector.sv"]
+set_global_assignment -library "tmds_tx_phy" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "tmds_tx_phy/alt_xcvr_mgmt2dec.sv"]
+set_global_assignment -library "tmds_tx_phy" -name VERILOG_FILE [file join $::quartus(qip_path) "tmds_tx_phy/altera_wait_generate.v"]
+set_global_assignment -library "tmds_tx_phy" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "tmds_tx_phy/altera_xcvr_native_av_functions_h.sv"]
+set_global_assignment -library "tmds_tx_phy" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "tmds_tx_phy/altera_xcvr_native_av.sv"]
+set_global_assignment -library "tmds_tx_phy" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "tmds_tx_phy/altera_xcvr_data_adapter_av.sv"]
+set_global_assignment -library "tmds_tx_phy" -name SOURCE_FILE [file join $::quartus(qip_path) "tmds_tx_phy/plain_files.txt"]
+
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_TOOL_NAME "altera_xcvr_native_av"
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_TOOL_VERSION "19.1"
+set_global_assignment -entity "altera_xcvr_native_av" -library "tmds_tx_phy" -name IP_TOOL_ENV "mwpim"

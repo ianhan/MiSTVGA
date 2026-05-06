@@ -248,8 +248,8 @@ module a2gx_mistvga_top(
         .vga_height     (),
         .vga_flags      (),
 
-        .vga_lores      (1'b0),
-        .vga_border     (1'b1)
+        .vga_lores      (1'b1),
+        .vga_border     (1'b0)
     );
 
     // ─── HDMI output ───
