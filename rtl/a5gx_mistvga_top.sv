@@ -214,7 +214,7 @@ module a5gx_mistvga_top (
     wire         ssram_clk_0deg;
     wire         scaler_mem_clk;
     wire         ssram_pll_locked;
-    wire         scaler_reset_n = board_reset_n & ssram_pll_locked;
+    wire         scaler_reset_n = vga_reset_n & ssram_pll_locked;
 
     a5gx_ssram_pll u_ssram_pll (
         .areset (~board_reset_n),
