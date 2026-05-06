@@ -289,7 +289,7 @@ set_location_assignment PIN_AE1 -to lpci_stopn
 set_location_assignment PIN_AD1 -to lpci_trdyn
 set_global_assignment -name PROJECT_OUTPUT_DIRECTORY ../../build/a2gxhsmc
 set_global_assignment -name SDC_FILE a2gxhsmc_mistvga.sdc
-set_global_assignment -name SYSTEMVERILOG_FILE ../../rtl/a2gx_mistvga_top.sv
+set_global_assignment -name SYSTEMVERILOG_FILE a2gx_mistvga_top.sv
 set_global_assignment -name SYSTEMVERILOG_FILE ../../rtl/pci_vga_bridge.sv
 set_global_assignment -name VERILOG_FILE ../../rtl/a2gx_mistvga_pll.v
 set_global_assignment -name VERILOG_FILE ../../rtl/a2gx_pci_clk_pll.v

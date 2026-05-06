@@ -15,12 +15,13 @@ set_global_assignment -name RESERVE_ALL_UNUSED_PINS_WEAK_PULLUP "AS INPUT TRI-ST
 set_global_assignment -name PROJECT_OUTPUT_DIRECTORY ../../build/sivgx
 set_global_assignment -name SDC_FILE sivgx_mistvga.sdc
 
-set_global_assignment -name SYSTEMVERILOG_FILE ../../rtl/sivgx_mistvga_top.sv
+set_global_assignment -name SYSTEMVERILOG_FILE sivgx_mistvga_top.sv
 set_global_assignment -name SYSTEMVERILOG_FILE ../../rtl/pci_vga_bridge.sv
 set_global_assignment -name VERILOG_FILE ../../rtl/sivgx_mistvga_pll.v
 set_global_assignment -name VERILOG_FILE ../../rtl/sivgx_i2c_hdmi_config.v
 set_global_assignment -name VERILOG_FILE ../../rtl/a2gx_i2c_write_wdata.v
 set_global_assignment -name VERILOG_FILE ../../rtl/a2gx_i2c_controller.v
+set_global_assignment -name VERILOG_FILE ../../rtl/dac_6bpc_to_8bpc.v
 set_global_assignment -name VERILOG_FILE ../../rtl/vga.v
 set_global_assignment -name VERILOG_FILE ../../rtl/dpram_difclk.v
 
