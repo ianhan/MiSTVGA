@@ -162,8 +162,8 @@ module a5gx_mistvga_top (
 
         .irq             (),
 
-        .clk_vga         (clkin_50_top),
-        .clock_rate_vga  (28'd50000000),
+        .clk_vga         (clkintop_100_p),
+        .clock_rate_vga  (28'd100000000),
 
         .vga_ce          (vga_ce),
         .vga_f60         (1'b0),
@@ -244,7 +244,7 @@ module a5gx_mistvga_top (
         .palette_write         (vga_pal_we),
         .border_color_index    (vga_border_color),
 
-        .i_clk                 (clkin_50_top),
+        .i_clk                 (clkintop_100_p),
         .i_ce                  (vga_ce),
         .i_r                   (vga_r),
         .i_g                   (vga_g),
