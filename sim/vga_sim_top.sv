@@ -78,6 +78,7 @@ module vga_sim_top (
         .vga_pal_d      (),
         .vga_pal_a      (),
         .vga_pal_we     (),
+        .vga_border_color(),
         .vga_start_addr (),
         .vga_wr_seg     (),
         .vga_rd_seg     (),

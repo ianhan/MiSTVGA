@@ -44,6 +44,8 @@ module pci_vga_bridge (
     output reg        mem_write,
     output reg  [7:0] mem_writedata,
 
+    output reg        debug_display_mode,
+    output reg        scaler_filter_disabled,
     output reg  [2:0] led_debug
 );
 
@@ -94,6 +96,9 @@ module pci_vga_bridge (
     localparam CFGWRITE = 4'b1011;
     localparam MEMWRITE_INVALIDATE = 4'b1111;
 
+    localparam [15:0] KB_DATA_PORT = 16'h0060;
+    localparam [7:0]  KB_LED_CMD   = 8'hED;
+
     reg [4:0]  state;
     reg [31:0] data;
     reg [31:0] ioaddr;
@@ -108,6 +113,10 @@ module pci_vga_bridge (
     reg [31:0] data_accum;
     reg  [3:0] byte_mask;
     reg  [1:0] current_lane;
+    reg [31:0] snoop_ioaddr;
+    reg        snoop_transaction_active;
+    reg        snoop_iowrite_pending;
+    reg        kb_led_update_pending;
 
     // ROM BAR (PCI config offset 0x30)
     reg [31:0] rom_mem [0:8191];  // 8K x 32 = 32 KB
@@ -233,6 +242,49 @@ module pci_vga_bridge (
     end
     endtask
 
+    task automatic snoop_keyboard_data_write(input [7:0] write_byte);
+    begin
+        if (kb_led_update_pending) begin
+            debug_display_mode <= write_byte[0];
+            scaler_filter_disabled <= write_byte[1];
+            kb_led_update_pending <= 1'b0;
+        end else begin
+            kb_led_update_pending <= (write_byte == KB_LED_CMD);
+        end
+    end
+    endtask
+
+    task automatic snoop_iowrite_data_phase;
+        reg [31:0] lane_addr;
+    begin
+        lane_addr = 32'h0000_0000;
+        if (!pci_cben[0]) begin
+            lane_addr = lane_address(snoop_ioaddr, 2'd0);
+            if (lane_addr[15:0] == KB_DATA_PORT) begin
+                snoop_keyboard_data_write(pci_ad[7:0]);
+            end
+        end
+        if (!pci_cben[1]) begin
+            lane_addr = lane_address(snoop_ioaddr, 2'd1);
+            if (lane_addr[15:0] == KB_DATA_PORT) begin
+                snoop_keyboard_data_write(pci_ad[15:8]);
+            end
+        end
+        if (!pci_cben[2]) begin
+            lane_addr = lane_address(snoop_ioaddr, 2'd2);
+            if (lane_addr[15:0] == KB_DATA_PORT) begin
+                snoop_keyboard_data_write(pci_ad[23:16]);
+            end
+        end
+        if (!pci_cben[3]) begin
+            lane_addr = lane_address(snoop_ioaddr, 2'd3);
+            if (lane_addr[15:0] == KB_DATA_PORT) begin
+                snoop_keyboard_data_write(pci_ad[31:24]);
+            end
+        end
+    end
+    endtask
+
     task automatic issue_io_read(input [1:0] lane);
         reg [31:0] lane_addr;
     begin
@@ -325,6 +377,12 @@ module pci_vga_bridge (
             data_accum <= 32'h0000_0000;
             byte_mask <= 4'b0000;
             current_lane <= 2'd0;
+            debug_display_mode <= 1'b0;
+            scaler_filter_disabled <= 1'b0;
+            snoop_ioaddr <= 32'h0000_0000;
+            snoop_transaction_active <= 1'b0;
+            snoop_iowrite_pending <= 1'b0;
+            kb_led_update_pending <= 1'b0;
             led_debug <= 3'b000;
             rom_base <= 17'd0;
             rom_enable <= 1'b0;
@@ -348,6 +406,22 @@ module pci_vga_bridge (
             pci_par_oe <= (enable == EN_RD);
             if (enable == EN_RD) begin
                 pci_par_out <= pci_read_phase_parity(data, pci_cben);
+            end
+
+            // Passive keyboard snoop.  This observes accepted I/O write data
+            // beats without widening io_hit or driving any PCI target signals.
+            if (pci_frame_n && pci_irdy_n) begin
+                snoop_transaction_active <= 1'b0;
+                snoop_iowrite_pending <= 1'b0;
+            end else if (!snoop_transaction_active && !pci_frame_n && pci_irdy_n) begin
+                snoop_transaction_active <= 1'b1;
+                snoop_iowrite_pending <= (pci_cben == IOWRITE);
+                if (pci_cben == IOWRITE) begin
+                    snoop_ioaddr <= pci_ad;
+                end
+            end else if (snoop_iowrite_pending && !pci_irdy_n && pci_trdy_n == 1'b0) begin
+                snoop_iowrite_data_phase();
+                snoop_iowrite_pending <= 1'b0;
             end
 
             // Default: deassert bridge-facing sideband signals unless the

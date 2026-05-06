@@ -11,6 +11,7 @@ BRIDGE_BUILD_DIR := $(SIM_DIR)/obj_dir_bridge
 BRIDGE_TARGET := $(SIM_DIR)/pci_bridge_sim
 
 RTL_SOURCES := \
+	$(RTL_DIR)/dac_6bpc_to_8bpc.v \
 	$(RTL_DIR)/vga.v \
 	$(RTL_DIR)/dpram_difclk.v \
 	$(SIM_DIR)/vga_sim_top.sv
@@ -101,6 +102,7 @@ clean:
 
 # Lint the a2gx hardware wrapper (no C++, just syntax/elaboration check)
 A2GX_SOURCES := \
+	$(RTL_DIR)/dac_6bpc_to_8bpc.v \
 	$(RTL_DIR)/vga.v \
 	$(RTL_DIR)/dpram_difclk.v \
 	$(RTL_DIR)/pci_vga_bridge.sv \

@@ -67,6 +67,7 @@ module vga
 	output reg [17:0]   vga_pal_d,
 	output reg  [7:0]   vga_pal_a,
 	output reg          vga_pal_we,
+	output      [7:0]   vga_border_color,
 
 	output reg [19:0]   vga_start_addr,
 	output reg  [5:0]   vga_wr_seg,
@@ -671,6 +672,7 @@ reg       attrib_mono_emulation;
 reg       attrib_graphic_mode;
 
 reg [7:0] attrib_color_overscan;
+assign vga_border_color = attrib_color_overscan;
 
 reg [3:0] attrib_mask;
 
@@ -1516,6 +1518,25 @@ assign dot_memory_load_vertical_retrace_end   = ~(host_io_vertical_retrace) && h
 
 //------------------------------------------------------------------------------ vga output
 
+wire [7:0] dac_r;
+wire [7:0] dac_g;
+wire [7:0] dac_b;
+
+dac_6bpc_to_8bpc dac_r_conv (
+	.value6 (dac_color[17:12]),
+	.value8 (dac_r)
+);
+
+dac_6bpc_to_8bpc dac_g_conv (
+	.value6 (dac_color[11:6]),
+	.value8 (dac_g)
+);
+
+dac_6bpc_to_8bpc dac_b_conv (
+	.value6 (dac_color[5:0]),
+	.value8 (dac_b)
+);
+
 wire hide_overscan = ~vga_border || (~attrib_pelclock_div2 && attrib_reg16[7]); // also hide overscan for high resolution and 16/24/32 bpp color modes
 
 always @(posedge clk_vga) if (ce_video) vgareg_blank <= vgaprep_blank;
@@ -1533,9 +1554,9 @@ always @(posedge clk_vga) if (ce_video) vgareg_vert_sync <= (vgaprep_vert_sync &
 always @(posedge clk_vga) if (ce_video) vga_vert_sync <= vgareg_vert_sync;
 
 always @(posedge clk_vga) if (ce_video) begin
-	vga_r <= (~seq_screen_disable && ~vgareg_blank) ? { dac_color[17:12], dac_color[17:16] } : 8'd0;
-	vga_g <= (~seq_screen_disable && ~vgareg_blank) ? { dac_color[11:6],  dac_color[11:10] } : 8'd0;
-	vga_b <= (~seq_screen_disable && ~vgareg_blank) ? { dac_color[5:0],   dac_color[5:4]   } : 8'd0;
+	vga_r <= (~seq_screen_disable && ~vgareg_blank) ? dac_r : 8'd0;
+	vga_g <= (~seq_screen_disable && ~vgareg_blank) ? dac_g : 8'd0;
+	vga_b <= (~seq_screen_disable && ~vgareg_blank) ? dac_b : 8'd0;
 end
 
 //------------------------------------------------------------------------------

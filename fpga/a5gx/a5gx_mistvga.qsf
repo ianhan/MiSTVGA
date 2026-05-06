@@ -34,6 +34,7 @@ set_global_assignment -name SYSTEMVERILOG_FILE ../../rtl/a5gx_mistvga_top.sv
 set_global_assignment -name SYSTEMVERILOG_FILE ../../rtl/pci_vga_bridge.sv
 set_global_assignment -name VERILOG_FILE ../../rtl/a5gx_ssram_pll.v
 set_global_assignment -name QIP_FILE ip/ssram/memory/synthesis/memory.qip
+set_global_assignment -name VERILOG_FILE ../../rtl/dac_6bpc_to_8bpc.v
 set_global_assignment -name VERILOG_FILE ../../rtl/vga.v
 set_global_assignment -name VERILOG_FILE ../../rtl/dpram_difclk.v
 
