@@ -29,7 +29,7 @@ The intended target files are limited to the direct integration path:
 
 ```text
 fpga/a5gx/ip/ssram/memory/synthesis/**
-rtl/a5gx_mistvga_top.sv
+fpga/a5gx/a5gx_mistvga_top.sv
 ```
 
 Project file entries may be adjusted only when required to include or remove

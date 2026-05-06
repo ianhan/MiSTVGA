@@ -5,6 +5,7 @@ TRACE ?= 0
 
 SIM_DIR  := $(CURDIR)
 RTL_DIR  := $(SIM_DIR)/../rtl
+FPGA_DIR := $(SIM_DIR)/../fpga
 BUILD_DIR := $(SIM_DIR)/obj_dir
 TARGET   := $(SIM_DIR)/vga_sim
 BRIDGE_BUILD_DIR := $(SIM_DIR)/obj_dir_bridge
@@ -106,14 +107,15 @@ A2GX_SOURCES := \
 	$(RTL_DIR)/vga.v \
 	$(RTL_DIR)/dpram_difclk.v \
 	$(RTL_DIR)/pci_vga_bridge.sv \
-	$(RTL_DIR)/a2gx_mistvga_top.sv
+	$(FPGA_DIR)/a2gx/a2gx_mistvga_top.sv
 
 SIVGX_SOURCES := \
+	$(RTL_DIR)/dac_6bpc_to_8bpc.v \
 	$(RTL_DIR)/vga.v \
 	$(RTL_DIR)/dpram_difclk.v \
 	$(RTL_DIR)/pci_vga_bridge.sv \
 	$(RTL_DIR)/sivgx_i2c_hdmi_config.v \
-	$(RTL_DIR)/sivgx_mistvga_top.sv
+	$(FPGA_DIR)/sivgx/sivgx_mistvga_top.sv
 
 lint-a2gx:
 	verilator --lint-only -Wall \

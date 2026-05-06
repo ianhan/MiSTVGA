@@ -23,8 +23,7 @@ A2GX_PROJECT := a2gx_mistvga
 A2GX_BUILD_DIR := build/a2gx
 A2GX_SOF := $(A2GX_BUILD_DIR)/$(A2GX_PROJECT).sof
 
-A2GX_RTL_SOURCES = \
-	rtl/a2gx_mistvga_top.sv \
+A2GX_SHARED_RTL_SOURCES = \
 	rtl/pci_vga_bridge.sv \
 	rtl/a2gx_mistvga_pll.v \
 	rtl/a2gx_pci_clk_pll.v \
@@ -34,6 +33,10 @@ A2GX_RTL_SOURCES = \
 	rtl/dac_6bpc_to_8bpc.v \
 	rtl/vga.v \
 	rtl/dpram_difclk.v
+
+A2GX_RTL_SOURCES = \
+	$(A2GX_PROJECT_DIR)/a2gx_mistvga_top.sv \
+	$(A2GX_SHARED_RTL_SOURCES)
 
 A2GX_PROJECT_FILES = \
 	$(A2GX_PROJECT_DIR)/$(A2GX_PROJECT).qpf \
@@ -47,7 +50,9 @@ A2GXHSMC_PROJECT := a2gxhsmc_mistvga
 A2GXHSMC_BUILD_DIR := build/a2gxhsmc
 A2GXHSMC_SOF := $(A2GXHSMC_BUILD_DIR)/$(A2GXHSMC_PROJECT).sof
 
-A2GXHSMC_RTL_SOURCES = $(A2GX_RTL_SOURCES)
+A2GXHSMC_RTL_SOURCES = \
+	$(A2GXHSMC_PROJECT_DIR)/a2gx_mistvga_top.sv \
+	$(A2GX_SHARED_RTL_SOURCES)
 
 A2GXHSMC_PROJECT_FILES = \
 	$(A2GXHSMC_PROJECT_DIR)/$(A2GXHSMC_PROJECT).qpf \
@@ -62,8 +67,8 @@ A5GX_BUILD_DIR := build/a5gx
 A5GX_SOF := $(A5GX_BUILD_DIR)/$(A5GX_PROJECT).sof
 
 A5GX_RTL_SOURCES = \
-	rtl/a5gx_mistvga_top.sv \
-	rtl/a5gx_mistvga_pll.v \
+	$(A5GX_PROJECT_DIR)/a5gx_mistvga_top.sv \
+	rtl/a5gx_ssram_pll.v \
 	rtl/ascal_1080p.sv \
 	rtl/ascal_ssram_bridge.sv \
 	rtl/pci_vga_bridge.sv \
@@ -89,12 +94,13 @@ SIVGX_BUILD_DIR := build/sivgx
 SIVGX_SOF := $(SIVGX_BUILD_DIR)/$(SIVGX_PROJECT).sof
 
 SIVGX_RTL_SOURCES = \
-	rtl/sivgx_mistvga_top.sv \
+	$(SIVGX_PROJECT_DIR)/sivgx_mistvga_top.sv \
 	rtl/sivgx_mistvga_pll.v \
 	rtl/sivgx_i2c_hdmi_config.v \
 	rtl/pci_vga_bridge.sv \
 	rtl/a2gx_i2c_write_wdata.v \
 	rtl/a2gx_i2c_controller.v \
+	rtl/dac_6bpc_to_8bpc.v \
 	rtl/vga.v \
 	rtl/dpram_difclk.v
 
