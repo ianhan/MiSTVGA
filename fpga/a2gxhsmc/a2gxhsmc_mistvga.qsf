@@ -296,6 +296,7 @@ set_global_assignment -name VERILOG_FILE ../../rtl/a2gx_pci_clk_pll.v
 set_global_assignment -name VERILOG_FILE ../../rtl/a2gx_i2c_write_wdata.v
 set_global_assignment -name VERILOG_FILE ../../rtl/a2gx_i2c_controller.v
 set_global_assignment -name VERILOG_FILE ../../rtl/a2gx_i2c_hdmi_config.v
+set_global_assignment -name VERILOG_FILE ../../rtl/dac_6bpc_to_8bpc.v
 set_global_assignment -name VERILOG_FILE ../../rtl/vga.v
 set_global_assignment -name VERILOG_FILE ../../rtl/dpram_difclk.v
 

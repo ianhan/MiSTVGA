@@ -257,15 +257,6 @@ module ascal_1080p (
     end
     endfunction
 
-    function automatic [23:0] palette_6bpc_to_8bpc(input [17:0] color);
-    begin
-        palette_6bpc_to_8bpc =
-            {color[17:12], color[17:16],
-             color[11:6],  color[11:10],
-             color[5:0],   color[5:4]};
-    end
-    endfunction
-
     reg [FILTER_WRITE_INDEX_WIDTH-1:0] filter_write_index = '0;
     reg [1:0]                          filter_write_cycle = 2'd0;
     reg                                filter_loaded = 1'b0;
@@ -325,14 +316,12 @@ module ascal_1080p (
     wire [39:0]                        filter_phase_coeffs =
         filter_axis ? lcd_effect_01_v_filter_phase(filter_source_phase) :
                       lcd_effect_01_h_filter_phase(filter_source_phase);
-    wire [23:0]                        palette_rgb =
-        palette_6bpc_to_8bpc(palette_data);
+    wire [23:0]                        palette_rgb;
     wire [23:0]                        palette_cell_rgb;
     wire [23:0]                        palette_border_rgb;
     wire [17:0]                        palette_history_source_q;
     wire [17:0]                        palette_history_q;
-    wire [23:0]                        palette_history_rgb =
-        palette_6bpc_to_8bpc(palette_history_q);
+    wire [23:0]                        palette_history_rgb;
     wire [7:0]                         palette_cell_address;
     wire [7:0]                         palette_history_source_address;
     wire [16:0]                        palette_history_read_address;
@@ -343,6 +332,16 @@ module ascal_1080p (
     assign o_hs = o_hs_reg;
     assign o_vs = o_vs_reg;
     assign o_de = o_de_reg;
+
+    palette_6bpc_to_8bpc u_palette_rgb (
+        .rgb6 (palette_data),
+        .rgb8 (palette_rgb)
+    );
+
+    palette_6bpc_to_8bpc u_palette_history_rgb (
+        .rgb6 (palette_history_q),
+        .rgb8 (palette_history_rgb)
+    );
 
     reg [9:0] filter_poly_dw;
     always @* begin

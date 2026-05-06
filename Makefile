@@ -30,6 +30,7 @@ A2GX_RTL_SOURCES = \
 	rtl/a2gx_i2c_write_wdata.v \
 	rtl/a2gx_i2c_controller.v \
 	rtl/a2gx_i2c_hdmi_config.v \
+	rtl/dac_6bpc_to_8bpc.v \
 	rtl/vga.v \
 	rtl/dpram_difclk.v
 
@@ -65,6 +66,7 @@ A5GX_RTL_SOURCES = \
 	rtl/ascal_1080p.sv \
 	rtl/ascal_ssram_bridge.sv \
 	rtl/pci_vga_bridge.sv \
+	rtl/dac_6bpc_to_8bpc.v \
 	rtl/vga.v \
 	rtl/dpram_difclk.v \
 	/home/ian/pulled/ao486_MiSTer/sys/ascal.vhd \
