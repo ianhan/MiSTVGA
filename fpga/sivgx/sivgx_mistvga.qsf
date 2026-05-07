@@ -196,7 +196,7 @@ set_location_assignment PIN_N10 -to lpci_cben[0]
 set_location_assignment PIN_W7 -to lpci_cben[1]
 set_location_assignment PIN_M6 -to lpci_cben[2]
 set_location_assignment PIN_F8 -to lpci_cben[3]
-set_location_assignment PIN_D8 -to lpci_clk
+set_location_assignment PIN_W6 -to lpci_clk
 set_location_assignment PIN_N6 -to lpci_devseln
 set_location_assignment PIN_E10 -to lpci_enablen
 set_location_assignment PIN_N7 -to lpci_framen
