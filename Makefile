@@ -5,14 +5,13 @@
 #   a2gx            — synthesize for Arria II GX development kit (requires Quartus)
 #   a2gxhsmc        — synthesize A2GX with PCI/HDMI HSMC pin assignments
 #   a5gx            — synthesize for Arria V GX starter kit (requires Quartus)
-#   sivgx           — synthesize for Stratix IV GX development kit (requires Quartus)
 #   a2gx prog       — program the A2GX board via JTAG
 #   a2gx sta        — run A2GX static timing analysis
 #   a2gx lint       — Verilator lint check on A2GX wrapper
 #   a2gx clean      — remove A2GX build artifacts
 #   clean           — remove sim and FPGA build artifacts
 
-FPGA_TARGETS := a2gx a2gxhsmc a5gx sivgx
+FPGA_TARGETS := a2gx a2gxhsmc a5gx
 FPGA_COMMANDS := build prog sta lint clean
 SELECTED_FPGA := $(firstword $(filter $(FPGA_TARGETS),$(MAKECMDGOALS)))
 FPGA_COMMAND_GOALS := $(filter $(FPGA_COMMANDS),$(filter-out $(FPGA_TARGETS),$(MAKECMDGOALS)))
@@ -88,29 +87,6 @@ A5GX_PROJECT_FILES = \
 
 A5GX_ROMHEX := $(A5GX_PROJECT_DIR)/boot1.hex
 
-SIVGX_PROJECT_DIR := fpga/sivgx
-SIVGX_PROJECT := sivgx_mistvga
-SIVGX_BUILD_DIR := build/sivgx
-SIVGX_SOF := $(SIVGX_BUILD_DIR)/$(SIVGX_PROJECT).sof
-
-SIVGX_RTL_SOURCES = \
-	$(SIVGX_PROJECT_DIR)/sivgx_mistvga_top.sv \
-	rtl/sivgx_mistvga_pll.v \
-	rtl/sivgx_i2c_hdmi_config.v \
-	rtl/pci_vga_bridge.sv \
-	rtl/a2gx_i2c_write_wdata.v \
-	rtl/a2gx_i2c_controller.v \
-	rtl/dac_6bpc_to_8bpc.v \
-	rtl/vga.v \
-	rtl/dpram_difclk.v
-
-SIVGX_PROJECT_FILES = \
-	$(SIVGX_PROJECT_DIR)/$(SIVGX_PROJECT).qpf \
-	$(SIVGX_PROJECT_DIR)/$(SIVGX_PROJECT).qsf \
-	$(SIVGX_PROJECT_DIR)/$(SIVGX_PROJECT).sdc
-
-SIVGX_ROMHEX := $(SIVGX_PROJECT_DIR)/boot1.hex
-
 ifeq ($(SELECTED_FPGA),a2gx)
 FPGA_PROJECT_DIR := $(A2GX_PROJECT_DIR)
 FPGA_PROJECT := $(A2GX_PROJECT)
@@ -126,13 +102,8 @@ FPGA_PROJECT_DIR := $(A5GX_PROJECT_DIR)
 FPGA_PROJECT := $(A5GX_PROJECT)
 FPGA_SOF := $(A5GX_SOF)
 endif
-ifeq ($(SELECTED_FPGA),sivgx)
-FPGA_PROJECT_DIR := $(SIVGX_PROJECT_DIR)
-FPGA_PROJECT := $(SIVGX_PROJECT)
-FPGA_SOF := $(SIVGX_SOF)
-endif
 
-.PHONY: all sim $(FPGA_TARGETS) build prog lint sta clean clean-a2gx clean-a2gxhsmc clean-a5gx clean-sivgx require-fpga
+.PHONY: all sim $(FPGA_TARGETS) build prog lint sta clean clean-a2gx clean-a2gxhsmc clean-a5gx require-fpga
 
 all: sim
 
@@ -172,12 +143,6 @@ $(A5GX_ROMHEX): vgabios/boot1.rom vgabios/patch_rom.py
 $(A5GX_SOF): $(A5GX_PROJECT_FILES) $(A5GX_RTL_SOURCES) $(A5GX_ROMHEX)
 	cd $(A5GX_PROJECT_DIR) && quartus_sh --flow compile $(A5GX_PROJECT)
 
-$(SIVGX_ROMHEX): vgabios/boot1.rom vgabios/patch_rom.py
-	python3 vgabios/patch_rom.py vgabios/boot1.rom $(SIVGX_ROMHEX)
-
-$(SIVGX_SOF): $(SIVGX_PROJECT_FILES) $(SIVGX_RTL_SOURCES) $(SIVGX_ROMHEX)
-	cd $(SIVGX_PROJECT_DIR) && quartus_sh --flow compile $(SIVGX_PROJECT)
-
 prog: require-fpga $(FPGA_SOF)
 	quartus_pgm -m jtag -o "p;$(FPGA_SOF)" -c 1
 
@@ -197,15 +162,12 @@ else ifeq ($(SELECTED_FPGA),a2gxhsmc)
 clean: clean-a2gxhsmc
 else ifeq ($(SELECTED_FPGA),a5gx)
 clean: clean-a5gx
-else ifeq ($(SELECTED_FPGA),sivgx)
-clean: clean-sivgx
 else
 clean:
 	$(MAKE) -C sim clean
 	$(MAKE) clean-a2gx
 	$(MAKE) clean-a2gxhsmc
 	$(MAKE) clean-a5gx
-	$(MAKE) clean-sivgx
 	rm -rf build
 endif
 
@@ -229,10 +191,3 @@ clean-a5gx:
 	rm -rf $(A5GX_PROJECT_DIR)/*.rpt $(A5GX_PROJECT_DIR)/*.summary
 	rm -rf $(A5GX_PROJECT_DIR)/*.done $(A5GX_PROJECT_DIR)/*.jdi
 	rm -rf $(A5GX_PROJECT_DIR)/*.qws $(A5GX_PROJECT_DIR)/greybox_tmp
-
-clean-sivgx:
-	rm -rf $(SIVGX_BUILD_DIR)
-	rm -rf $(SIVGX_PROJECT_DIR)/db $(SIVGX_PROJECT_DIR)/incremental_db
-	rm -rf $(SIVGX_PROJECT_DIR)/*.rpt $(SIVGX_PROJECT_DIR)/*.summary
-	rm -rf $(SIVGX_PROJECT_DIR)/*.done $(SIVGX_PROJECT_DIR)/*.jdi
-	rm -rf $(SIVGX_PROJECT_DIR)/*.qws $(SIVGX_PROJECT_DIR)/greybox_tmp
