@@ -46,6 +46,7 @@ module ascal_1080p (
     localparam int     FRACTION_BITS        = 8;
     localparam int     MAX_OUTPUT_HRES      = 2048;
     localparam int     MAX_INPUT_HRES       = 1024;
+    localparam int     MAX_INPUT_VRES       = 768;
     localparam int     AVALON_DATA_WIDTH    = 128;
     localparam int     AVALON_ADDRESS_WIDTH = 19;
     localparam int     AVALON_BURST_BYTES   = 256;
@@ -271,6 +272,20 @@ module ascal_1080p (
     reg [7:0]                          border_color_index_meta = 8'd0;
     reg [7:0]                          border_color_index_sync = 8'd0;
     reg [7:0]                          border_color_index_active = 8'd0;
+    reg [11:0]                         input_active_x = 12'd0;
+    reg [11:0]                         input_active_y = 12'd0;
+    reg                                input_frame_seen = 1'b0;
+    reg                                input_de_last = 1'b0;
+    reg                                input_vs_last = 1'b0;
+    reg [11:0]                         input_frame_width = 12'(MAX_INPUT_HRES);
+    reg [11:0]                         input_frame_height = 12'(MAX_INPUT_VRES);
+    reg [11:0]                         input_measured_width = 12'd0;
+    reg [7:0]                          scaler_i_r_d = 8'd0;
+    reg [7:0]                          scaler_i_g_d = 8'd0;
+    reg [7:0]                          scaler_i_b_d = 8'd0;
+    reg                                scaler_i_hs_d = 1'b0;
+    reg                                scaler_i_vs_d = 1'b0;
+    reg                                scaler_i_de_d = 1'b0;
     reg [11:0]                         active_x = 12'd0;
     reg [11:0]                         active_y = 12'd0;
     reg                                active_frame_seen = 1'b0;
@@ -325,6 +340,20 @@ module ascal_1080p (
     wire [7:0]                         palette_cell_address;
     wire [7:0]                         palette_history_source_address;
     wire [16:0]                        palette_history_read_address;
+    wire                               toaster_overlay_active;
+    wire [7:0]                         toaster_overlay_r;
+    wire [7:0]                         toaster_overlay_g;
+    wire [7:0]                         toaster_overlay_b;
+    wire                               input_frame_start = i_vs != input_vs_last;
+    wire                               input_de_start = i_de && !input_de_last;
+    wire [11:0]                        input_overlay_y =
+        (input_de_start && input_frame_seen) ? input_active_y + 12'd1 : input_active_y;
+    wire [7:0]                         scaler_i_r =
+        toaster_overlay_active ? toaster_overlay_r : scaler_i_r_d;
+    wire [7:0]                         scaler_i_g =
+        toaster_overlay_active ? toaster_overlay_g : scaler_i_g_d;
+    wire [7:0]                         scaler_i_b =
+        toaster_overlay_active ? toaster_overlay_b : scaler_i_b_d;
 
     assign o_r = o_r_reg;
     assign o_g = o_g_reg;
@@ -439,6 +468,83 @@ module ascal_1080p (
             poly_wr <= 1'b0;
         end
     end
+
+    always @(posedge i_clk or negedge reset_na) begin
+        if (!reset_na) begin
+            input_active_x <= 12'd0;
+            input_active_y <= 12'd0;
+            input_frame_seen <= 1'b0;
+            input_de_last <= 1'b0;
+            input_vs_last <= 1'b0;
+            input_frame_width <= 12'(MAX_INPUT_HRES);
+            input_frame_height <= 12'(MAX_INPUT_VRES);
+            input_measured_width <= 12'd0;
+            scaler_i_r_d <= 8'd0;
+            scaler_i_g_d <= 8'd0;
+            scaler_i_b_d <= 8'd0;
+            scaler_i_hs_d <= 1'b0;
+            scaler_i_vs_d <= 1'b0;
+            scaler_i_de_d <= 1'b0;
+        end else if (i_ce) begin
+            scaler_i_r_d <= i_r;
+            scaler_i_g_d <= i_g;
+            scaler_i_b_d <= i_b;
+            scaler_i_hs_d <= i_hs;
+            scaler_i_vs_d <= i_vs;
+            scaler_i_de_d <= i_de;
+
+            input_de_last <= i_de;
+            input_vs_last <= i_vs;
+            if (input_frame_start) begin
+                if (input_measured_width != 12'd0) begin
+                    input_frame_width <= input_measured_width;
+                end
+                if (input_frame_seen) begin
+                    input_frame_height <= input_active_y + 12'd1;
+                end
+                input_measured_width <= 12'd0;
+                input_active_x <= 12'd0;
+                input_active_y <= 12'd0;
+                input_frame_seen <= 1'b0;
+            end else if (i_de) begin
+                if (!input_de_last) begin
+                    input_active_x <= 12'd1;
+                    if (input_frame_seen) begin
+                        input_active_y <= input_active_y + 12'd1;
+                    end else begin
+                        input_frame_seen <= 1'b1;
+                    end
+                end else begin
+                    input_active_x <= input_active_x + 12'd1;
+                end
+            end else begin
+                if (input_de_last && input_active_x != 12'd0) begin
+                    input_measured_width <= input_active_x;
+                end
+                input_active_x <= 12'd0;
+            end
+        end
+    end
+
+    flying_toasters_overlay #(
+        .AREA_WIDTH (MAX_INPUT_HRES),
+        .AREA_HEIGHT(MAX_INPUT_VRES)
+    ) u_flying_toasters_overlay (
+        .clk           (i_clk),
+        .reset_n       (reset_na),
+        .ce            (i_ce),
+        .frame_start   (input_frame_start),
+        .line_start    (input_de_start),
+        .in_area       (i_de),
+        .x             (input_active_x),
+        .y             (input_overlay_y),
+        .active_width  (input_frame_width),
+        .active_height (input_frame_height),
+        .sprite_active (toaster_overlay_active),
+        .sprite_r      (toaster_overlay_r),
+        .sprite_g      (toaster_overlay_g),
+        .sprite_b      (toaster_overlay_b)
+    );
 
     always @(posedge o_clk or negedge reset_na) begin
         if (!reset_na) begin
@@ -671,13 +777,13 @@ module ascal_1080p (
         .N_AW(AVALON_ADDRESS_WIDTH),
         .N_BURST(AVALON_BURST_BYTES)
     ) u_ascal (
-        .i_r(i_r),
-        .i_g(i_g),
-        .i_b(i_b),
-        .i_hs(i_hs),
-        .i_vs(i_vs),
+        .i_r(scaler_i_r),
+        .i_g(scaler_i_g),
+        .i_b(scaler_i_b),
+        .i_hs(scaler_i_hs_d),
+        .i_vs(scaler_i_vs_d),
         .i_fl(1'b0),
-        .i_de(i_de),
+        .i_de(scaler_i_de_d),
         .i_ce(i_ce),
         .i_clk(i_clk),
 

@@ -30,6 +30,8 @@ set_global_assignment -name VERILOG_FILE ip/dvi/dvi_tx_tmds_enc.v
 
 set_global_assignment -name VHDL_FILE ip/ascal.vhd
 set_global_assignment -name SYSTEMVERILOG_FILE ../../rtl/ascal_1080p.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../../rtl/flying_toasters_overlay.sv
+set_global_assignment -name MISC_FILE ../../rtl/flying_toasters_sprite.mem
 set_global_assignment -name SYSTEMVERILOG_FILE a5gx_mistvga_top.sv
 set_global_assignment -name SYSTEMVERILOG_FILE ../../rtl/pci_vga_bridge.sv
 set_global_assignment -name VERILOG_FILE ../../rtl/a5gx_ssram_pll.v

@@ -69,6 +69,8 @@ A5GX_RTL_SOURCES = \
 	$(A5GX_PROJECT_DIR)/a5gx_mistvga_top.sv \
 	rtl/a5gx_ssram_pll.v \
 	rtl/ascal_1080p.sv \
+	rtl/flying_toasters_overlay.sv \
+	rtl/flying_toasters_sprite.mem \
 	rtl/ascal_ssram_bridge.sv \
 	rtl/pci_vga_bridge.sv \
 	rtl/dac_6bpc_to_8bpc.v \
